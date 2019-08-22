@@ -7,6 +7,13 @@ Vue.component("main-window", {
     <div class="main-window">
       <file-picker/>
       <pic-list/>
+      <button @click="uploadReport">Upload</button>
     </div>
-  `
+  `,
+
+  methods: {
+    uploadReport: function () {
+      console.info("Started photo report upload")
+    }
+  },
 })
