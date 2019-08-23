@@ -4,7 +4,7 @@ Vue.component("file-picker", {
   methods: {
     /// Clears the control's file list.
     clearInput: function() {
-      this.$refs.pickerInput.files = new FileList
+      this.$refs.pickerInput.files = new FileList()
     },
 
     /// Adds given file to a current photo report.

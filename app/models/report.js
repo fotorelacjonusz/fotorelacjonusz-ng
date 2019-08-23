@@ -2,7 +2,7 @@ import { Picture } from "./picture.js"
 
 export class Report {
   constructor() {
-    this._pictures = new Array
+    this._pictures = []
   }
 
   get pictures() { return this._pictures }
