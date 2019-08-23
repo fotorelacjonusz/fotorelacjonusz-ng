@@ -7,7 +7,7 @@ export const MainWindow = {
     <div class="main-window">
       <file-picker/>
       <pic-list/>
-      <button @click="uploadReport">Upload</button>
+      <router-link to="/forum">Upload</router-link>
       <router-link to="/about">About this program</router-link>
     </div>
   `,
