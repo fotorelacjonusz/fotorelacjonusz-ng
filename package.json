@@ -9,6 +9,7 @@
   },
   "author": "Sebastian Skałacki <skalee@gmail.com>",
   "license": "UNLICENSED",
+  "chromium-args": "--enable-logging=stderr",
   "dependencies": {
     "vue": "^2.6.10"
   },
