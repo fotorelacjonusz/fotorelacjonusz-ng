@@ -8,6 +8,7 @@ export const MainWindow = {
       <file-picker/>
       <pic-list/>
       <button @click="uploadReport">Upload</button>
+      <router-link to="/about">About this program</router-link>
     </div>
   `,
 

@@ -1,6 +1,7 @@
 import Vue from "../node_modules/vue/dist/vue.esm.browser.js"
 import VueRouter from "../node_modules/vue-router/dist/vue-router.esm.browser.js"
 import { Report } from "./models/report.js"
+import { AboutWindow } from "./components/about-window.js"
 import { MainWindow } from "./components/main-window.js"
 
 Vue.use(VueRouter)
@@ -12,6 +13,7 @@ const router = new VueRouter({
   base: "/",
   routes: [
     { path: "/", component: MainWindow },
+    { path: "/about", component: AboutWindow },
   ]
 })
 
