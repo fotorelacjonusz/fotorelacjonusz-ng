@@ -1,3 +1,8 @@
 // initialize your app
 // and ...
-nw.Window.open("index.html", {}, function(win) {})
+const windowOptions = {
+  width: 800,
+  height: 600,
+}
+
+nw.Window.open("index.html", windowOptions, function(win) {})
