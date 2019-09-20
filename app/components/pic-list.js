@@ -1,6 +1,6 @@
 import Vue from "../../node_modules/vue/dist/vue.esm.browser.js"
 
-Vue.component("pic-list", {
+export const PicList = {
   data: function() {
     return {
       pictures: this.report.pictures,
@@ -14,4 +14,6 @@ Vue.component("pic-list", {
       </li>
     </ol>
   `
-})
+}
+
+Vue.component("pic-list", PicList)

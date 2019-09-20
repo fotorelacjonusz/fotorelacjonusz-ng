@@ -1,6 +1,6 @@
 import Vue from "../../node_modules/vue/dist/vue.esm.browser.js"
 
-Vue.component("file-picker", {
+export const FilePicker = {
   methods: {
     /// Clears the control's file list.
     clearInput: function() {
@@ -27,4 +27,6 @@ Vue.component("file-picker", {
       <input ref="pickerInput" type=file accept="image/png, image/jpeg" multiple v-on:change="onFilesChange"></input>
     </div>
   `
-})
+}
+
+Vue.component("file-picker", FilePicker)
