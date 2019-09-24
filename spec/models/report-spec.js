@@ -12,7 +12,7 @@ describe("Report model", function() {
     })
 
     it("contains no pictures", function() {
-      expect(this.report.pictures.length).toEqual(0)
+      expect(this.report.pictures).toBeEmptyArray()
     })
   })
 
@@ -27,7 +27,7 @@ describe("Report model", function() {
 
       report.addPicture(file)
 
-      expect(report.pictures.length).toEqual(3)
+      expect(report.pictures).toBeArrayOfSize(3)
       expect(report.pictures.slice(0, -1)).toEqual([pic1, pic2])
 
       let addedItem = report.pictures.slice(-1)[0]
