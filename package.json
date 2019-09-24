@@ -17,6 +17,7 @@
   "devDependencies": {
     "esm": "^3.2.25",
     "jasmine": "^3.5.0",
+    "jasmine-expect": "^4.0.3",
     "jshint": "^2.10.2",
     "sinon": "^7.4.2"
   },
