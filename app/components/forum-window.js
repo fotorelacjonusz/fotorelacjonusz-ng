@@ -1,10 +1,10 @@
 import Vue from "../../node_modules/vue/dist/vue.esm.browser.js"
+import { PostingProcessor } from "../processors/posting.js"
 
 export const ForumWindow = {
   data: function() {
     return {
-      postBodies: ["test reply"],
-      postCounter: 0,
+      postingProcessor: new PostingProcessor(this.report),
     }
   },
 
@@ -21,17 +21,7 @@ export const ForumWindow = {
     </div>
   `,
 
-  computed: {
-    nextPost: function() {
-      return this.postBodies[this.postCounter]
-    },
-  },
-
   methods: {
-    tickPostCounter: function() {
-      this.postCounter += 1
-    },
-
     forumLoaded: function(e) {
       this.detectPageType()
     },
@@ -64,7 +54,7 @@ export const ForumWindow = {
     itsAShowThreadPage: function() {
       console.log("It is a thread page.")
 
-      if (this.nextPost) {
+      if (!this.postingProcessor.hasCompleted) {
         this.executeInForum(webviewScripts.getReplyUrl, (results) => {
           let replyUrl = results[0]
           this.navigateForumTo(replyUrl)
@@ -87,11 +77,11 @@ export const ForumWindow = {
           console.log("Posting a response.")
 
           this.executeInForum(`
-            let postBody = "${this.nextPost}"
+            let postBody = "${this.postingProcessor.currentPost}"
             ${webviewScripts.postReply}
           `)
 
-          this.tickPostCounter()
+          this.postingProcessor.step()
         }
       })
     },
