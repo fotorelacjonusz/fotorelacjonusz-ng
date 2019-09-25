@@ -1,8 +1,11 @@
+import { BBCodeRenderer } from "../renderers/bb-code.js"
+
 // TODO Signal progress with events.
 
 export class PostingProcessor {
   constructor(report) {
-    this._posts = ["test reply"]
+    this._renderer = new BBCodeRenderer(report)
+    this._posts = this._renderer.toPosts()
     this._counter = 0
   }
 
