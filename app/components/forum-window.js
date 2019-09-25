@@ -76,8 +76,11 @@ export const ForumWindow = {
           this.executeInForum(webviewScripts.scrollToForm)
           console.log("Posting a response.")
 
+          let currentPost = this.postingProcessor.currentPost
+          let currentPostJSInjection = JSON.stringify(currentPost)
+
           this.executeInForum(`
-            let postBody = "${this.postingProcessor.currentPost}"
+            let postBody = ${currentPostJSInjection}
             ${webviewScripts.postReply}
           `)
 
