@@ -15,6 +15,7 @@ export const ForumWindow = {
       <webview
           ref="forumView"
           src="https://skyscrapercity.com"
+          partition="persist:fotorelacjonusz"
           @contentload="forumLoaded">
       </webview>
     </div>
