@@ -27,10 +27,10 @@ describe("Report model", function() {
 
       report.addPicture(file)
 
+      let addedItem = report.pictures[2]
       expect(report.pictures).toBeArrayOfSize(3)
-      expect(report.pictures.slice(0, -1)).toEqual([pic1, pic2])
-
-      let addedItem = report.pictures.slice(-1)[0]
+      expect(report.pictures[0]).toBe(pic1)
+      expect(report.pictures[1]).toBe(pic2)
       expect(addedItem).toBeInstanceOf(Picture)
       expect(addedItem.originalFile).toBe(file)
     })
