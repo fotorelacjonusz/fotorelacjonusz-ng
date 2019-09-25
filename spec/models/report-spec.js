@@ -18,12 +18,10 @@ describe("Report model", function() {
 
   describe(".addPicture(file)", function() {
     it("instantiates a new Picture, and appends it to the report", function() {
-      let report = new Report
-      let pic1 = sinon.fake()
-      let pic2 = sinon.fake()
-      let file = sinon.fake()
-
-      report._pictures = [pic1, pic2]
+      let pic1 = factory.picture()
+      let pic2 = factory.picture()
+      let file = factory.file()
+      let report = factory.report([pic1, pic2])
 
       report.addPicture(file)
 
