@@ -28,11 +28,11 @@ describe("BBCode renderer", function() {
       let retval = this.renderer.toPosts()
       let body = retval[0]
       expect(body).toContain(stripIndent`
-        1.
+        1. Description for pic1.jpg.
         [img]https://img.example.test/pic1.jpg[/img]`
       )
       expect(body).toContain(stripIndent`
-        2.
+        2. Description for pic2.jpg.
         [img]https://img.example.test/pic2.jpg[/img]`
       )
     })

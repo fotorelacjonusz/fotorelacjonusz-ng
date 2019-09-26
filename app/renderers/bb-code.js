@@ -14,7 +14,7 @@ export class BBCodeRenderer {
   renderPost(pics, startNum) {
     let renderedPics = pics.map((pic, idx) => {
       return stripIndent`
-        ${startNum + idx}.
+        ${startNum + idx}. ${pic.text.trim()}
         [img]${pic.remoteUrl}[/img]
       `
     })
