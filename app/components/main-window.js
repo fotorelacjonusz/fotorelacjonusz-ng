@@ -4,9 +4,9 @@ import "./pic-list.js"
 
 export const MainWindow = {
   template: `
-    <div class="main-window">
+    <div class="main-window flex-window">
       <main-navbar/>
-      <pic-list/>
+      <pic-list class="spread"/>
     </div>
   `,
 }

@@ -1,0 +1,20 @@
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.flex-window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.flex-window > * {
+  flex: 0;
+}
+
+.flex-window > .spread {
+  flex: 1;
+  overflow-y: auto;
+}
