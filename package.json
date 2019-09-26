@@ -12,6 +12,7 @@
   "license": "UNLICENSED",
   "chromium-args": "--enable-logging=stderr",
   "dependencies": {
+    "bulma": "^0.7.5",
     "common-tags": "^1.8.0",
     "form-data": "^2.5.0",
     "got": "^9.6.0",
