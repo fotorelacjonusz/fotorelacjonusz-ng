@@ -20,6 +20,7 @@ global.factory = {
   picture: (name = factory.fileName()) => {
     let o = Object.create(Picture.prototype)
     o.originalFile = factory.file(name)
+    o.text = `Description for ${name}.`
     return o
   },
 

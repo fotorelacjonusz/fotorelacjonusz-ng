@@ -10,7 +10,8 @@ export const PicList = {
   template: `
     <ol>
       <li v-for="pic in pictures">
-        {{pic.originalFile.name}}
+        <p><textarea v-model="pic.text"></textarea></p>
+        <p>{{pic.originalFile.name}}</p>
       </li>
     </ol>
   `
