@@ -5,9 +5,9 @@ import "./file-picker.js"
 export const MainNavbar = {
   template: `
     <nav role="navigation">
-      <file-picker/>
-      <router-link to="/forum">Upload</router-link>
-      <router-link to="/about">About this program</router-link>
+      <file-picker class="button is-primary"/>
+      <router-link to="/forum" class="button is-light">Upload</router-link>
+      <router-link to="/about" class="button is-light">About this program</router-link>
     </nav>
   `
 }
