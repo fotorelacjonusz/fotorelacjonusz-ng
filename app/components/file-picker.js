@@ -23,9 +23,10 @@ export const FilePicker = {
   },
 
   template: `
-    <div class="file-picker">
-      <input ref="pickerInput" type=file accept="image/png, image/jpeg" multiple v-on:change="onFilesChange"></input>
-    </div>
+    <label>
+      <input ref="pickerInput" style="display: none;" type=file accept="image/png, image/jpeg" multiple v-on:change="onFilesChange"></input>
+      Add photos
+    </label>
   `
 }
 
