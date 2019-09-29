@@ -56,6 +56,18 @@ export class Report {
       swapItems(all, index, index - 1)
     }
   }
+
+  sliced() {
+    const sliceSize = 10
+    let acc = []
+
+    for (var i = 0; i < this.pictures.length; i += sliceSize) {
+      let pictures = this.pictures.slice(i, i + sliceSize)
+      acc.push({startIndex: i, pictures})
+    }
+
+    return acc
+  }
 }
 
 // Due to Vue limitations, Array.splice is used.

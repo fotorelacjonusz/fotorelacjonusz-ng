@@ -189,4 +189,27 @@ describe("Report model", function() {
       expect(report.pictures).toEqual([pic1, pic2, pic3])
     })
   })
+
+  describe(".sliced()", function() {
+    it("returns an empty array for an empty report", function() {
+      let report = factory.report([])
+
+      let retval = report.sliced()
+      expect(retval).toBeEmptyArray()
+    })
+
+    it("returns an array of slice objects, each containing up to 10 elements", function() {
+      let pics = new Array(25).fill().map(() => factory.picture())
+      let report = factory.report(pics)
+
+      let retval = report.sliced()
+      expect(retval).toBeArrayOfSize(3)
+      expect(retval[0].startIndex).toEqual(0)
+      expect(retval[0].pictures).toEqual(pics.slice(0, 10))
+      expect(retval[1].startIndex).toEqual(10)
+      expect(retval[1].pictures).toEqual(pics.slice(10, 20))
+      expect(retval[2].startIndex).toEqual(20)
+      expect(retval[2].pictures).toEqual(pics.slice(20, 25))
+    })
+  })
 })
