@@ -23,7 +23,7 @@
     "sinon": "^7.4.2"
   },
   "jshintConfig": {
-    "esversion": 6,
+    "esversion": 8,
     "asi": true
   }
 }
