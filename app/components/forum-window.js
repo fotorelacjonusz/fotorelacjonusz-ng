@@ -5,6 +5,7 @@ export const ForumWindow = {
   data: function() {
     return {
       postingProcessor: new PostingProcessor(this.report),
+      submissionStarted: false,
     }
   },
 
@@ -47,6 +48,18 @@ export const ForumWindow = {
       }
     },
 
+    confirmSubmission: function() {
+      this.executeInForum(webviewScripts.getPageTitle, (results) => {
+        let title = results[0].trim()
+        let msg = `Do you want to post a photo report in "${title}"?`
+        let answer = global.confirm(msg)
+        if (answer) {
+          this.submissionStarted = true
+          this.detectPageType()
+        }
+      })
+    },
+
     signalCompletion: function() {
       global.alert("All the photo report submitted!")
       console.info("All the photo report submitted.")
@@ -54,6 +67,11 @@ export const ForumWindow = {
 
     itsAShowThreadPage: function() {
       console.log("It is a thread page.")
+
+      if (!this.submissionStarted) {
+        this.confirmSubmission()
+        return
+      }
 
       if (!this.postingProcessor.hasCompleted) {
         this.executeInForum(webviewScripts.getReplyUrl, (results) => {
@@ -96,6 +114,11 @@ export const ForumWindow = {
 Vue.component("forum-window", ForumWindow)
 
 const webviewScripts = {
+  // Title element is cluttered, hence this way it's easier, surprisingly.
+  getPageTitle: `
+    document.querySelector(".navbar > strong").innerText.trim()
+  `,
+
   getReplyUrl: `
     let replyBtnImgQuery = "html > body > center > div > div.page " +
         "> div > table > tbody > tr > td > a > img[alt=Reply]";
