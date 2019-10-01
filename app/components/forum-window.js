@@ -48,7 +48,7 @@ export const ForumWindow = {
     },
 
     signalCompletion: function() {
-      this.executeInForum(alert("All the photo report submitted!"))
+      global.alert("All the photo report submitted!")
     },
 
     itsAShowThreadPage: function() {
