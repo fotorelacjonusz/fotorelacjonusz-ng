@@ -23,6 +23,13 @@ global.factory = {
     return o
   },
 
+  uploadedPicture: (name = factory.fileName()) => {
+    let o = factory.picture(name)
+    o.remoteUrl = `https://img.example.test/${name}`
+    o.upload = {some: "data"}
+    return o
+  },
+
   postingProcessor: (posts = ["post 1", "post 2"]) => {
     let o = Object.create(PostingProcessor.prototype)
     o._counter = 0
