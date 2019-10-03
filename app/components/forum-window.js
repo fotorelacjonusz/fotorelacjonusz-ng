@@ -13,7 +13,7 @@ export const ForumWindow = {
 
   template: `
     <div class="forum-window flex-window">
-      <nav>
+      <nav class="my-navbar">
         <router-link to="/" class="button is-danger">Abort</router-link>
       </nav>
 

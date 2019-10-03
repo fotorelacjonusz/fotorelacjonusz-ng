@@ -26,3 +26,9 @@ html, body, #app {
 .pic-list li > p:not(:last-child) {
   margin-bottom: 0.5rem;
 }
+
+.my-navbar {
+  box-shadow: 0 0.2rem 0.5em lightslategray;
+  padding: 0.5rem;
+  z-index: 500;
+}

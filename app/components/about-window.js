@@ -3,7 +3,7 @@ import Vue from "../../node_modules/vue/dist/vue.esm.browser.js"
 export const AboutWindow = {
   template: `
     <div class="about-window flex-window">
-      <nav>
+      <nav class="my-navbar">
         <router-link to="/" class="button is-light">Back</router-link>
       </nav>
 
