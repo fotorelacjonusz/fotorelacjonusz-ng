@@ -1,10 +1,12 @@
 import Vue from "../../node_modules/vue/dist/vue.esm.browser.js"
 import { PostingProcessor } from "../processors/posting.js"
+import { UploadingProcessor } from "../processors/uploading.js"
 
 export const ForumWindow = {
   data: function() {
     return {
       postingProcessor: new PostingProcessor(this.report),
+      uploadingProcessor: new UploadingProcessor(this.report),
       submissionStarted: false,
     }
   },
@@ -58,7 +60,8 @@ export const ForumWindow = {
       })
     },
 
-    startSubmission: function() {
+    startSubmission: async function() {
+      await this.uploadingProcessor.perform()
       this.submissionStarted = true
       this.detectPageType()
     },
