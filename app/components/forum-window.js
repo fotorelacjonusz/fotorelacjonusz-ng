@@ -12,13 +12,17 @@ export const ForumWindow = {
   },
 
   template: `
-    <div class="forum-window" style="height: 550px;">
-      <router-link to="/">Close</router-link>
+    <div class="forum-window flex-window">
+      <nav>
+        <router-link to="/" class="button is-danger">Abort</router-link>
+      </nav>
 
       <webview
           ref="forumView"
           src="https://skyscrapercity.com"
           partition="persist:fotorelacjonusz"
+          class="spread"
+          style="overflow: hidden;"
           @contentload="forumLoaded">
       </webview>
     </div>
