@@ -11,12 +11,6 @@ export const MainWindow = {
       <router-link to="/about">About this program</router-link>
     </div>
   `,
-
-  methods: {
-    uploadReport: function () {
-      console.info("Started photo report upload")
-    }
-  },
 }
 
 Vue.component("main-window", MainWindow)
