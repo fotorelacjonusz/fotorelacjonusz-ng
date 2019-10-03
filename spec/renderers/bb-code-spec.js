@@ -1,5 +1,7 @@
 import { BBCodeRenderer } from "../../app/renderers/bb-code.js"
 
+import { stripIndent } from "common-tags"
+
 describe("BBCode renderer", function() {
   it("is instantiable", function () {
     expect(new BBCodeRenderer).toBeInstanceOf(BBCodeRenderer)
@@ -25,8 +27,14 @@ describe("BBCode renderer", function() {
       // TODO images instead of file names
       let retval = this.renderer.toPosts()
       let body = retval[0]
-      expect(body).toContain("1.\n[img]https://img.example.test/pic1.jpg[/img]")
-      expect(body).toContain("2.\n[img]https://img.example.test/pic2.jpg[/img]")
+      expect(body).toContain(stripIndent`
+        1.
+        [img]https://img.example.test/pic1.jpg[/img]`
+      )
+      expect(body).toContain(stripIndent`
+        2.
+        [img]https://img.example.test/pic2.jpg[/img]`
+      )
     })
 
     it("renders photos in a correct order", function() {

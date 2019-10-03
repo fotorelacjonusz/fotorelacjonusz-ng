@@ -1,3 +1,5 @@
+const stripIndent = require("common-tags").stripIndent
+
 export class BBCodeRenderer {
   constructor(report) {
     this._report = report
@@ -11,7 +13,10 @@ export class BBCodeRenderer {
 
   renderPost(pics, startNum) {
     let renderedPics = pics.map((pic, idx) => {
-      return `${startNum + idx}.\n[img]${pic.remoteUrl}[/img]`
+      return stripIndent`
+        ${startNum + idx}.
+        [img]${pic.remoteUrl}[/img]
+      `
     })
 
     return renderedPics.join("\n\n")
