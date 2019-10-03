@@ -25,8 +25,8 @@ describe("BBCode renderer", function() {
       // TODO images instead of file names
       let retval = this.renderer.toPosts()
       let body = retval[0]
-      expect(body).toMatch("1. pic1.jpg")
-      expect(body).toMatch("2. pic2.jpg")
+      expect(body).toContain("1. pic1.jpg")
+      expect(body).toContain("2. pic2.jpg")
     })
 
     it("renders photos in a correct order", function() {
