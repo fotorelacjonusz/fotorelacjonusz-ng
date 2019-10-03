@@ -8,7 +8,8 @@ export class BBCodeRenderer {
   get report() { return this._report }
 
   toPosts() {
-    return [this.renderPost(this.report.pictures, 1)]
+    let slices = this.report.sliced()
+    return slices.map((s) => this.renderPost(s.pictures, s.startIndex + 1))
   }
 
   renderPost(pics, startNum) {
