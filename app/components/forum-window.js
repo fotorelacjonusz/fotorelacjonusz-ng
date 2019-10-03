@@ -52,12 +52,15 @@ export const ForumWindow = {
       this.executeInForum(webviewScripts.getPageTitle, (results) => {
         let title = results[0].trim()
         let msg = `Do you want to post a photo report in "${title}"?`
-        let answer = global.confirm(msg)
-        if (answer) {
-          this.submissionStarted = true
-          this.detectPageType()
+        if (global.confirm(msg)) {
+          this.startSubmission()
         }
       })
+    },
+
+    startSubmission: function() {
+      this.submissionStarted = true
+      this.detectPageType()
     },
 
     signalCompletion: function() {
