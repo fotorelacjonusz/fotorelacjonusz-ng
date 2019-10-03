@@ -8,9 +8,14 @@ export const PicList = {
   },
 
   template: `
-    <ol>
-      <li v-for="pic in pictures">
-        <p><textarea v-model="pic.text"></textarea></p>
+    <ol class="pic-list">
+      <li v-for="pic in pictures" class="box">
+        <p><textarea
+            v-model="pic.text"
+            class="textarea has-fixed-size"
+            rows="2">
+        </textarea></p>
+
         <p><img :src="pic.displayUrl"></p>
       </li>
     </ol>

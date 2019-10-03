@@ -18,3 +18,11 @@ html, body, #app {
   flex: 1;
   overflow-y: auto;
 }
+
+.pic-list > .box {
+  margin: 0.5rem;
+}
+
+.pic-list li > p:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
