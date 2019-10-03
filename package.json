@@ -12,6 +12,8 @@
   "license": "UNLICENSED",
   "chromium-args": "--enable-logging=stderr",
   "dependencies": {
+    "form-data": "^2.5.0",
+    "got": "^9.6.0",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3"
   },
@@ -20,6 +22,7 @@
     "jasmine": "^3.5.0",
     "jasmine-expect": "^4.0.3",
     "jshint": "^2.10.2",
+    "nock": "^11.3.5",
     "sinon": "^7.4.2"
   },
   "jshintConfig": {
