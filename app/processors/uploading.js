@@ -7,9 +7,12 @@ export class UploadingProcessor {
     this._report = report
     this._uploader = new ImgurAnonUploader()
     this._done = false
+    this._progress = 0
   }
 
   get hasCompleted() { return this._done }
+
+  get progress() { return this._progress }
 
   async perform() {
     console.info(`Started photo report upload.  ` +
@@ -20,6 +23,7 @@ export class UploadingProcessor {
       let picUpdates = await this._uploader.uploadFile(pic.originalFile)
       Object.assign(pic, picUpdates)
       console.log(`Uploaded picture ${pic.originalFile.name}`)
+      this._progress = (i + 1) / this._report.pictures.length
     }
 
     this._done = true
