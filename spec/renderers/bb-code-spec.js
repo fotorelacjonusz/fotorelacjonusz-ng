@@ -7,8 +7,8 @@ describe("BBCode renderer", function() {
 
   describe(".toPosts()", function() {
     beforeEach(function() {
-      let pic1 = factory.picture("pic1.jpg")
-      let pic2 = factory.picture("pic2.jpg")
+      let pic1 = factory.uploadedPicture("pic1.jpg")
+      let pic2 = factory.uploadedPicture("pic2.jpg")
       let report = factory.report([pic1, pic2])
 
       this.renderer = new BBCodeRenderer(report)
@@ -25,8 +25,8 @@ describe("BBCode renderer", function() {
       // TODO images instead of file names
       let retval = this.renderer.toPosts()
       let body = retval[0]
-      expect(body).toContain("1. pic1.jpg")
-      expect(body).toContain("2. pic2.jpg")
+      expect(body).toContain("1.\n[img]https://img.example.test/pic1.jpg[/img]")
+      expect(body).toContain("2.\n[img]https://img.example.test/pic2.jpg[/img]")
     })
 
     it("renders photos in a correct order", function() {

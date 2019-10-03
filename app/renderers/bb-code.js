@@ -11,7 +11,7 @@ export class BBCodeRenderer {
 
   renderPost(pics, startNum) {
     let renderedPics = pics.map((pic, idx) => {
-      return `${startNum + idx}. ${pic.originalFile.name}`
+      return `${startNum + idx}.\n[img]${pic.remoteUrl}[/img]`
     })
 
     return renderedPics.join("\n\n")
