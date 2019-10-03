@@ -62,6 +62,7 @@ export const ForumWindow = {
 
     startSubmission: async function() {
       await this.uploadingProcessor.perform()
+      this.postingProcessor.prepare()
       this.submissionStarted = true
       this.detectPageType()
     },
