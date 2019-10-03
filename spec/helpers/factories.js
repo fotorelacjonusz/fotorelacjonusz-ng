@@ -10,7 +10,8 @@ global.factory = {
   },
 
   file: (name = factory.fileName()) => {
-    let o = {name}
+    let filePath = require("path").resolve( __dirname, "..", "resources", name)
+    let o = {name, path: filePath}
     return o
   },
 
