@@ -11,7 +11,7 @@ export const PicList = {
     <ol>
       <li v-for="pic in pictures">
         <p><textarea v-model="pic.text"></textarea></p>
-        <p>{{pic.originalFile.name}}</p>
+        <p><img :src="pic.displayUrl"></p>
       </li>
     </ol>
   `
