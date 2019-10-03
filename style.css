@@ -32,3 +32,9 @@ html, body, #app {
   padding: 0.5rem;
   z-index: 500;
 }
+
+.my-navbar-span {
+    background-color: transparent;
+    border: none;
+    cursor: inherit;
+}

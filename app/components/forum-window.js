@@ -15,6 +15,8 @@ export const ForumWindow = {
     <div class="forum-window flex-window">
       <nav class="my-navbar">
         <router-link to="/" class="button is-danger">Abort</router-link>
+        <span class="button my-navbar-span">Upload: {{uploadProgress}}</span>
+        <span class="button my-navbar-span">Posting: {{postingProgress}}</span>
       </nav>
 
       <webview
@@ -27,6 +29,16 @@ export const ForumWindow = {
       </webview>
     </div>
   `,
+
+  computed: {
+    uploadProgress: function() {
+      return Math.round(100 * this.uploadingProcessor.progress) + "%"
+    },
+
+    postingProgress: function() {
+      return Math.round(100 * this.postingProcessor.progress) + "%"
+    },
+  },
 
   methods: {
     forumLoaded: function(e) {
