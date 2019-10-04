@@ -1,4 +1,4 @@
-const stripIndent = require("common-tags").stripIndent
+const { stripIndent } = require("common-tags")
 
 export class BBCodeRenderer {
   constructor(report) {
