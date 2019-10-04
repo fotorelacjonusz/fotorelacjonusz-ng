@@ -1,4 +1,4 @@
-import Vue from "../../node_modules/vue/dist/vue.esm.browser.js"
+const Vue = require("vue/dist/vue.common.js")
 
 export const FilePicker = {
   methods: {

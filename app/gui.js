@@ -1,5 +1,5 @@
-import Vue from "../node_modules/vue/dist/vue.esm.browser.js"
-import VueRouter from "../node_modules/vue-router/dist/vue-router.esm.browser.js"
+const Vue = require("vue/dist/vue.common.js")
+const VueRouter = require("vue-router")
 
 const { library } = require("@fortawesome/fontawesome-svg-core")
 const { fas } = require("@fortawesome/free-solid-svg-icons")

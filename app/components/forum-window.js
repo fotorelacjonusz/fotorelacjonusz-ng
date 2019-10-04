@@ -1,4 +1,5 @@
-import Vue from "../../node_modules/vue/dist/vue.esm.browser.js"
+const Vue = require("vue/dist/vue.common.js")
+
 import { PostingProcessor } from "../processors/posting.js"
 import { UploadingProcessor } from "../processors/uploading.js"
 
