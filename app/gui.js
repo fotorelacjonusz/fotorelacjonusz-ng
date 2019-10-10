@@ -29,7 +29,7 @@ const router = new VueRouter({
 })
 
 var app = new Vue({
-  el: "#app",
+  el: document.querySelector("#app"),
   router,
   template: `<div id="app"><router-view></router-view></div>`
 })
