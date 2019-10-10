@@ -47,3 +47,7 @@ html, body, #app {
     border: none;
     cursor: inherit;
 }
+
+.splash-screen {
+  font-size: 1.5rem;
+}
