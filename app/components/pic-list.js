@@ -10,11 +10,15 @@ export const PicList = {
   template: `
     <ol class="pic-list">
       <li v-for="pic in pictures" class="box">
-        <p><textarea
-            v-model="pic.text"
-            class="textarea has-fixed-size"
-            rows="2">
-        </textarea></p>
+        <div class="level">
+          <div class="level-item">
+            <textarea
+                v-model="pic.text"
+                class="textarea has-fixed-size "
+                rows="2">
+            </textarea>
+          </div>
+        </div>
 
         <p><img :src="pic.displayUrl"></p>
       </li>
