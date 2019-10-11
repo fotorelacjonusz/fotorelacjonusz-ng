@@ -15,7 +15,18 @@ export const ForumWindow = {
   template: `
     <div class="forum-window flex-window">
       <nav class="my-navbar">
-        <router-link to="/" class="button is-danger">Abort</router-link>
+        <router-link
+            to="/"
+            v-if="phase === 'initial'"
+            class="button is-light">Back</router-link>
+        <router-link
+            to="/"
+            v-if="phase === 'started'"
+            class="button is-danger">Abort</router-link>
+        <router-link
+            to="/"
+            v-if="phase === 'done'"
+            class="button is-primary">Done</router-link>
         <span class="button my-navbar-span">Upload: {{uploadProgress}}</span>
         <span class="button my-navbar-span">Posting: {{postingProgress}}</span>
       </nav>
