@@ -1,0 +1,90 @@
+:tldrgpl: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
+:gplfaq: https://www.gnu.org/licenses/gpl-faq.html
+:nodejs: https://nodejs.org
+:npm: https://www.npmjs.com
+:nwjs: https://nwjs.io
+:github: https://github.com/skalee/fotorelacjonusz-ng
+
+= Fotorelacjonusz
+
+Fotorelacjonusz is a software for posting photo reports, an activity which is
+frequently exercised by the community of Forum Polskich Wieżowców (a Polish
+section of SkyscraperCity.com).  Users take photos of building sites in their
+neighbourhood, and share them with others in order to show construction
+progress.
+
+== Features
+
+. Uploading photos to Imgur.
+. Composing photo reports in BB Code, and posting them to SkyscraperCity.com.
+
+== Usage
+
+. Add photos.
+. Optionally: reorder them, write descriptions.
+. Click "Upload".
+. Log in to forum.
+. Navigate to a thread you want to post a photo report to.
+. All the rest will be done automatically.
+
+== Previous versions
+
+Fotorelacjonusz has been originally written in C++ and Qt by Kamil OST.
+You will find the source code and original releases for Windows and Linux
+systems here: https://sourceforge.net/projects/fotorelacjonusz.
+
+There was also a semi-successful attempt to update Fotorelacjonusz to a recent
+version of Qt.  It brings support for MacOS, also works on Linux, but Windows
+binary has never been released.  You will find the source code and binary
+releases here: https://github.com/skalee/fotorelacjonusz.
+
+You may want to use the older versions, because they have some unique features
+as compared to the current one.
+
+== Building
+
+In order to build Fotorelacjonusz yourself
+
+. Install {nodejs}[Node.js].
+. Install {npm}[NPM] (it is installed along with Node.js when official
+  installer is used).
+. Install {nwjs}[NW.js] (choose an SDK flavour).
+. Obtain Fotorelacjonusz source code from its {github}[GitHub repository].
+. Navigate to the source code directory, and run `npm install` (it will take
+  a longer while, because Vue developer tools downloads about 600 MiB
+  in the post-install step).
+
+Then you can run Fotorelacjonusz by executing `nwjs .` in the source code
+directory.  You will need to tweak this command if `nwjs` executable is not
+in PATH.
+
+== Contributing
+
+Pull requests are welcome.
+
+== Legal
+
+Copyright © 2019 Sebastian Skałacki.
+
+Fotorelacjonusz is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+You may also want to take a look at:
+
+* A {tldrgpl}[brief license summary] on tl;drLegal.
+* {gplfaq}[Frequently Asked Questions] about the GNU GPL.
+
+== Thanks
+
+Many thanks to Kamil OST, who wrote the original C++ version of Fotorelacjonusz,
+and to everyone who posts photo reports with this program or manually.
