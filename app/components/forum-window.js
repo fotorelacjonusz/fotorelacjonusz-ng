@@ -8,7 +8,7 @@ export const ForumWindow = {
     return {
       postingProcessor: new PostingProcessor(this.report),
       uploadingProcessor: new UploadingProcessor(this.report),
-      submissionStarted: false,
+      phase: "initial",
     }
   },
 
@@ -80,11 +80,12 @@ export const ForumWindow = {
     startSubmission: async function() {
       await this.uploadingProcessor.perform()
       this.postingProcessor.prepare()
-      this.submissionStarted = true
+      this.phase = "started"
       this.detectPageType()
     },
 
     signalCompletion: function() {
+      this.phase = "done"
       global.alert("All the photo report submitted!")
       console.info("All the photo report submitted.")
     },
@@ -92,7 +93,7 @@ export const ForumWindow = {
     itsAShowThreadPage: function() {
       console.log("It is a thread page.")
 
-      if (!this.submissionStarted) {
+      if (this.phase === "initial") {
         this.confirmSubmission()
         return
       }
