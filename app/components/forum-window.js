@@ -3,6 +3,8 @@ const Vue = require("vue/dist/vue.common.js")
 import { PostingProcessor } from "../processors/posting.js"
 import { UploadingProcessor } from "../processors/uploading.js"
 
+import "./countdown.js"
+
 export const ForumWindow = {
   data: function() {
     return {
@@ -29,6 +31,7 @@ export const ForumWindow = {
             class="button is-primary">Done</router-link>
         <span class="button my-navbar-span">Upload: {{uploadProgress}}</span>
         <span class="button my-navbar-span">Posting: {{postingProgress}}</span>
+        <span class="button my-navbar-span"><countdown ref="postingClock"/></span>
       </nav>
 
       <webview
@@ -134,12 +137,16 @@ export const ForumWindow = {
           let currentPost = this.postingProcessor.currentPost
           let currentPostJSInjection = JSON.stringify(currentPost)
 
-          this.executeInForum(`
-            let postBody = ${currentPostJSInjection}
-            ${webviewScripts.postReply}
-          `)
+          // SSC forum requires 30 secs pause between posts.
+          this.$refs.postingClock.restart(31)
+          this.$refs.postingClock.$once("zero", () => {
+            this.executeInForum(`
+              let postBody = ${currentPostJSInjection}
+              ${webviewScripts.postReply}
+            `)
 
-          this.postingProcessor.step()
+            this.postingProcessor.step()
+          })
         }
       })
     },
