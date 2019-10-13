@@ -53,6 +53,12 @@ export const ForumWindow = {
     postingProgress: function() {
       return Math.round(100 * this.postingProcessor.progress) + "%"
     },
+
+    atFirstPost: function() {
+      let currentPost = this.postingProcessor.currentPost
+      let firstPost = this.postingProcessor.allPosts[0]
+      return currentPost === firstPost
+    },
   },
 
   methods: {
@@ -138,15 +144,21 @@ export const ForumWindow = {
           let currentPostJSInjection = JSON.stringify(currentPost)
 
           // SSC forum requires 30 secs pause between posts.
-          this.$refs.postingClock.restart(31)
-          this.$refs.postingClock.$once("zero", () => {
+          let actuallySubmit = () => {
             this.executeInForum(`
               let postBody = ${currentPostJSInjection}
               ${webviewScripts.postReply}
             `)
 
             this.postingProcessor.step()
-          })
+          }
+
+          if (this.atFirstPost) {
+            actuallySubmit()
+          } else {
+            this.$refs.postingClock.restart(31)
+            this.$refs.postingClock.$once("zero", actuallySubmit)
+          }
         }
       })
     },
