@@ -2,7 +2,7 @@
   "name": "fotorelacjonusz",
   "domain": "fotorelacjonusz",
   "version": "0.1.0",
-  "description": "",
+  "description": "Fotorelacjonusz is for posting photo reports to SkyscraperCity.com",
   "main": "index.js",
   "scripts": {
     "lint": "jshint *.js app",
@@ -12,7 +12,17 @@
   "license": "UNLICENSED",
   "chromium-args": "--enable-logging=stderr --load-extension='./node_modules/nw-vue-devtools/extension'",
   "build": {
-    "nwVersion": "0.41.2"
+    "nwFlavor": "normal",
+    "nwVersion": "0.41.2",
+    "mac": {
+      "displayName": "Fotorelacjonusz",
+      "name": "Fotorelacjonusz",
+      "copyright": "Copyright © 2019\nby Sebastian Skałacki.\nGPL v3 or later."
+    },
+    "win": {
+      "productName": "Fotorelacjonusz",
+      "copyright": "Copyright © 2019 by Sebastian Skałacki. GPL v3 or later."
+    }
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
