@@ -1,6 +1,8 @@
+
 export class Picture {
   constructor(file) {
     this.originalFile = file
+    this.originalMIMEType = file.type
     this.text = ""
 
     // Browser only.

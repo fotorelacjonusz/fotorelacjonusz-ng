@@ -11,9 +11,9 @@ global.factory = {
     return o
   },
 
-  file: (name = factory.fileName()) => {
+  file: (name = factory.fileName(), type = "image/jpeg") => {
     let filePath = require("path").resolve( __dirname, "..", "resources", name)
-    let o = {name, path: filePath}
+    let o = {name, type, path: filePath}
     return o
   },
 
