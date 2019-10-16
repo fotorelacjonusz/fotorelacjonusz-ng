@@ -48,6 +48,16 @@ html, body, #app {
     cursor: inherit;
 }
 
+.settings-section {
+  margin-top: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.settings-section .title {
+  text-align: center;
+}
+
 .splash-screen {
   font-size: 1.5rem;
 }

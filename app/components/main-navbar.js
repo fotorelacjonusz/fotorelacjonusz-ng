@@ -7,6 +7,7 @@ export const MainNavbar = {
     <nav class="my-navbar" role="navigation">
       <file-picker class="button is-primary"/>
       <router-link to="/forum" class="button is-light">Upload</router-link>
+      <router-link to="/settings" class="button is-light">Settings</router-link>
       <router-link to="/about" class="button is-light">About this program</router-link>
     </nav>
   `

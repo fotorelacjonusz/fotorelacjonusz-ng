@@ -8,6 +8,7 @@ const { FontAwesomeIcon } = require("@fortawesome/vue-fontawesome")
 import { Report } from "./models/report.js"
 import { AboutWindow } from "./components/about-window.js"
 import { ForumWindow } from "./components/forum-window.js"
+import { SettingsWindow } from "./components/settings-window.js"
 import { MainWindow } from "./components/main-window.js"
 
 Vue.use(VueRouter)
@@ -25,6 +26,7 @@ const router = new VueRouter({
     { path: "/", component: MainWindow },
     { path: "/about", component: AboutWindow },
     { path: "/forum", component: ForumWindow },
+    { path: "/settings", component: SettingsWindow },
   ]
 })
 
