@@ -39,6 +39,7 @@ export const ForumWindow = {
           src="https://skyscrapercity.com"
           partition="persist:fotorelacjonusz"
           class="spread"
+          :class="[phase === 'started' ? 'shadowed' : '']"
           style="overflow: hidden;"
           @contentload="forumLoaded">
       </webview>
