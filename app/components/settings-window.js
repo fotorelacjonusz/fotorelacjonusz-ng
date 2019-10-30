@@ -26,10 +26,10 @@ export const SettingsWindow = {
                     v-model="model.format.postTemplate"
                     @change="onConfigUpdated">
                 </textarea>
-                <p class="help">
-                  You can use following magic words:
-                  <tt>%DESCRIPTION%</tt> for item description;
-                  <tt>%NUMBER%</tt> for item number;
+                <p class="help no-break">
+                  You can use following magic words:<wbr>
+                  <tt>%DESCRIPTION%</tt> for item description;<wbr>
+                  <tt>%NUMBER%</tt> for item number;<wbr>
                   <tt>%IMG_URL%</tt> for picture's remote URL.
                 </p>
               </div>

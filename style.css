@@ -77,3 +77,7 @@ html, body, #app {
   opacity: 0.3;
   background-color: lightsteelblue;
 }
+
+.no-break {
+  white-space: nowrap;
+}
