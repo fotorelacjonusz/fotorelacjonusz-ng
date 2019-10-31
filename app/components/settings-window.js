@@ -47,6 +47,7 @@ export const SettingsWindow = {
 
   methods: {
     onConfigUpdated() {
+      currentSettings.save()
       this.$forceUpdate()
     },
   }
