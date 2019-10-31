@@ -9,6 +9,7 @@ import { interpolateMagicWords } from "../util/magic-words.js"
 export class Settings {
   constructor() {
     this.init()
+    this.load()
   }
 
   init() {

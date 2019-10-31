@@ -72,6 +72,12 @@ describe("Settings model", function() {
     })
   })
 
+  it("loads configuration file on instantiation", function() {
+    fs.readFileSync.restore()
+    sinon.mock(fs).expects("readFileSync").once().withArgs("some/path")
+    new Settings
+  })
+
   describe(".load()", function() {
     beforeEach(function() {
       this.instance = new Settings
