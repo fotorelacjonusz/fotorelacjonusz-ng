@@ -1,5 +1,7 @@
 const { stripIndent } = require("common-tags")
 
+import { interpolateMagicWords } from "../util/magic-words.js"
+
 export class Settings {
   constructor() {
     this.init()
@@ -7,6 +9,16 @@ export class Settings {
 
   init() {
     this._data = this.defaultData
+  }
+
+  interpolatePostTemplate(substitutions) {
+    const magicWords = ["NUMBER", "DESCRIPTION", "IMG_URL"]
+    const template = this.data.format.postTemplate
+    return interpolateMagicWords(template, magicWords, substitutions)
+  }
+
+  get configFilePath() {
+    return path.join(nw.App.dataPath, "fotorelacjonusz.conf")
   }
 
   get data() {

@@ -27,4 +27,35 @@ describe("Settings model", function() {
       expect(_.get(settings.data, settingName)).toBeDefined()
     })
   }
+
+  describe(".interpolatePostTemplate()", function() {
+    beforeEach(function() {
+      this.callingHelper = function(template, substitutions) {
+        let instance = new Settings
+        instance.data.format.postTemplate = template
+        return instance.interpolatePostTemplate(substitutions)
+      }
+
+      this.substitutions = {
+        NUMBER: 7,
+        DESCRIPTION: "interesting",
+        IMG_URL: "https://example.test/pic",
+      }
+    })
+
+    it("recognizes 'DESCRIPTION' magic word", function() {
+      let retval = this.callingHelper("-%DESCRIPTION%", {DESCRIPTION: "a"})
+      expect(retval).toEqual("-a")
+    })
+
+    it("recognizes 'NUMBER' magic word", function() {
+      let retval = this.callingHelper("-%NUMBER%", {NUMBER: 1})
+      expect(retval).toEqual("-1")
+    })
+
+    it("recognizes 'IMG_URL' magic word", function() {
+      let retval = this.callingHelper("-%IMG_URL%", {IMG_URL: "url"})
+      expect(retval).toEqual("-url")
+    })
+  })
 })

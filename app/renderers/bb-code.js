@@ -1,5 +1,7 @@
 const { stripIndent } = require("common-tags")
 
+import { currentSettings } from "../models/settings.js"
+
 export class BBCodeRenderer {
   constructor(report) {
     this._report = report
@@ -14,10 +16,11 @@ export class BBCodeRenderer {
 
   renderPost(pics, startNum) {
     let renderedPics = pics.map((pic, idx) => {
-      return stripIndent`
-        ${startNum + idx}. ${pic.text.trim()}
-        [img]${pic.remoteUrl}[/img]
-      `
+      return currentSettings.interpolatePostTemplate({
+        "DESCRIPTION": pic.text.trim(),
+        "IMG_URL": pic.remoteUrl,
+        "NUMBER": startNum + idx,
+      })
     })
 
     return renderedPics.join("\n\n")
