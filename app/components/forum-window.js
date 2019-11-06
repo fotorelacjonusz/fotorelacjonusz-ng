@@ -20,18 +20,30 @@ export const ForumWindow = {
         <router-link
             to="/"
             v-if="phase === 'initial'"
-            class="button is-light">Back</router-link>
+            class="button is-light">
+            Back
+        </router-link>
         <router-link
             to="/"
             v-if="phase === 'started'"
-            class="button is-danger">Abort</router-link>
+            class="button is-danger">
+            Abort
+        </router-link>
         <router-link
             to="/"
             v-if="phase === 'done'"
-            class="button is-primary">Done</router-link>
-        <span class="button my-navbar-span">Upload: {{uploadProgress}}</span>
-        <span class="button my-navbar-span">Posting: {{postingProgress}}</span>
-        <span class="button my-navbar-span"><countdown ref="postingClock"/></span>
+            class="button is-primary">
+            Done
+        </router-link>
+        <span class="button my-navbar-span">
+            Upload: {{uploadProgress}}
+        </span>
+        <span class="button my-navbar-span">
+            Posting: {{postingProgress}}
+        </span>
+        <span class="button my-navbar-span">
+            <countdown ref="postingClock"/>
+        </span>
       </nav>
 
       <webview

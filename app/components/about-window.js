@@ -4,7 +4,11 @@ export const AboutWindow = {
   template: `
     <div class="about-window flex-window">
       <nav class="my-navbar">
-        <router-link to="/" class="button is-light">Back</router-link>
+        <router-link
+            to="/"
+            class="button is-light">
+            Back
+        </router-link>
       </nav>
 
       <div class="hero">

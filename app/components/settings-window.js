@@ -6,7 +6,11 @@ export const SettingsWindow = {
   template: `
     <div class="settings-window flex-window">
       <nav class="my-navbar">
-        <router-link to="/" class="button is-light">Back</router-link>
+        <router-link
+            to="/"
+            class="button is-light">
+            Back
+        </router-link>
       </nav>
 
       <div class="settings-section">
