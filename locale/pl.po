@@ -49,9 +49,9 @@ msgstr "Język programu"
 msgid "Post layout options"
 msgstr "Układ postów"
 
-#: app/components/forum-window.js:44
-msgid "Posting: {{postingProgress}}"
-msgstr "Posty: {{postingProgress}}"
+#: app/components/forum-window.js:46
+msgid "Posting: %{progress}"
+msgstr "Posty: %{progress}"
 
 #: app/components/main-navbar.js:15
 msgid "Settings"
@@ -62,8 +62,8 @@ msgid "Upload"
 msgstr "Wyślij"
 
 #: app/components/forum-window.js:41
-msgid "Upload: {{uploadProgress}}"
-msgstr "Zdjęcia: {{uploadProgress}}"
+msgid "Upload: %{progress}"
+msgstr "Zdjęcia: %{progress}"
 
 #: app/components/settings-window.js:60
 msgid ""

@@ -38,11 +38,15 @@ export const ForumWindow = {
             v-translate>
             Done
         </router-link>
-        <span class="button my-navbar-span" v-translate>
-            Upload: {{uploadProgress}}
+        <span
+            class="button my-navbar-span"
+            v-translate="{progress: uploadProgress}">
+            Upload: %{progress}
         </span>
-        <span class="button my-navbar-span" v-translate>
-            Posting: {{postingProgress}}
+        <span
+            class="button my-navbar-span"
+            v-translate="{progress: postingProgress}">
+            Posting: %{progress}
         </span>
         <span class="button my-navbar-span">
             <countdown ref="postingClock"/>
