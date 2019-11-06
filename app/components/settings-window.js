@@ -8,17 +8,18 @@ export const SettingsWindow = {
       <nav class="my-navbar">
         <router-link
             to="/"
-            class="button is-light">
+            class="button is-light"
+            v-translate>
             Back
         </router-link>
       </nav>
 
       <div class="settings-section">
-        <h3 class="title is-5">Post layout options</h3>
+        <h3 class="title is-5" v-translate>Post layout options</h3>
 
         <div class="field is-horizontal">
           <div class="field-label is-normal">
-            <label class="label">Item template</label>
+            <label class="label" v-translate>Item template</label>
           </div>
 
           <div class="field-body">
@@ -30,7 +31,7 @@ export const SettingsWindow = {
                     v-model="model.format.postTemplate"
                     @change="onConfigUpdated">
                 </textarea>
-                <p class="help no-break">
+                <p class="help no-break" v-translate render-html="true">
                   You can use following magic words:<wbr>
                   <tt>%DESCRIPTION%</tt> for item description;<wbr>
                   <tt>%NUMBER%</tt> for item number;<wbr>

@@ -20,25 +20,28 @@ export const ForumWindow = {
         <router-link
             to="/"
             v-if="phase === 'initial'"
-            class="button is-light">
+            class="button is-light"
+            v-translate>
             Back
         </router-link>
         <router-link
             to="/"
             v-if="phase === 'started'"
-            class="button is-danger">
+            class="button is-danger"
+            v-translate>
             Abort
         </router-link>
         <router-link
             to="/"
             v-if="phase === 'done'"
-            class="button is-primary">
+            class="button is-primary"
+            v-translate>
             Done
         </router-link>
-        <span class="button my-navbar-span">
+        <span class="button my-navbar-span" v-translate>
             Upload: {{uploadProgress}}
         </span>
-        <span class="button my-navbar-span">
+        <span class="button my-navbar-span" v-translate>
             Posting: {{postingProgress}}
         </span>
         <span class="button my-navbar-span">

@@ -6,7 +6,8 @@ export const AboutWindow = {
       <nav class="my-navbar">
         <router-link
             to="/"
-            class="button is-light">
+            class="button is-light"
+            v-translate>
             Back
         </router-link>
       </nav>

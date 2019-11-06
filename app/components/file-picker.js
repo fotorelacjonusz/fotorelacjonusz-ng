@@ -32,7 +32,7 @@ export const FilePicker = {
           multiple
           v-on:change="onFilesChange">
       </input>
-      Add photos
+      <translate>Add photos</translate>
     </label>
   `
 }
