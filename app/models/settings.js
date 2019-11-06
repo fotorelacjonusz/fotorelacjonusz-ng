@@ -54,6 +54,9 @@ export class Settings {
           [img]%IMG_URL%[/img]
         `,
       },
+      interface: {
+        locale: "en",
+      },
     }
   }
 }

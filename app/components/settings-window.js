@@ -15,6 +15,32 @@ export const SettingsWindow = {
       </nav>
 
       <div class="settings-section">
+        <h3 class="title is-5" v-translate>Interface options</h3>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" v-translate>Language</label>
+          </div>
+
+          <div class="field-body">
+            <div class="field">
+              <div class="control select">
+                <select
+                    v-model="model.interface.locale"
+                    @change="onConfigUpdated">
+                    <option
+                        v-for="(language, key) in $language.available"
+                        :value="key">
+                        {{ language }}
+                    </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
         <h3 class="title is-5" v-translate>Post layout options</h3>
 
         <div class="field is-horizontal">

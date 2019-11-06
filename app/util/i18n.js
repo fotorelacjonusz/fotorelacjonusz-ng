@@ -2,7 +2,7 @@ const _ = require("lodash")
 
 export const availableLanguages = {
   en: "English",
-  pl: "Polish",
+  pl: "Polski",
 }
 
 export const defaultLanguage = "en"
