@@ -1,4 +1,5 @@
 const Vue = require("vue/dist/vue.common.js")
+const GettextPlugin = require("vue-gettext")
 const VueRouter = require("vue-router")
 
 const { library } = require("@fortawesome/fontawesome-svg-core")
@@ -11,7 +12,10 @@ import { ForumWindow } from "./components/forum-window.js"
 import { SettingsWindow } from "./components/settings-window.js"
 import { MainWindow } from "./components/main-window.js"
 
+import { gettextPluginConfig } from "./util/i18n.js"
+
 Vue.use(VueRouter)
+Vue.use(GettextPlugin, gettextPluginConfig)
 
 // Font Awesome configuration
 library.add(fas) // whole bundle
