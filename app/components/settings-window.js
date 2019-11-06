@@ -27,7 +27,7 @@ export const SettingsWindow = {
               <div class="control select">
                 <select
                     v-model="model.interface.locale"
-                    @change="onConfigUpdated">
+                    @change="onConfigUpdated(); onLanguageChanged($event)">
                     <option
                         v-for="(language, key) in $language.available"
                         :value="key">
@@ -80,6 +80,10 @@ export const SettingsWindow = {
     onConfigUpdated() {
       currentSettings.save()
       this.$forceUpdate()
+    },
+
+    onLanguageChanged(event) {
+      this.$language.current = event.target.value
     },
   }
 }

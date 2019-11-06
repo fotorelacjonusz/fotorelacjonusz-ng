@@ -1,5 +1,7 @@
 const _ = require("lodash")
 
+import { currentSettings } from "../models/settings.js"
+
 export const availableLanguages = {
   en: "English",
   pl: "Polski",
@@ -11,7 +13,7 @@ export const translations = require("locale/translations.json")
 
 export const gettextPluginConfig = {
   availableLanguages: availableLanguages,
-  defaultLanguage: defaultLanguage,
+  defaultLanguage: currentSettings.data.interface.locale,
   languageVmMixin: {
     computed: {
       currentKebabCase: function () {
