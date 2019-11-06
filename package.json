@@ -5,6 +5,8 @@
   "description": "Fotorelacjonusz is for posting photo reports to SkyscraperCity.com",
   "main": "index.js",
   "scripts": {
+    "gettext-compile": "gettext-compile --output locale/translations.json locale/*.po",
+    "gettext-extract": "gettext-extract --output locale/translations.pot --attribute v-translate app/components/*.js",
     "lint": "jshint *.js app",
     "test": "jasmine --require=esm"
   },
