@@ -31,7 +31,7 @@ describe("Settings model", function() {
   })
 
   const requiredSettings = [
-    "format.postTemplate",
+    "format.postTemplate", "format.picsMax", "format.picsMin"
   ]
 
   for (let settingName of requiredSettings) {

@@ -24,6 +24,19 @@ msgstr "O programie"
 msgid "Add photos"
 msgstr "Dodaj zdjęcia"
 
+#: app/components/settings-window.js:113
+msgid ""
+"Avoid creating posts which are composed of less than %{min}\n"
+"                  photo(s).  Instead, make the last post respectively "
+"longer,\n"
+"                  possibly breaking the \"photos per post\" limit. This "
+"setting\n"
+"                  does not apply if there would be only one post anyway."
+msgstr ""
+"Unikaj tworzenia postów złożonych z mniej niż %{min} zdjęć.\n"
+"Gdyby na ostatni (ale nie jedyny) post przypadało mniej niż %{min} zdjęć,\n"
+"nie twórz tego postu, tylko zrób poprzedni odpowiednio dłuższy."
+
 #: app/components/about-window.js:7 app/components/forum-window.js:20
 #: app/components/settings-window.js:9
 msgid "Back"
@@ -45,6 +58,18 @@ msgstr "Format opisu zdjęcia"
 msgid "Language"
 msgstr "Język programu"
 
+#: app/components/settings-window.js:78
+msgid "Maximum"
+msgstr "Maksymalna"
+
+#: app/components/settings-window.js:100
+msgid "Minimum"
+msgstr "Minimalna"
+
+#: app/components/settings-window.js:74
+msgid "Photos per post"
+msgstr "Liczba zdjęć na post"
+
 #: app/components/settings-window.js:45
 msgid "Post layout options"
 msgstr "Układ postów"
@@ -56,6 +81,10 @@ msgstr "Posty: %{progress}"
 #: app/components/main-navbar.js:15
 msgid "Settings"
 msgstr "Ustawienia"
+
+#: app/components/settings-window.js:91
+msgid "There will be %{max} photo(s) per post."
+msgstr "%{max} zdjęć na post."
 
 #: app/components/main-navbar.js:9
 msgid "Upload"

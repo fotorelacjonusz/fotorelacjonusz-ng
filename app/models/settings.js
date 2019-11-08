@@ -53,6 +53,8 @@ export class Settings {
           %NUMBER%. %DESCRIPTION%
           [img]%IMG_URL%[/img]
         `,
+        picsMax: 10,
+        picsMin: 1,
       },
       interface: {
         locale: "en",
