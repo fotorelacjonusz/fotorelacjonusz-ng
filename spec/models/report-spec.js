@@ -1,5 +1,6 @@
 import { Picture } from "../../app/models/picture.js"
 import { Report } from "../../app/models/report.js"
+import { currentSettings } from "../../app/models/settings.js"
 
 describe("Report model", function() {
   it("is instantiable", function () {
@@ -211,5 +212,32 @@ describe("Report model", function() {
       expect(retval[2].startIndex).toEqual(20)
       expect(retval[2].pictures).toEqual(pics.slice(20, 25))
     })
+
+    it("makes the last slice longer instead of creating another slice of too few elements", function() {
+      stubCurrentSettings({format: {picsMin: 3, picsMax: 10}})
+
+      let pics = new Array(22).fill().map(() => factory.picture())
+      let report = factory.report(pics)
+
+      let retval = report.sliced()
+      expect(retval).toBeArrayOfSize(2)
+      expect(retval[0].startIndex).toEqual(0)
+      expect(retval[0].pictures).toEqual(pics.slice(0, 10))
+      expect(retval[1].startIndex).toEqual(10)
+      expect(retval[1].pictures).toEqual(pics.slice(10, 22))
+    })
+
+    it("creates a slice shorter than defined in settings if it is the only slice", function() {
+      stubCurrentSettings({format: {picsMin: 3, picsMax: 10}})
+
+      let pics = new Array(2).fill().map(() => factory.picture())
+      let report = factory.report(pics)
+
+      let retval = report.sliced()
+      expect(retval).toBeArrayOfSize(1)
+      expect(retval[0].startIndex).toEqual(0)
+      expect(retval[0].pictures).toEqual(pics)
+    })
+
   })
 })

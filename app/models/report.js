@@ -1,4 +1,7 @@
+const _ = require("lodash")
+
 import { Picture } from "./picture.js"
+import { currentSettings } from "../models/settings.js"
 
 export class Report {
   constructor() {
@@ -58,12 +61,21 @@ export class Report {
   }
 
   sliced() {
-    const sliceSize = 10
+    const sliceSize = currentSettings.data.format.picsMax
+    const minimumSliceSize = currentSettings.data.format.picsMin
+
     let acc = []
 
     for (var i = 0; i < this.pictures.length; i += sliceSize) {
       let pictures = this.pictures.slice(i, i + sliceSize)
       acc.push({startIndex: i, pictures})
+    }
+
+    if (acc.length > 1 && _.nth(acc, -1).pictures.length < minimumSliceSize)
+    {
+      // Keep a few remaining photos with the last post.
+      _.nth(acc, -2).pictures.push(... _.nth(acc, -1).pictures)
+      acc.pop()
     }
 
     return acc
