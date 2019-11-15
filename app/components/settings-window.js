@@ -2,6 +2,8 @@ const Vue = require("vue/dist/vue.common.js")
 
 import { currentSettings } from "../models/settings.js"
 
+import "./settings-section.js"
+
 export const SettingsWindow = {
   template: `
     <div class="settings-window flex-window">
@@ -15,9 +17,7 @@ export const SettingsWindow = {
       </nav>
 
       <div class="spread">
-        <div class="settings-section">
-          <h3 class="title is-5" v-translate>Interface options</h3>
-
+        <settings-section title="Interface options">
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label" v-translate>Language</label>
@@ -39,11 +39,9 @@ export const SettingsWindow = {
               </div>
             </div>
           </div>
-        </div>
+        </settings-section>
 
-        <div class="settings-section">
-          <h3 class="title is-5" v-translate>Post layout options</h3>
-
+        <settings-section title="Post layout options">
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label" v-translate>Item template</label>
@@ -68,11 +66,9 @@ export const SettingsWindow = {
               </div>
             </div>
           </div>
-        </div>
+        </settings-section>
 
-        <div class="settings-section">
-          <h3 class="title is-5" v-translate>Photos per post</h3>
-
+        <settings-section title="Photos per post">
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label" v-translate>Maximum</label>
@@ -119,7 +115,7 @@ export const SettingsWindow = {
               </div>
             </div>
           </div>
-        </div>
+        </settings-section>
       </div>
     </div>
   `,
