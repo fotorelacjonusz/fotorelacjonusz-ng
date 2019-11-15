@@ -19,21 +19,21 @@ export const ForumWindow = {
       <nav class="my-navbar">
         <router-link
             to="/"
-            v-if="phase === 'initial'"
+            v-show="phase === 'initial'"
             class="button is-light"
             v-translate>
             Back
         </router-link>
         <router-link
             to="/"
-            v-if="phase === 'started'"
+            v-show="phase === 'started'"
             class="button is-danger"
             v-translate>
             Abort
         </router-link>
         <router-link
             to="/"
-            v-if="phase === 'done'"
+            v-show="phase === 'done'"
             class="button is-primary"
             v-translate>
             Done
