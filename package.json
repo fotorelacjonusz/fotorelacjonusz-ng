@@ -45,6 +45,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "bulma": "^0.8.0",
     "common-tags": "^1.8.0",
+    "fabric": "^3.5.0",
     "form-data": "^3.0.0",
     "got": "^9.6.0",
     "lodash": "^4.17.15",
