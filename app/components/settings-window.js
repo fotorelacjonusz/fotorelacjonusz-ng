@@ -2,6 +2,7 @@ const Vue = require("vue/dist/vue.common.js")
 
 import { currentSettings } from "../models/settings.js"
 
+import "./settings-item.js"
 import "./settings-section.js"
 
 export const SettingsWindow = {
@@ -18,12 +19,7 @@ export const SettingsWindow = {
 
       <div class="spread">
         <settings-section title="Interface options">
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label" v-translate>Language</label>
-            </div>
-
-            <div class="field-body">
+          <settings-item title="Language">
               <div class="field">
                 <div class="control select">
                   <select
@@ -37,17 +33,11 @@ export const SettingsWindow = {
                   </select>
                 </div>
               </div>
-            </div>
-          </div>
+          </settings-item>
         </settings-section>
 
         <settings-section title="Post layout options">
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label" v-translate>Item template</label>
-            </div>
-
-            <div class="field-body">
+          <settings-item title="Item template">
               <div class="field">
                 <div class="control">
                   <textarea
@@ -64,17 +54,11 @@ export const SettingsWindow = {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
+          </settings-item>
         </settings-section>
 
         <settings-section title="Photos per post">
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label" v-translate>Maximum</label>
-            </div>
-
-            <div class="field-body">
+          <settings-item title="Maximum">
               <div class="field">
                 <div class="control">
                   <input
@@ -88,15 +72,9 @@ export const SettingsWindow = {
                   There will be %{max} photo(s) per post.
                 </p>
               </div>
-            </div>
-          </div>
+          </settings-item>
 
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label" v-translate>Minimum</label>
-            </div>
-
-            <div class="field-body">
+          <settings-item title="Minimum">
               <div class="field">
                 <div class="control">
                   <input
@@ -113,8 +91,7 @@ export const SettingsWindow = {
                   does not apply if there would be only one post anyway.
                 </p>
               </div>
-            </div>
-          </div>
+          </settings-item>
         </settings-section>
       </div>
     </div>
