@@ -2,8 +2,8 @@ const _ = require("lodash")
 const got = require("got")
 const FormData = require("form-data")
 
-const IMGUR_BASE_URL = "https://api.imgur.com/3"
-const IMGUR_CLIENT_ID = "8de2eccb47ccc43"
+export const IMGUR_BASE_URL = "https://api.imgur.com/3"
+export const IMGUR_CLIENT_ID = "8de2eccb47ccc43"
 
 const DEFAULT_REQUEST_OPTIONS = {
   baseUrl: IMGUR_BASE_URL,

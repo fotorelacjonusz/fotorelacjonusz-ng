@@ -17,6 +17,16 @@ export const PreparationWindow = {
             You are going to post a photo report which consists of
             %{posts} post(s) with %{pics} picture(s) in total.
         </p>
+        <webview
+          ref="imgurLoginView"
+          :src="authURL"
+
+
+
+
+          partition="persist:fotorelacjonusz"
+          class="spread"
+          style="overflow: hidden;">
       </div>
 
       <div class="container buttons-bar">
@@ -35,7 +45,18 @@ export const PreparationWindow = {
         </router-link>
       </div>
     </div>
-  `
+  `,
+
+  computed: {
+    authURL() {
+      const urlBase = "https://api.imgur.com/oauth2/authorize"
+      const params = new URLSearchParams([
+        ["client_id", IMGUR_CLIENT_ID],
+        ["response_type", "token"],
+      ])
+      return [urlBase, params.toString()].join("?")
+    }
+  }
 }
 
 Vue.component("preparation-window", PreparationWindow)
