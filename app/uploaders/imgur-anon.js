@@ -1,25 +1,23 @@
+const _ = require("lodash")
 const got = require("got")
 const FormData = require("form-data")
 
 const IMGUR_BASE_URL = "https://api.imgur.com/3"
 const IMGUR_CLIENT_ID = "8de2eccb47ccc43"
 
+const DEFAULT_REQUEST_OPTIONS = {
+  baseUrl: IMGUR_BASE_URL,
+  headers: {
+    authorization: `Client-ID ${IMGUR_CLIENT_ID}`,
+  },
+}
+
 export class ImgurAnonUploader {
   async uploadFile(fileName, buffer) {
     let form = this.buildUploadForm(fileName, buffer)
-    var response
-    try {
-      console.log(`Uploading "${fileName}" via ${this.constructor.name}`)
-      response = await this.makeUploadRequest(form)
-    } catch (error) {
-      console.error(error)
-      return null
-    }
-    let parsedResponse = JSON.parse(response.body)
-    if (!parsedResponse.success) {
-      console.error(`Upload went wrong.  Actual response was: ${response.body}`)
-      return null
-    }
+
+    console.log(`Uploading "${file.name}" via ${this.constructor.name}`)
+    let parsedResponse = await postForm("Photo upload", "/image", form)
     console.log(`Uploaded successfully as ${parsedResponse.data.id}.`)
 
     return {remoteUrl: parsedResponse.data.link, upload: parsedResponse.data}
@@ -31,14 +29,37 @@ export class ImgurAnonUploader {
     form.append("image", buffer, {filename: fileName})
     return form
   }
+}
 
-  makeUploadRequest(form) {
-    return got.post("/image", {
-      baseUrl: IMGUR_BASE_URL,
-      body: form,
-      headers: {
-        authorization: `Client-ID ${IMGUR_CLIENT_ID}`,
-      },
-    })
+async function postForm(description, path, form) {
+  let response = null
+  let parsedResponse = null
+
+  try {
+    response = await doRequest("POST", path, {body: form})
+  } catch (error) {
+    console.error(`${description} went wrong with error: ${error}`)
+    return null
   }
+
+  try {
+    parsedResponse = JSON.parse(response.body)
+  } catch (error) {
+    parsedResponse = {}
+  }
+
+  if (!parsedResponse.success) {
+    console.error(`
+      ${description} went wrong.  Server has responded unexpectedly with:
+      ${response.body}
+    `)
+    return null
+  }
+
+  return parsedResponse
+}
+
+function doRequest(method, path, options) {
+  let mergedOptions = _.merge({}, DEFAULT_REQUEST_OPTIONS, options, {method})
+  return got(path, mergedOptions)
 }
