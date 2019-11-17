@@ -260,6 +260,9 @@ export const SettingsWindow = {
                       <option value="ImgurAnonUploader" v-translate>
                           Imgur (anonymously)
                       </option>
+                      <option value="ImgurUserUploader" v-translate>
+                          Imgur (logged in)
+                      </option>
                   </select>
                 </div>
               </div>
