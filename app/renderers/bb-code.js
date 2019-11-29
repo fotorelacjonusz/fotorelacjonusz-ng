@@ -2,6 +2,8 @@ const { stripIndent } = require("common-tags")
 
 import { currentSettings } from "../models/settings.js"
 
+import { fixNBSpaces } from "../util/fix-nb-spaces.js"
+
 export class BBCodeRenderer {
   constructor(report) {
     this._report = report
@@ -23,6 +25,8 @@ export class BBCodeRenderer {
       })
     })
 
-    return renderedPics.join("\n\n")
+    let post = renderedPics.join("\n\n")
+
+    return fixNBSpaces(post)
   }
 }
