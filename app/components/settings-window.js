@@ -34,6 +34,32 @@ export const SettingsWindow = {
                 </div>
               </div>
           </settings-item>
+
+          <settings-item title="White spaces">
+              <div class="field">
+                <div class="control">
+                  <label class="checkbox">
+                    <input type="checkbox"
+                      class="checkbox"
+                      v-model="model.interface.fixNBSpaces"
+                      @change="onConfigUpdated">
+                    Convert non-breaking white spaces to regular ones
+                  </label>
+                  <p class="help" v-translate>
+                    SkyScraperCity.com forum substitutes non-breaking white
+                    spaces with weird-looking asterisks.
+
+                    This option prevents that by converting the non-breaking
+                    spaces to regular ones.  It is especially useful on MacOS,
+                    as it is frequent to accidentally type non-breaking spaces
+                    by hitting Option+Space key combination on this system.
+
+                    You probably want to keep this setting disabled unless you
+                    experience issues.
+                  </p>
+                </div>
+              </div>
+          </settings-item>
         </settings-section>
 
         <settings-section title="Post layout options">

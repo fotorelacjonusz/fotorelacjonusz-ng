@@ -57,6 +57,7 @@ export class Settings {
         picsMin: 1,
       },
       interface: {
+        fixNBSpaces: false,
         locale: "en",
       },
     }
