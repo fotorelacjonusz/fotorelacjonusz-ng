@@ -41,6 +41,11 @@ export const PicListItem = {
 
         <div class="level-right pic-list-icons">
           <font-awesome-icon
+              icon="palette"
+              class="level-item"
+              title="Edit"
+              @click="edit(idx)" />
+          <font-awesome-icon
               icon="search-plus"
               class="level-item hide-on-view-mode-large"
               title="Move up"
@@ -78,6 +83,10 @@ export const PicListItem = {
   `,
 
   methods: {
+    edit(idx) {
+      this.$router.push(`/zoom/${idx}`)
+    },
+
     renderPicture(canvasElement) {
       this.$refs.imageWrapper.appendChild(canvasElement)
     },

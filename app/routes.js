@@ -5,6 +5,7 @@ import { ForumWindow } from "./components/forum-window.js"
 import { PreparationWindow } from "./components/preparation-window.js"
 import { SettingsWindow } from "./components/settings-window.js"
 import { MainWindow } from "./components/main-window.js"
+import { PicViewWindow } from "./components/pic-view-window.js"
 
 export const router = new VueRouter({
   base: "/",
@@ -13,6 +14,7 @@ export const router = new VueRouter({
     { path: "/about", component: AboutWindow },
     { path: "/preparation", component: PreparationWindow },
     { path: "/forum", component: ForumWindow },
+    { path: "/zoom/:num", component: PicViewWindow },
     { path: "/settings", component: SettingsWindow },
   ]
 })
