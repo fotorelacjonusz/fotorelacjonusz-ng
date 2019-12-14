@@ -42,6 +42,11 @@ html, body, #app {
   margin-left: 1.5rem;
 }
 
+.pic-list .picture {
+  max-height: 300px;
+  max-width: 400px;
+}
+
 .my-navbar {
   box-shadow: 0 0.2rem 0.5em lightslategray;
   padding: 0.5rem;

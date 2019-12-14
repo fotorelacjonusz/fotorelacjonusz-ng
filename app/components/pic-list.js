@@ -52,7 +52,7 @@ export const PicList = {
           </div>
         </div>
 
-        <p><img :src="pic.displayUrl"></p>
+        <p><img class="picture" :src="pic.displayUrl"></p>
       </li>
 
       <li
