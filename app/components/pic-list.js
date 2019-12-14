@@ -25,6 +25,11 @@ export const PicList = {
 
           <div class="level-right pic-list-icons">
             <font-awesome-icon
+                icon="search-plus"
+                class="level-item"
+                title="Zoom"
+                @click="zoom(idx)" />
+            <font-awesome-icon
                 icon="angle-up"
                 class="level-item"
                 title="Move up"
@@ -62,7 +67,13 @@ export const PicList = {
           The report is empty.
       </li>
     </ol>
-  `
+  `,
+
+  methods: {
+    zoom(idx) {
+      this.$router.push(`/zoom/${idx}`)
+    },
+  }
 }
 
 Vue.component("pic-list", PicList)
