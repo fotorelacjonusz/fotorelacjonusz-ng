@@ -27,6 +27,9 @@ var app = new Vue({
   template: `<div id="app"><router-view></router-view></div>`
 })
 
+window.ondragover = (e) => e.preventDefault()
+window.ondrop = (e) => e.preventDefault()
+
 // Following one-liner fixes Vue Devtools.   It should not be necessary, as
 // NW-Vue-Devtools NPM package cares about loading devtools.  However, since
 // commit 124e82d3a15930f1215321988b it does not happen for some reason.
