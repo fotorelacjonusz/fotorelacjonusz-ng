@@ -2,7 +2,7 @@ const Vue = require("vue/dist/vue.common.js")
 const GettextPlugin = require("vue-gettext")
 const VueRouter = require("vue-router")
 
-const { library } = require("@fortawesome/fontawesome-svg-core")
+const { library, config: faConfig } = require("@fortawesome/fontawesome-svg-core")
 const { fas } = require("@fortawesome/free-solid-svg-icons")
 const { FontAwesomeIcon } = require("@fortawesome/vue-fontawesome")
 
@@ -14,6 +14,7 @@ Vue.use(VueRouter)
 Vue.use(GettextPlugin, gettextPluginConfig)
 
 // Font Awesome configuration
+faConfig.autoAddCss = false // wasn't working anyway
 library.add(fas) // whole bundle
 Vue.component("font-awesome-icon", FontAwesomeIcon)
 
