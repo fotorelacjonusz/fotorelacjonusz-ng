@@ -1,6 +1,6 @@
 const Vue = require("vue/dist/vue.common.js")
 
-export const PicView = {
+export const PicViewWindow = {
   data: function() {
     let index = parseInt(this.$route.params.num)
 
@@ -30,4 +30,4 @@ export const PicView = {
   },
 }
 
-Vue.component("pic-view", PicView)
+Vue.component("pic-view-window", PicViewWindow)
