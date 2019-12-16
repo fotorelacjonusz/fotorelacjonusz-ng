@@ -76,6 +76,17 @@ describe("Report model", function() {
     })
   })
 
+  describe(".deleteAllPictures()", function() {
+    it("delets all pictures from the report", function() {
+      let pic1 = factory.picture()
+      let pic2 = factory.picture()
+      let pic3 = factory.picture()
+      let report = factory.report([pic1, pic2, pic3])
+      report.deleteAllPictures()
+      expect(report.pictures).toEqual([])
+    })
+  })
+
   describe(".moveDown(file)", function() {
     it("swaps given picture with its next sibling in the report", function() {
       let [pic1, pic2, pic3] =

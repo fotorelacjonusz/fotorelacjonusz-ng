@@ -28,6 +28,10 @@ export class Report {
     }
   }
 
+  deleteAllPictures() {
+    clearList(this.pictures)
+  }
+
   moveDown(pic) {
     let all = this.pictures
     let index = all.indexOf(pic)
@@ -92,4 +96,10 @@ function swapItems(list, index1, index2) {
   let swapped = list[index1]
   list.splice(index1, 1)
   list.splice(index2, 0, swapped)
+}
+
+// Due to Vue limitations, Array.splice is used.
+// See: https://vuejs.org/v2/guide/list.html#Caveats
+function clearList(list) {
+  list.splice(0)
 }
