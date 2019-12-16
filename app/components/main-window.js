@@ -15,6 +15,12 @@ export const MainWindow = {
             v-translate>
             Upload
         </router-link>
+        <a
+            class="button is-light"
+            v-translate
+            @click="removeAllPictures">
+            Remove all
+        </a>
         <router-link
             to="/settings"
             class="button is-light"
@@ -32,6 +38,16 @@ export const MainWindow = {
       <report-editor class="spread"/>
     </div>
   `,
+
+  methods: {
+    removeAllPictures() {
+      let msg = `Are you sure you want to start from scratch?`
+      if (global.confirm(msg)) {
+        this.report.deleteAllPictures()
+        console.log(`Starting from scratch.`)
+      }
+    },
+  },
 }
 
 Vue.component("main-window", MainWindow)
