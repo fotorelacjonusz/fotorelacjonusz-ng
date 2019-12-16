@@ -59,6 +59,12 @@ html, body, #app {
   max-width: 400px;
 }
 
+.pic-view-icons {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
 .my-navbar {
   box-shadow: 0 0.2rem 0.5em lightslategray;
   padding: 0.5rem;
