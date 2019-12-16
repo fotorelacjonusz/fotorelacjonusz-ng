@@ -11,7 +11,7 @@ export const PicViewWindow = {
   },
 
   template: `
-    <div class="pic-view-window">
+    <div class="pic-view-window panning-window">
       <div class="pic-view-icons">
         <font-awesome-icon
           icon="search-minus"

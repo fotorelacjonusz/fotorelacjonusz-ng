@@ -53,6 +53,11 @@ html, body, #app {
   height: 100%;
 }
 
+.pic-view-window > img {
+  max-width: initial;
+  max-height: initial;
+}
+
 .pic-view-icons {
   position: absolute;
   left: 0.5rem;
