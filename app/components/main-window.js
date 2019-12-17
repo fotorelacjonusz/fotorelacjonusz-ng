@@ -1,12 +1,13 @@
 const Vue = require("vue/dist/vue.common.js")
 
 import "./file-picker.js"
+import "./navbar.js"
 import "./pic-list.js"
 
 export const MainWindow = {
   template: `
     <div class="main-window flex-window">
-      <nav class="my-navbar" role="navigation">
+      <navbar>
         <file-picker class="button is-primary"/>
         <router-link
             to="/forum"
@@ -26,7 +27,7 @@ export const MainWindow = {
             v-translate>
             About this program
         </router-link>
-      </nav>
+      </navbar>
 
       <pic-list class="spread"/>
     </div>

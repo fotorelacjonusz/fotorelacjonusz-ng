@@ -3,14 +3,14 @@ const Vue = require("vue/dist/vue.common.js")
 export const AboutWindow = {
   template: `
     <div class="about-window flex-window">
-      <nav class="my-navbar">
+      <navbar>
         <router-link
             to="/"
             class="button is-light"
             v-translate>
             Back
         </router-link>
-      </nav>
+      </navbar>
 
       <div class="hero">
       <article class="hero-body container">

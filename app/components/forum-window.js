@@ -4,6 +4,7 @@ import { PostingProcessor } from "../processors/posting.js"
 import { UploadingProcessor } from "../processors/uploading.js"
 
 import "./countdown.js"
+import "./navbar.js"
 
 export const ForumWindow = {
   data: function() {
@@ -16,7 +17,7 @@ export const ForumWindow = {
 
   template: `
     <div class="forum-window flex-window">
-      <nav class="my-navbar">
+      <navbar>
         <router-link
             to="/"
             v-show="phase === 'initial'"
@@ -51,7 +52,7 @@ export const ForumWindow = {
         <span class="button my-navbar-span">
             <countdown ref="postingClock"/>
         </span>
-      </nav>
+      </navbar>
 
       <webview
           ref="forumView"

@@ -2,20 +2,21 @@ const Vue = require("vue/dist/vue.common.js")
 
 import { currentSettings } from "../models/settings.js"
 
+import "./navbar.js"
 import "./settings-item.js"
 import "./settings-section.js"
 
 export const SettingsWindow = {
   template: `
     <div class="settings-window flex-window">
-      <nav class="my-navbar">
+      <navbar>
         <router-link
             to="/"
             class="button is-light"
             v-translate>
             Back
         </router-link>
-      </nav>
+      </navbar>
 
       <div class="spread">
         <settings-section title="Interface options">
