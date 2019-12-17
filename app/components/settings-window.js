@@ -3,7 +3,6 @@ const Vue = require("vue/dist/vue.common.js")
 import { currentSettings } from "../models/settings.js"
 
 import "./navbar.js"
-import "./settings-section.js"
 
 export const SettingsWindow = {
   template: `
@@ -18,7 +17,9 @@ export const SettingsWindow = {
       </navbar>
 
       <div class="spread">
-        <settings-section title="Interface options">
+        <div class="settings-section">
+          <h3 class="title is-5" v-translate>Interface options</h3>
+
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label" v-translate>Language</label>
@@ -72,9 +73,11 @@ export const SettingsWindow = {
               </div>
             </div>
           </div>
-        </settings-section>
+        </div>
 
-        <settings-section title="Post layout options">
+        <div class="settings-section">
+          <h3 class="title is-5" v-translate>Post layout options</h3>
+
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label" v-translate>Item template</label>
@@ -99,9 +102,11 @@ export const SettingsWindow = {
               </div>
             </div>
           </div>
-        </settings-section>
+        </div>
 
-        <settings-section title="Photos per post">
+        <div class="settings-section">
+          <h3 class="title is-5" v-translate>Photos per post</h3>
+
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label" v-translate>Maximum</label>
@@ -148,7 +153,7 @@ export const SettingsWindow = {
               </div>
             </div>
           </div>
-        </settings-section>
+        </div>
       </div>
     </div>
   `,
