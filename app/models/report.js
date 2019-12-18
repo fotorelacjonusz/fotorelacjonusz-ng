@@ -10,6 +10,8 @@ export class Report {
     this.header = ""
   }
 
+  get isEmpty() { return this.pictures.length === 0 }
+
   get pictures() { return this._pictures }
 
   addPicture(file) {

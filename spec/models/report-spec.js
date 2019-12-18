@@ -17,6 +17,23 @@ describe("Report model", function() {
     })
   })
 
+  describe(".isEmpty", function() {
+    it("returns true for a report without pictures", function() {
+      let report = factory.report([])
+      expect(report.isEmpty).toBe(true)
+    })
+
+    it("returns false for a report with pictures", function() {
+      let pic1 = factory.picture()
+      let report1 = factory.report([pic1])
+      expect(report1.isEmpty).toBe(false)
+
+      let pic2 = factory.picture()
+      let report2 = factory.report([pic1, pic2])
+      expect(report2.isEmpty).toBe(false)
+    })
+  })
+
   describe(".addPicture(file)", function() {
     it("instantiates a new Picture, and appends it to the report", function() {
       let pic1 = factory.picture()
