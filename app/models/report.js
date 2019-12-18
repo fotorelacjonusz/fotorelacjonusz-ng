@@ -6,6 +6,8 @@ import { currentSettings } from "../models/settings.js"
 export class Report {
   constructor() {
     this._pictures = []
+    this.footer = ""
+    this.header = ""
   }
 
   get pictures() { return this._pictures }

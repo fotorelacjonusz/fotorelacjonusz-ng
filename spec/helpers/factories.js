@@ -6,6 +6,8 @@ global.factory = {
   report: (pictures = []) => {
     let o = Object.create(Report.prototype)
     o._pictures = pictures
+    o.header = "Some header"
+    o.footer = "Some footer"
     return o
   },
 
