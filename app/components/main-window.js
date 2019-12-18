@@ -2,7 +2,7 @@ const Vue = require("vue/dist/vue.common.js")
 
 import "./file-picker.js"
 import "./navbar.js"
-import "./pic-list.js"
+import "./report-editor.js"
 
 export const MainWindow = {
   template: `
@@ -29,7 +29,7 @@ export const MainWindow = {
         </router-link>
       </navbar>
 
-      <pic-list class="spread"/>
+      <report-editor class="spread"/>
     </div>
   `,
 }

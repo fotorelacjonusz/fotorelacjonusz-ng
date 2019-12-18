@@ -20,7 +20,7 @@ html, body, #app {
   overflow-y: auto;
 }
 
-.pic-list > .box {
+.report-editor .box {
   margin: 0.5rem;
 }
 
