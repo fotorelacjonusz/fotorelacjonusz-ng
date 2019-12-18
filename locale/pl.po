@@ -106,6 +106,10 @@ msgstr ""
 "klawiszy Option+Spacja.  Zaleca się pozostawienie tej opcji wyłączonej, "
 "chyba że doświadczasz opisanego problemu."
 
+#: app/components/pic-list.js:54
+msgid "The report is empty."
+msgstr "Fotorelacja jest pusta."
+
 #: app/components/settings-window.js:125
 msgid "There will be %{max} photo(s) per post."
 msgstr "%{max} zdjęć na post."
