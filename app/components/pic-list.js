@@ -9,8 +9,12 @@ export const PicList = {
 
   template: `
     <ol class="pic-list">
-      <li v-for="pic in pictures" class="box pic-item">
+      <li v-for="(pic, idx) in pictures" class="box pic-item">
         <div class="level">
+          <div class="level-left pic-list-number">
+              {{idx+1}}.
+          </div>
+
           <div class="level-item">
             <textarea
                 v-model="pic.text"

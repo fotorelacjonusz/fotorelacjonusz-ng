@@ -28,6 +28,11 @@ html, body, #app {
   margin-bottom: 0.5rem;
 }
 
+.pic-list .pic-list-number {
+  min-width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
 .pic-list .pic-list-icons svg {
   width: 1em;
   margin: 2px;
