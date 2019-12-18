@@ -12,11 +12,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: app/components/forum-window.js:27
+#: app/components/forum-window.js:28
 msgid "Abort"
 msgstr "Przerwij"
 
-#: app/components/main-navbar.js:21
+#: app/components/main-window.js:24
 msgid "About this program"
 msgstr "O programie"
 
@@ -24,7 +24,7 @@ msgstr "O programie"
 msgid "Add photos"
 msgstr "Dodaj zdjęcia"
 
-#: app/components/settings-window.js:113
+#: app/components/settings-window.js:147
 msgid ""
 "Avoid creating posts which are composed of less than %{min}\n"
 "                  photo(s).  Instead, make the last post respectively "
@@ -37,64 +37,92 @@ msgstr ""
 "Gdyby na ostatni (ale nie jedyny) post przypadało mniej niż %{min} zdjęć,\n"
 "nie twórz tego postu, tylko zrób poprzedni odpowiednio dłuższy."
 
-#: app/components/about-window.js:7 app/components/forum-window.js:20
-#: app/components/settings-window.js:9
+#: app/components/about-window.js:7 app/components/forum-window.js:21
+#: app/components/settings-window.js:11
 msgid "Back"
 msgstr "Wróć"
 
-#: app/components/forum-window.js:34
+#: app/components/forum-window.js:35
 msgid "Done"
 msgstr "Zrobione"
 
-#: app/components/settings-window.js:19
+#: app/components/settings-window.js:21
 msgid "Interface options"
 msgstr "Interfejs"
 
-#: app/components/settings-window.js:49
+#: app/components/settings-window.js:83
 msgid "Item template"
 msgstr "Format opisu zdjęcia"
 
-#: app/components/settings-window.js:23
+#: app/components/settings-window.js:25
 msgid "Language"
 msgstr "Język programu"
 
-#: app/components/settings-window.js:78
+#: app/components/settings-window.js:112
 msgid "Maximum"
 msgstr "Maksymalna"
 
-#: app/components/settings-window.js:100
+#: app/components/settings-window.js:134
 msgid "Minimum"
 msgstr "Minimalna"
 
-#: app/components/settings-window.js:74
+#: app/components/settings-window.js:108
 msgid "Photos per post"
 msgstr "Liczba zdjęć na post"
 
-#: app/components/settings-window.js:45
+#: app/components/settings-window.js:79
 msgid "Post layout options"
 msgstr "Układ postów"
 
-#: app/components/forum-window.js:46
+#: app/components/forum-window.js:47
 msgid "Posting: %{progress}"
 msgstr "Posty: %{progress}"
 
-#: app/components/main-navbar.js:15
+#: app/components/main-window.js:18
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: app/components/settings-window.js:91
+#: app/components/settings-window.js:60
+msgid ""
+"SkyScraperCity.com forum substitutes non-breaking white\n"
+"                    spaces with weird-looking asterisks.\n"
+"\n"
+"                    This option prevents that by converting the non-"
+"breaking\n"
+"                    spaces to regular ones.  It is especially useful on "
+"MacOS,\n"
+"                    as it is frequent to accidentally type non-breaking "
+"spaces\n"
+"                    by hitting Option+Space key combination on this system.\n"
+"\n"
+"                    You probably want to keep this setting disabled unless "
+"you\n"
+"                    experience issues."
+msgstr ""
+"Silnik forum SkyScraperCity.com podmienia niełamliwe spacje na dziwaczne "
+"gwiazdki.  Ta opcja zapobiega temu zjawisku zawczasu przekształcając "
+"niełamliwe spacje na zwykłe.  Opcja ta jest szczególnie użyteczna w systemie "
+"MacOS, na którym łatwo niechcący wstawić niełamliwą spację kombinacją "
+"klawiszy Option+Spacja.  Zaleca się pozostawienie tej opcji wyłączonej, "
+"chyba że doświadczasz opisanego problemu."
+
+#: app/components/settings-window.js:125
 msgid "There will be %{max} photo(s) per post."
 msgstr "%{max} zdjęć na post."
 
-#: app/components/main-navbar.js:9
+#: app/components/main-window.js:12
 msgid "Upload"
 msgstr "Wyślij"
 
-#: app/components/forum-window.js:41
+#: app/components/forum-window.js:42
 msgid "Upload: %{progress}"
 msgstr "Zdjęcia: %{progress}"
 
-#: app/components/settings-window.js:61
+#: app/components/settings-window.js:47
+msgid "White spaces"
+msgstr "Białe znaki"
+
+#: app/components/settings-window.js:95
 msgid ""
 "You can use following magic words:<wbr>\n"
 "                    <tt>%DESCRIPTION%</tt> for item description;<wbr>\n"
