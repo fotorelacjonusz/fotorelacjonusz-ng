@@ -50,6 +50,13 @@ export const PicList = {
 
         <p><img :src="pic.displayUrl"></p>
       </li>
+
+      <li
+          v-if="report.isEmpty"
+          class="box has-background-light has-text-weight-medium"
+          v-translate>
+          The report is empty.
+      </li>
     </ol>
   `
 }
