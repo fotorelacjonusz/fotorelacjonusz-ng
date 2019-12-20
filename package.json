@@ -14,7 +14,7 @@
   "license": "UNLICENSED",
   "chromium-args": "--enable-logging=stderr --load-extension='./node_modules/nw-vue-devtools/extension'",
   "build": {
-    "nwFlavor": "normal",
+    "nwFlavor": "sdk",
     "nwVersion": "0.43.1",
     "mac": {
       "displayName": "Fotorelacjonusz",
