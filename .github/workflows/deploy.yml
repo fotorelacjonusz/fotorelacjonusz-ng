@@ -1,0 +1,122 @@
+name: Deploys
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  macos:
+    name: Deploy for ${{ matrix.phoenix_task }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+
+    strategy:
+      fail-fast: false
+
+      # Idea from https://github.community/t5/GitHub-Actions/Create-matrix-with-multiple-OS-and-env-for-each-one/m-p/38574#M3418
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+
+        include:
+        - os: macos-latest
+          package_suffix: macos
+          phoenix_task: mac-x64
+
+        - os: ubuntu-latest
+          package_suffix: linux-amd64
+          phoenix_task: linux-x86,linux-x64
+
+        - os: windows-latest
+          package_suffix: windows
+          phoenix_task: win-x86,win-x64
+
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+
+      - uses: actions/checkout@v1
+
+      - name: Obtain tag name
+        id: tag_name
+        shell: bash
+        # https://github.community/t5/GitHub-Actions/How-to-get-just-the-tag-name/m-p/32167#M1027
+        # https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+        run: |
+          echo "The tag name is ${GITHUB_REF/refs\/tags\//}"
+          echo ::set-env name=VERSION::${GITHUB_REF/refs\/tags\//}
+
+      - name: Prepare artifacts directory
+        shell: bash
+        run: |
+          mkdir -p "${GITHUB_WORKSPACE}/artifacts"
+          echo ::set-env name=ARTIFACTS::${GITHUB_WORKSPACE}/artifacts
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build
+        shell: bash
+        run: node_modules/.bin/build --tasks ${TASKS} --mirror "${MIRROR}" .
+        env:
+          MIRROR: https://dl.nwjs.io
+          TASKS: ${{ matrix.phoenix_task }}
+
+      - name: Package
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          cd dist &&
+          tar czf "${PKG_PREFIX}-32bit.tar.gz" fotorelacjonusz-*-x86 &&
+          tar czf "${PKG_PREFIX}-64bit.tar.gz" fotorelacjonusz-*-x64 &&
+          mv *.tar.gz "${ARTIFACTS}"
+        env:
+          PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-linux
+
+      - name: Package
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          cd dist/fotorelacjonusz-* &&
+          tar czf "${PKG_PREFIX}.tar.gz" Fotorelacjonusz.app &&
+          mv *.tar.gz "${ARTIFACTS}"
+        env:
+          PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-macos
+
+      - name: Package
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          cd dist &&
+          7z a -tzip "${PKG_PREFIX}-32bit.zip" fotorelacjonusz-*-x86 &&
+          7z a -tzip "${PKG_PREFIX}-64bit.zip" fotorelacjonusz-*-x64 &&
+          mv *.zip "${ARTIFACTS}"
+        env:
+          PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-windows
+
+      - name: List artifacts
+        shell: bash
+        run: ls -l "${ARTIFACTS}"
+
+      - name: Upload assets
+        uses: svenstaro/upload-release-action@v1-release
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ env.ARTIFACTS }}/*
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
