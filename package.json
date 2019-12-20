@@ -15,7 +15,7 @@
   "chromium-args": "--enable-logging=stderr --load-extension='./node_modules/nw-vue-devtools/extension'",
   "build": {
     "nwFlavor": "normal",
-    "nwVersion": "0.41.2",
+    "nwVersion": "0.43.1",
     "mac": {
       "displayName": "Fotorelacjonusz",
       "name": "Fotorelacjonusz",
