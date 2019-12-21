@@ -119,7 +119,7 @@ export const SettingsWindow = {
                       class="input"
                       type="number"
                       min="1"
-                      v-model="model.format.picsMax"
+                      v-model.number="model.format.picsMax"
                       @change="onConfigUpdated">
                 </div>
                 <p class="help" v-translate="{max: model.format.picsMax}">
@@ -141,7 +141,7 @@ export const SettingsWindow = {
                       class="input"
                       type="number"
                       min="0"
-                      v-model="model.format.picsMin"
+                      v-model.number="model.format.picsMin"
                       @change="onConfigUpdated">
                 </div>
                 <p class="help" v-translate="{min: model.format.picsMin}">
