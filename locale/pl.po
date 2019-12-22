@@ -48,7 +48,7 @@ msgstr ""
 "nie twórz tego postu, tylko zrób poprzedni odpowiednio dłuższy."
 
 #: app/components/about-window.js:7 app/components/forum-window.js:21
-#: app/components/preparation-window.js:23 app/components/settings-window.js:19
+#: app/components/preparation-window.js:23 app/components/settings-window.js:22
 msgid "Back"
 msgstr "Wróć"
 
@@ -68,6 +68,10 @@ msgstr "Zrobione"
 msgid "Height"
 msgstr "Wysokość"
 
+#: app/components/settings-panel-upload.js:14
+msgid "Hosting service"
+msgstr "Serwis hostingowy"
+
 #: app/components/settings-panel-processing.js:94
 msgid ""
 "If given picture is taller than that, it will be scaled down\n"
@@ -80,6 +84,10 @@ msgid ""
 "                appropriately."
 msgstr ""
 "Zdjęcia, których szerokość przekracza tę liczbę, zostaną przeskalowane."
+
+#: app/components/settings-panel-upload.js:23
+msgid "Imgur (anonymously)"
+msgstr "Imgur (bez logowania)"
 
 #: app/components/settings-panel-interface.js:10
 msgid "Interface options"
@@ -129,6 +137,10 @@ msgstr "Wyłączony"
 #: app/components/settings-panel-processing.js:18
 msgid "Photo processing"
 msgstr "Obróbka zdjęć"
+
+#: app/components/settings-panel-upload.js:10
+msgid "Photo upload"
+msgstr "Hostowanie zdjęć"
 
 #: app/components/settings-panel-pics-count.js:10
 msgid "Photos per post"
