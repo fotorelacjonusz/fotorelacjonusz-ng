@@ -67,6 +67,9 @@ export class Settings {
           height: 1000,
         },
       },
+      uploader: {
+        current: "ImgurAnonUploader",
+      },
     }
   }
 }

@@ -1,6 +1,7 @@
 const fs = require("fs")
 const Jimp = require("jimp")
 
+import { currentSettings } from "../models/settings.js"
 import { repaint } from "../util/repainter.js"
 import * as uploaders from "../uploaders/all.js"
 
@@ -9,7 +10,8 @@ import * as uploaders from "../uploaders/all.js"
 export class UploadingProcessor {
   constructor(report) {
     this._report = report
-    this._uploader = new uploaders.ImgurAnonUploader()
+    let uploaderConstructor = uploaders[currentSettings.data.uploader.current]
+    this._uploader = new uploaderConstructor()
     this._done = false
     this._progress = 0
   }
