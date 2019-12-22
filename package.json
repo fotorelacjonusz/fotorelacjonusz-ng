@@ -45,6 +45,7 @@
     "@jimp/custom": "^0.9.6",
     "@jimp/plugin-resize": "^0.9.6",
     "@jimp/types": "^0.9.6",
+    "basic-ftp": "^4.5.4",
     "blueimp-load-image": "^2.26.0",
     "bulma": "^0.8.1",
     "common-tags": "^1.8.0",
