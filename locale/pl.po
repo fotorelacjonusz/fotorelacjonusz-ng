@@ -58,6 +58,10 @@ msgstr "Zrobione"
 msgid "Height"
 msgstr "Wysokość"
 
+#: app/components/settings-window.js:251
+msgid "Hosting service"
+msgstr "Serwis hostingowy"
+
 #: app/components/settings-window.js:237
 msgid ""
 "If given picture is taller than that, it will be scaled down\n"
@@ -70,6 +74,10 @@ msgid ""
 "                    appropriately."
 msgstr ""
 "Zdjęcia, których szerokość przekracza tę liczbę, zostaną przeskalowane."
+
+#: app/components/settings-window.js:260
+msgid "Imgur (anonymously)"
+msgstr "Imgur (bez logowania)"
 
 #: app/components/settings-window.js:21
 msgid "Interface options"
@@ -115,6 +123,10 @@ msgstr "Dalsze informacje"
 #: app/components/settings-window.js:161
 msgid "Photo processing"
 msgstr "Obróbka zdjęć"
+
+#: app/components/settings-window.js:247
+msgid "Photo upload"
+msgstr "Hostowanie zdjęć"
 
 #: app/components/settings-window.js:110
 msgid "Photos per post"
