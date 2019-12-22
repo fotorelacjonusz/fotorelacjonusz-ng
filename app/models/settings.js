@@ -80,6 +80,9 @@ export class Settings {
           mode: "off",
         },
       },
+      uploader: {
+        current: "ImgurAnonUploader",
+      },
     }
   }
 }
