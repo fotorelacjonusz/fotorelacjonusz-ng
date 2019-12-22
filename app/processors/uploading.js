@@ -1,15 +1,15 @@
 const fs = require("fs")
 const Jimp = require("jimp")
 
-import { ImgurAnonUploader } from "../uploaders/imgur-anon.js"
 import { repaint } from "../util/repainter.js"
+import * as uploaders from "../uploaders/all.js"
 
 // TODO Signal progress with events.
 
 export class UploadingProcessor {
   constructor(report) {
     this._report = report
-    this._uploader = new ImgurAnonUploader()
+    this._uploader = new uploaders.ImgurAnonUploader()
     this._done = false
     this._progress = 0
   }
