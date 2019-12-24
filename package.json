@@ -11,7 +11,7 @@
     "test": "jasmine --require=esm"
   },
   "author": "Sebastian Skałacki <skalee@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "GPL-3.0-or-later",
   "chromium-args": "--enable-logging=stderr --load-extension='./node_modules/nw-vue-devtools/extension'",
   "build": {
     "nwFlavor": "sdk",
