@@ -16,6 +16,8 @@ jobs:
           node-version: 12.x
       - name: Install dependencies
         run: npm install
+      - name: Validate package.json
+        run: node_modules/.bin/pjv --spec npm --warnings --recommendations
       - name: Run tests
         run: npm test
 
