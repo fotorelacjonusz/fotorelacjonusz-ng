@@ -23,11 +23,55 @@ export const SettingsPanelUpload = {
                   <option value="ImgurAnonUploader" v-translate>
                       Imgur (anonymously)
                   </option>
+                  <option value="FtpUploader" v-translate>
+                      FTP
+                  </option>
               </select>
             </div>
           </div>
         </div>
       </div>
+
+      <div
+          class="field is-horizontal"
+          v-show="model.uploader.current === 'FtpUploader'">
+        <div class="field-label is-normal">
+          <label class="label" v-translate>Server</label>
+        </div>
+
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input
+                  class="input"
+                  type="text"
+                  v-model="model.uploader.ftp.server"
+                  @change="onConfigUpdated">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+          class="field is-horizontal"
+          v-show="model.uploader.current === 'FtpUploader'">
+        <div class="field-label is-normal">
+          <label class="label" v-translate>User name</label>
+        </div>
+
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input
+                  class="input"
+                  type="text"
+                  v-model="model.uploader.ftp.user"
+                  @change="onConfigUpdated">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   `,
 }

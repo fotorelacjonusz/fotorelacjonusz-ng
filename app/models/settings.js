@@ -82,6 +82,10 @@ export class Settings {
       },
       uploader: {
         current: "ImgurAnonUploader",
+        ftp: {
+          server: "",
+          user: "",
+        },
       },
     }
   }
