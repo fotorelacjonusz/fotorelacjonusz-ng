@@ -5,7 +5,7 @@ import { currentSettings } from "../models/settings.js"
 export class FtpUploader {
   constructor() {
     this._client = new ftp.Client()
-    client.ftp.verbose = true
+    this.client.ftp.verbose = true
   }
 
   get client() {
@@ -15,11 +15,13 @@ export class FtpUploader {
   async uploadFile(file) {
     await this.connect()
     await client.uploadFrom(file, "README_FTP.md")
+
+    return {remoteUrl: ""}
   }
 
   connect() {
     if (!this._connected) {
-      this._connected = client.access({
+      this._connected = this.client.access({
         host: currentSettings.data.uploader.ftp.server,
         user: currentSettings.data.uploader.ftp.user,
         password: "password",
