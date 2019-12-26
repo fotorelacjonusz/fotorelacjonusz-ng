@@ -21,7 +21,7 @@
     "nwFlavor": "sdk",
     "nwVersion": "0.43.1",
     "strippedProperties": [
-      "build", "devDependencies", "scripts"
+      "build", "devDependencies", "jshintConfig", "scripts"
     ],
     "mac": {
       "displayName": "Fotorelacjonusz",
