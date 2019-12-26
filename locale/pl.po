@@ -38,7 +38,7 @@ msgstr ""
 "nie twórz tego postu, tylko zrób poprzedni odpowiednio dłuższy."
 
 #: app/components/about-window.js:7 app/components/forum-window.js:21
-#: app/components/settings-window.js:11
+#: app/components/preparation-window.js:23 app/components/settings-window.js:11
 msgid "Back"
 msgstr "Wróć"
 
@@ -78,6 +78,10 @@ msgstr "Układ postów"
 msgid "Posting: %{progress}"
 msgstr "Posty: %{progress}"
 
+#: app/components/preparation-window.js:30
+msgid "Proceed"
+msgstr "Dalej"
+
 #: app/components/main-window.js:18
 msgid "Settings"
 msgstr "Ustawienia"
@@ -106,7 +110,7 @@ msgstr ""
 "klawiszy Option+Spacja.  Zaleca się pozostawienie tej opcji wyłączonej, "
 "chyba że doświadczasz opisanego problemu."
 
-#: app/components/pic-list.js:54
+#: app/components/pic-list.js:58
 msgid "The report is empty."
 msgstr "Fotorelacja jest pusta."
 
@@ -125,6 +129,14 @@ msgstr "Zdjęcia: %{progress}"
 #: app/components/settings-window.js:47
 msgid "White spaces"
 msgstr "Białe znaki"
+
+#: app/components/preparation-window.js:14
+msgid ""
+"You are going to post a photo report which consists of\n"
+"            %{posts} post(s) with %{pics} picture(s) in total."
+msgstr ""
+"Zamierzasz wysłać fotorelację składającą się z "
+"%{posts} postów, w których jest łącznie %{pics} zdjęć."
 
 #: app/components/settings-window.js:95
 msgid ""

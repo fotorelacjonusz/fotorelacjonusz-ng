@@ -2,6 +2,7 @@ const VueRouter = require("vue-router")
 
 import { AboutWindow } from "./components/about-window.js"
 import { ForumWindow } from "./components/forum-window.js"
+import { PreparationWindow } from "./components/preparation-window.js"
 import { SettingsWindow } from "./components/settings-window.js"
 import { MainWindow } from "./components/main-window.js"
 
@@ -10,6 +11,7 @@ export const router = new VueRouter({
   routes: [
     { path: "/", component: MainWindow },
     { path: "/about", component: AboutWindow },
+    { path: "/preparation", component: PreparationWindow },
     { path: "/forum", component: ForumWindow },
     { path: "/settings", component: SettingsWindow },
   ]

@@ -10,7 +10,7 @@ export const MainWindow = {
       <navbar>
         <file-picker class="button is-primary"/>
         <router-link
-            to="/forum"
+            to="/preparation"
             class="button is-light"
             v-translate>
             Upload
