@@ -20,6 +20,9 @@
   "build": {
     "nwFlavor": "sdk",
     "nwVersion": "0.43.1",
+    "strippedProperties": [
+      "build", "devDependencies", "scripts"
+    ],
     "mac": {
       "displayName": "Fotorelacjonusz",
       "name": "Fotorelacjonusz",
