@@ -21,7 +21,11 @@
     "nwFlavor": "sdk",
     "nwVersion": "0.43.2",
     "strippedProperties": [
-      "build", "chromium-args", "devDependencies", "jshintConfig", "scripts"
+      "build",
+      "chromium-args",
+      "devDependencies",
+      "jshintConfig",
+      "scripts"
     ],
     "mac": {
       "displayName": "Fotorelacjonusz",
