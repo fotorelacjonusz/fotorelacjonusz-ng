@@ -30,11 +30,13 @@
     "mac": {
       "displayName": "Fotorelacjonusz",
       "name": "Fotorelacjonusz",
-      "copyright": "Copyright © 2019\nby Sebastian Skałacki.\nGPL v3 or later."
+      "copyright": "Copyright © 2019\nby Sebastian Skałacki.\nGPL v3 or later.",
+      "icon": "icon/macos.icns"
     },
     "win": {
       "productName": "Fotorelacjonusz",
-      "copyright": "Copyright © 2019 by Sebastian Skałacki. GPL v3 or later."
+      "copyright": "Copyright © 2019 by Sebastian Skałacki. GPL v3 or later.",
+      "icon": "icon/rounded_6XW_icon.ico"
     }
   },
   "dependencies": {
