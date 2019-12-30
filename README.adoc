@@ -86,5 +86,8 @@ You may also want to take a look at:
 
 == Thanks
 
-Many thanks to Kamil OST, who wrote the original C++ version of Fotorelacjonusz,
-and to everyone who posts photo reports with this program or manually.
+Many thanks to Kamil OST, who wrote the original C++ version of
+Fotorelacjonusz;
+to https://github.com/marteczek/[MariuszLu] and his Friend, who contributed
+the program icon;
+and to everyone who posts photo reports with or without help of this program.
