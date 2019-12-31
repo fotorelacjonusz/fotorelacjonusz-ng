@@ -12,10 +12,11 @@ const { fabric } = require("fabric")
 //   })
 // }
 
-export function repaint(image) {
-  let scaledImage = scaleImage(image)
+export function repaint(imageURL) {
+  // let scaledImage = scaleImage(imageURL)
   let canvas = new fabric.StaticCanvas(null, { width: 1000, height: 1000 })
-  canvas.add(scaledImage)
+  // canvas.add(scaledImage)
+  canvas.setBackgroundImage(imageURL)
   canvas.requestRenderAll()
   return canvas
 }
