@@ -46,6 +46,23 @@ msgstr "Wróć"
 msgid "Done"
 msgstr "Zrobione"
 
+#: app/components/settings-window.js:217
+msgid "Height"
+msgstr "Wysokość"
+
+#: app/components/settings-window.js:235
+msgid ""
+"If given picture is taller than that, it will be scaled down\n"
+"                    appropriately."
+msgstr "Zdjęcia, których wysokość przekracza tę liczbę, zostaną przeskalowane."
+
+#: app/components/settings-window.js:205
+msgid ""
+"If given picture is wider than that, it will be scaled down\n"
+"                    appropriately."
+msgstr ""
+"Zdjęcia, których szerokość przekracza tę liczbę, zostaną przeskalowane."
+
 #: app/components/settings-window.js:21
 msgid "Interface options"
 msgstr "Interfejs"
@@ -66,6 +83,10 @@ msgstr "Maksymalna"
 msgid "Minimum"
 msgstr "Minimalna"
 
+#: app/components/settings-window.js:159
+msgid "Photo processing"
+msgstr "Obróbka zdjęć"
+
 #: app/components/settings-window.js:108
 msgid "Photos per post"
 msgstr "Liczba zdjęć na post"
@@ -81,6 +102,14 @@ msgstr "Posty: %{progress}"
 #: app/components/preparation-window.js:30
 msgid "Proceed"
 msgstr "Dalej"
+
+#: app/components/settings-window.js:163
+msgid "Resize photos"
+msgstr "Rozmiar zdjęć"
+
+#: app/components/settings-window.js:176
+msgid "Scale down large photos"
+msgstr "Zmniejszaj zbyt duże zdjęcia"
 
 #: app/components/main-window.js:18
 msgid "Settings"
@@ -130,13 +159,17 @@ msgstr "Zdjęcia: %{progress}"
 msgid "White spaces"
 msgstr "Białe znaki"
 
+#: app/components/settings-window.js:187
+msgid "Width"
+msgstr "Szerokość"
+
 #: app/components/preparation-window.js:14
 msgid ""
 "You are going to post a photo report which consists of\n"
 "            %{posts} post(s) with %{pics} picture(s) in total."
 msgstr ""
-"Zamierzasz wysłać fotorelację składającą się z "
-"%{posts} postów, w których jest łącznie %{pics} zdjęć."
+"Zamierzasz wysłać fotorelację składającą się z %{posts} postów, w których "
+"jest łącznie %{pics} zdjęć."
 
 #: app/components/settings-window.js:95
 msgid ""

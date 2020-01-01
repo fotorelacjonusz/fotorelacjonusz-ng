@@ -60,6 +60,13 @@ export class Settings {
         fixNBSpaces: false,
         locale: "en",
       },
+      processing: {
+        resize: {
+          mode: "never",
+          width: 1000,
+          height: 1000,
+        },
+      },
     }
   }
 }
