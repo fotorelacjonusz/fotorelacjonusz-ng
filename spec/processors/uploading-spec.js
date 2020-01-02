@@ -7,8 +7,8 @@ describe("UploadingProcessor", function() {
 
   describe(".perform()", function() {
     beforeEach(function() {
-      this.pic1 = factory.picture("pic1.jpg")
-      this.pic2 = factory.picture("pic2.jpg")
+      this.pic1 = factory.picture("blue.jpg")
+      this.pic2 = factory.picture("red.jpg")
       let allPics = [this.pic1, this.pic2]
       this.processor = new UploadingProcessor(factory.report(allPics))
 
@@ -24,9 +24,9 @@ describe("UploadingProcessor", function() {
     it("uploads all pictures in report", async function() {
       await this.processor.perform()
 
-      expect(this.pic1.remoteUrl).toEqual("https://i.example.com/pic1.jpg")
+      expect(this.pic1.remoteUrl).toEqual("https://i.example.com/blue.jpg")
       expect(this.pic1.upload).toEqual({some: "data"})
-      expect(this.pic2.remoteUrl).toEqual("https://i.example.com/pic2.jpg")
+      expect(this.pic2.remoteUrl).toEqual("https://i.example.com/red.jpg")
       expect(this.pic2.upload).toEqual({some: "data"})
 
       expect(this.processor.hasCompleted).toBe(true)
