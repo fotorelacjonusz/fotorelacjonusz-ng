@@ -30,9 +30,11 @@ var app = new Vue({
 window.ondragover = (e) => e.preventDefault()
 window.ondrop = (e) => e.preventDefault()
 
-// Following one-liner fixes Vue Devtools.   It should not be necessary, as
+// Following piece of code fixes Vue Devtools.   It should not be necessary, as
 // NW-Vue-Devtools NPM package cares about loading devtools.  However, since
 // commit 124e82d3a15930f1215321988b it does not happen for some reason.
 // Neither setting "Vue.config.devtools" helps.  This solution comes from:
 // https://github.com/vuejs/vue-devtools#force-enable-the-devtools.
-window.__VUE_DEVTOOLS_GLOBAL_HOOK__.Vue = app.constructor
+if (window.__VUE_DEVTOOLS_GLOBAL_HOOK__) {
+  window.__VUE_DEVTOOLS_GLOBAL_HOOK__.Vue = app.constructor
+}
