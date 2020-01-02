@@ -25,8 +25,6 @@ function resize(jimpImage) {
     return jimpImage
   }
 
-  console.log("doing")
-
   const requestedDimensions =
     timesTooWide > timesTooHigh ? [maxWidth, Jimp.AUTO] : [Jimp.AUTO, maxHeight]
 
