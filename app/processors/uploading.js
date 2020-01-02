@@ -1,6 +1,8 @@
 const fs = require("fs")
+const Jimp = require("jimp")
 
 import { ImgurAnonUploader } from "../uploaders/imgur-anon.js"
+import { repaint } from "../util/repainter.js"
 
 // TODO Signal progress with events.
 
@@ -23,7 +25,7 @@ export class UploadingProcessor {
     for (let i = 0; i < this._report.pictures.length; i++) {
       let pic = this._report.pictures[i]
       let fileName = pic.originalFile.name
-      let buffer = fs.readFileSync(pic.originalFile.path)
+      let buffer = await repaintFromFile(pic.originalFile)
       let picUpdates = await this._uploader.uploadFile(fileName, buffer)
       Object.assign(pic, picUpdates)
       console.log(`Uploaded picture ${pic.originalFile.name}`)
@@ -33,4 +35,10 @@ export class UploadingProcessor {
     this._done = true
     console.info(`Done with photo report upload.`)
   }
+}
+
+async function repaintFromFile(file) {
+  const jimpImage = await Jimp.read(file.path)
+  const repainted = repaint(jimpImage)
+  return await repainted.getBufferAsync(Jimp.AUTO)
 }
