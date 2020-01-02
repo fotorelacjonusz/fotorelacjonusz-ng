@@ -6,7 +6,7 @@ const IMGUR_CLIENT_ID = "8de2eccb47ccc43"
 
 export class ImgurAnonUploader {
   async uploadFile(fileName, buffer) {
-    let form = this.buildUploadForm(buffer)
+    let form = this.buildUploadForm(fileName, buffer)
     var response
     try {
       console.log(`Uploading "${fileName}" via ${this.constructor.name}`)
@@ -25,10 +25,10 @@ export class ImgurAnonUploader {
     return {remoteUrl: parsedResponse.data.link, upload: parsedResponse.data}
   }
 
-  buildUploadForm(buffer) {
+  buildUploadForm(fileName, buffer) {
     let form = new FormData()
     form.append("type", "file")
-    form.append("image", buffer)
+    form.append("image", buffer, {filename: fileName})
     return form
   }
 
