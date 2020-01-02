@@ -27,11 +27,8 @@ function resize(jimpImage) {
 
   console.log("doing")
 
-  const requestedDimensions = (
-    timesTooWide > timesTooHigh
-    ? [maxWidth, Jimp.AUTO]
-    : [Jimp.AUTO, maxHeight]
-  )
+  const requestedDimensions =
+    timesTooWide > timesTooHigh ? [maxWidth, Jimp.AUTO] : [Jimp.AUTO, maxHeight]
 
   return jimpImage.resize(...requestedDimensions)
 }
