@@ -12,11 +12,13 @@ describe("UploadingProcessor", function() {
       let allPics = [this.pic1, this.pic2]
       this.processor = new UploadingProcessor(factory.report(allPics))
 
-      sinon.stub(this.processor._uploader, "uploadFile").callsFake((file) => {
-        let remoteUrl = `https://i.example.com/${file.name}`
-        let upload = {some: "data"}
-        return {remoteUrl, upload}
-      })
+      sinon.
+        stub(this.processor._uploader, "uploadFile").
+        callsFake((fileName, blob) => {
+          let remoteUrl = `https://i.example.com/${fileName}`
+          let upload = {some: "data"}
+          return {remoteUrl, upload}
+        })
     })
 
     it("uploads all pictures in report", async function() {

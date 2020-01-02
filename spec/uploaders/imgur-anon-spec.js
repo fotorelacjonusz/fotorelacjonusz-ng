@@ -18,7 +18,8 @@ describe("ImgurAnonUploader", function() {
 
   describe(".uploadFile()", function() {
     beforeEach(function() {
-      this.file = factory.file("blue.jpg")
+      this.name = "blue.jpg"
+      this.blob = "some-data"
       this.uploader = new ImgurAnonUploader()
 
       this.fakeResponse = {
@@ -38,17 +39,17 @@ describe("ImgurAnonUploader", function() {
     })
 
     it("uploads file to Imgur", async function() {
-      await this.uploader.uploadFile(this.file)
+      await this.uploader.uploadFile(this.name, this.blob)
       expect(this.apiCall.isDone()).toBe(true)
     })
 
     it("authenticates with Imgur Client ID", async function() {
       this.apiCall.matchHeader("authorization", "Client-ID 8de2eccb47ccc43")
-      await this.uploader.uploadFile(this.file)
+      await this.uploader.uploadFile(this.name, this.blob)
     })
 
     it("returns remote URL and upload data", async function() {
-      let retval = await this.uploader.uploadFile(this.file)
+      let retval = await this.uploader.uploadFile(this.name, this.blob)
       expect(retval.remoteUrl).toEqual("https://i.imgur.com/fake.jpg")
       expect(retval.upload).toEqual(this.fakeResponse.data)
     })

@@ -1,3 +1,5 @@
+const fs = require("fs")
+
 import { ImgurAnonUploader } from "../uploaders/imgur-anon.js"
 
 // TODO Signal progress with events.
@@ -20,7 +22,9 @@ export class UploadingProcessor {
 
     for (let i = 0; i < this._report.pictures.length; i++) {
       let pic = this._report.pictures[i]
-      let picUpdates = await this._uploader.uploadFile(pic.originalFile)
+      let fileName = pic.originalFile.name
+      let buffer = fs.readFileSync(pic.originalFile.path)
+      let picUpdates = await this._uploader.uploadFile(fileName, buffer)
       Object.assign(pic, picUpdates)
       console.log(`Uploaded picture ${pic.originalFile.name}`)
       this._progress = (i + 1) / this._report.pictures.length
