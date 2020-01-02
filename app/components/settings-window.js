@@ -55,7 +55,9 @@ export const SettingsWindow = {
                       class="checkbox"
                       v-model="model.interface.fixNBSpaces"
                       @change="onConfigUpdated">
-                    Convert non-breaking white spaces to regular ones
+                    <translate>
+                      Convert non-breaking white spaces to regular ones
+                    </translate>
                   </label>
                   <p class="help" v-translate>
                     SkyScraperCity.com forum substitutes non-breaking white

@@ -24,7 +24,7 @@ msgstr "O programie"
 msgid "Add photos"
 msgstr "Dodaj zdjęcia"
 
-#: app/components/settings-window.js:147
+#: app/components/settings-window.js:149
 msgid ""
 "Avoid creating posts which are composed of less than %{min}\n"
 "                  photo(s).  Instead, make the last post respectively "
@@ -42,21 +42,25 @@ msgstr ""
 msgid "Back"
 msgstr "Wróć"
 
+#: app/components/settings-window.js:58
+msgid "Convert non-breaking white spaces to regular ones"
+msgstr "Przekształcaj niełamliwe spacje na normalne"
+
 #: app/components/forum-window.js:35
 msgid "Done"
 msgstr "Zrobione"
 
-#: app/components/settings-window.js:217
+#: app/components/settings-window.js:219
 msgid "Height"
 msgstr "Wysokość"
 
-#: app/components/settings-window.js:235
+#: app/components/settings-window.js:237
 msgid ""
 "If given picture is taller than that, it will be scaled down\n"
 "                    appropriately."
 msgstr "Zdjęcia, których wysokość przekracza tę liczbę, zostaną przeskalowane."
 
-#: app/components/settings-window.js:205
+#: app/components/settings-window.js:207
 msgid ""
 "If given picture is wider than that, it will be scaled down\n"
 "                    appropriately."
@@ -67,7 +71,7 @@ msgstr ""
 msgid "Interface options"
 msgstr "Interfejs"
 
-#: app/components/settings-window.js:83
+#: app/components/settings-window.js:85
 msgid "Item template"
 msgstr "Format opisu zdjęcia"
 
@@ -75,23 +79,23 @@ msgstr "Format opisu zdjęcia"
 msgid "Language"
 msgstr "Język programu"
 
-#: app/components/settings-window.js:112
+#: app/components/settings-window.js:114
 msgid "Maximum"
 msgstr "Maksymalna"
 
-#: app/components/settings-window.js:134
+#: app/components/settings-window.js:136
 msgid "Minimum"
 msgstr "Minimalna"
 
-#: app/components/settings-window.js:159
+#: app/components/settings-window.js:161
 msgid "Photo processing"
 msgstr "Obróbka zdjęć"
 
-#: app/components/settings-window.js:108
+#: app/components/settings-window.js:110
 msgid "Photos per post"
 msgstr "Liczba zdjęć na post"
 
-#: app/components/settings-window.js:79
+#: app/components/settings-window.js:81
 msgid "Post layout options"
 msgstr "Układ postów"
 
@@ -103,11 +107,11 @@ msgstr "Posty: %{progress}"
 msgid "Proceed"
 msgstr "Dalej"
 
-#: app/components/settings-window.js:163
+#: app/components/settings-window.js:165
 msgid "Resize photos"
 msgstr "Rozmiar zdjęć"
 
-#: app/components/settings-window.js:176
+#: app/components/settings-window.js:178
 msgid "Scale down large photos"
 msgstr "Zmniejszaj zbyt duże zdjęcia"
 
@@ -115,7 +119,7 @@ msgstr "Zmniejszaj zbyt duże zdjęcia"
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: app/components/settings-window.js:60
+#: app/components/settings-window.js:62
 msgid ""
 "SkyScraperCity.com forum substitutes non-breaking white\n"
 "                    spaces with weird-looking asterisks.\n"
@@ -143,7 +147,7 @@ msgstr ""
 msgid "The report is empty."
 msgstr "Fotorelacja jest pusta."
 
-#: app/components/settings-window.js:125
+#: app/components/settings-window.js:127
 msgid "There will be %{max} photo(s) per post."
 msgstr "%{max} zdjęć na post."
 
@@ -159,7 +163,7 @@ msgstr "Zdjęcia: %{progress}"
 msgid "White spaces"
 msgstr "Białe znaki"
 
-#: app/components/settings-window.js:187
+#: app/components/settings-window.js:189
 msgid "Width"
 msgstr "Szerokość"
 
@@ -171,7 +175,7 @@ msgstr ""
 "Zamierzasz wysłać fotorelację składającą się z %{posts} postów, w których "
 "jest łącznie %{pics} zdjęć."
 
-#: app/components/settings-window.js:95
+#: app/components/settings-window.js:97
 msgid ""
 "You can use following magic words:<wbr>\n"
 "                    <tt>%DESCRIPTION%</tt> for item description;<wbr>\n"
