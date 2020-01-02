@@ -8,7 +8,7 @@ jobs:
   macos:
     name: Deploy for ${{ matrix.phoenix_task }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 20
+    timeout-minutes: 45
 
     strategy:
       fail-fast: false
