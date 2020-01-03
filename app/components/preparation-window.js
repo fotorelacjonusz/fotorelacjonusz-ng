@@ -1,5 +1,7 @@
 const Vue = require("vue/dist/vue.common.js")
 
+import { IMGUR_CLIENT_ID } from "../uploaders/imgur-anon.js"
+
 export const PreparationWindow = {
   data: function() {
     return {
@@ -21,11 +23,12 @@ export const PreparationWindow = {
 
       <div class="container uploader-additional-config">
         <webview
-          ref="imgurLoginView"
-          :src="authURL"
-          partition="persist:fotorelacjonusz"
-          class="spread"
-          style="overflow: hidden;">
+            ref="imgurLoginView"
+            :src="authURL"
+            partition="persist:fotorelacjonusz"
+            class="spread"
+            style="overflow: hidden;">
+        </webview>
       </div>
 
       <div class="container buttons-bar">
