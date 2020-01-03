@@ -17,13 +17,12 @@ export const PreparationWindow = {
             You are going to post a photo report which consists of
             %{posts} post(s) with %{pics} picture(s) in total.
         </p>
+      </div>
+
+      <div class="container uploader-additional-config">
         <webview
           ref="imgurLoginView"
           :src="authURL"
-
-
-
-
           partition="persist:fotorelacjonusz"
           class="spread"
           style="overflow: hidden;">
