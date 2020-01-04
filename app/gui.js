@@ -7,6 +7,7 @@ const { fas } = require("@fortawesome/free-solid-svg-icons")
 const { FontAwesomeIcon } = require("@fortawesome/vue-fontawesome")
 
 import { Report } from "./models/report.js"
+import { attachFileDrop } from "./util/file-drop.js"
 import { gettextPluginConfig } from "./util/i18n.js"
 import { router } from "./routes.js"
 
@@ -27,8 +28,7 @@ var app = new Vue({
   template: `<div id="app"><router-view></router-view></div>`
 })
 
-window.ondragover = (e) => e.preventDefault()
-window.ondrop = (e) => e.preventDefault()
+attachFileDrop(app)
 
 // Following piece of code fixes Vue Devtools.   It should not be necessary, as
 // NW-Vue-Devtools NPM package cares about loading devtools.  However, since

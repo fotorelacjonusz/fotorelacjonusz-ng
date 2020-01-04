@@ -6,7 +6,7 @@ import "./report-editor.js"
 
 export const MainWindow = {
   template: `
-    <div class="main-window flex-window">
+    <div class="main-window flex-window accepts-file-drop">
       <navbar>
         <file-picker class="button is-primary"/>
         <router-link
