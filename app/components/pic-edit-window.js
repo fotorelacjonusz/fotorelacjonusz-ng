@@ -31,24 +31,28 @@ export const PicEditWindow = {
           @click="zoomOut" />
       </div>
 
-      <div id="tui-image-editor"></div>
+      <div ref="editor"></div>
 
       <img class="picture" :src="picture.displayUrl">
     </div>
   `,
 
-  mounted() {
-var instance = new ImageEditor(document.querySelector('#tui-image-editor'), {
-    cssMaxWidth: 700,
-    cssMaxHeight: 500,
-    selectionStyle: {
-        cornerSize: 20,
-        rotatingPointOffset: 70
-    }
-});
-  },
+  mounted() { this.setUpEditor() },
 
   methods: {
+    setUpEditor() {
+      this.instance = new ImageEditor(this.$refs.editor, {
+        cssMaxWidth: 700,
+        cssMaxHeight: 500,
+        selectionStyle: {
+          cornerSize: 20,
+          rotatingPointOffset: 70
+        }
+      })
+
+      this.instance.loadImageFromURL(this.picture.displayUrl, "wtf")
+    },
+
     zoomOut() {
       this.$router.push("/")
     },
