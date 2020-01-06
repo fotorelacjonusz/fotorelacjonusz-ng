@@ -82,7 +82,7 @@ var th = { // or white
      //     // locale: locale_ru_RU,
          theme: th,
          initMenu: 'filter',
-         menuBarPosition: 'bottom',
+         menuBarPosition: 'right',
      },
                   usageStatistics: false,
         cssMaxWidth: 700,
