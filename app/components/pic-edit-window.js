@@ -2,7 +2,11 @@ const Vue = require("vue/dist/vue.common.js")
 
 // const { ImageEditor } = require("@toast-ui/vue-image-editor")
 // const {ImageEditor} = require('@toast-ui/vue-image-editor');
-const ImageEditor = require('tui-image-editor');
+const ImageEditor = require("tui-image-editor")
+
+// const whiteTheme = require("tui-image-editor/js/ui/theme")
+
+
 export const PicEditWindow = {
   // components: {
   //   "tui-image-editor": ImageEditor,
@@ -31,10 +35,7 @@ export const PicEditWindow = {
           @click="zoomOut" />
       </div>
 
-      <div ref="editor" style="height: 800px">
-
-          <canvas></canvas>
-          </div>
+      <div ref="editor"></div>
 
       <!-- img class="picture" :src="picture.displayUrl" -->
     </div>
@@ -53,18 +54,37 @@ export const PicEditWindow = {
 //     // etc...
 // };
 
+const icona = ('node_modules/tui-image-editor/dist/svg/icon-a.svg')
+const iconb = ('node_modules/tui-image-editor/dist/svg/icon-b.svg')
+const iconc = ('node_modules/tui-image-editor/dist/svg/icon-c.svg')
+const icond = ('node_modules/tui-image-editor/dist/svg/icon-d.svg')
+// const icona = require('tui-image-editor/dist/svg/icon-a.svg')
+// const iconb = require('tui-image-editor/dist/svg/icon-b.svg')
+// const iconc = require('tui-image-editor/dist/svg/icon-c.svg')
+// const icond = require('tui-image-editor/dist/svg/icon-d.svg')
+//const bg = require('tui-image-editor/examples/img/bg.png')
+var th = { // or white
+  // main icons
+  'menu.normalIcon.path': icond,
+  'menu.activeIcon.path': iconb,
+  'menu.disabledIcon.path': icona,
+  'menu.hoverIcon.path': iconc,
+}
+
 
       this.instance = new ImageEditor(this.$refs.editor, {
      includeUI: {
-         loadImage: {
-             url: this.picture.displayUrl,
-             name: 'SampleImage'
-         },
-         // locale: locale_ru_RU,
-         // theme: blackTheme, // or whiteTheme
+         // loadImage: {
+         //     path: this.picture.displayUrl,
+         //     name: 'SampleImage',
+         // },
+          menu: ['shape', 'crop'],
+     //     // locale: locale_ru_RU,
+         theme: th,
          initMenu: 'filter',
-         menuBarPosition: 'bottom'
+         menuBarPosition: 'bottom',
      },
+                  usageStatistics: false,
         cssMaxWidth: 700,
         cssMaxHeight: 500,
         selectionStyle: {
@@ -73,7 +93,10 @@ export const PicEditWindow = {
         }
       })
 
-      this.instance.loadImageFromURL(this.picture.displayUrl, "wtf")
+      this.instance.loadImageFromURL(this.picture.displayUrl, "wtf").then(result => {
+     console.log('old : ' + result.oldWidth + ', ' + result.oldHeight);
+     console.log('new : ' + result.newWidth + ', ' + result.newHeight);
+});
     },
 
     zoomOut() {
