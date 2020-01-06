@@ -54,33 +54,17 @@ export const PicEditWindow = {
 //     // etc...
 // };
 
-const icona = ('node_modules/tui-image-editor/dist/svg/icon-a.svg')
-const iconb = ('node_modules/tui-image-editor/dist/svg/icon-b.svg')
-const iconc = ('node_modules/tui-image-editor/dist/svg/icon-c.svg')
-const icond = ('node_modules/tui-image-editor/dist/svg/icon-d.svg')
-// const icona = require('tui-image-editor/dist/svg/icon-a.svg')
-// const iconb = require('tui-image-editor/dist/svg/icon-b.svg')
-// const iconc = require('tui-image-editor/dist/svg/icon-c.svg')
-// const icond = require('tui-image-editor/dist/svg/icon-d.svg')
-//const bg = require('tui-image-editor/examples/img/bg.png')
-var th = { // or white
-  // main icons
-  'menu.normalIcon.path': icond,
-  'menu.activeIcon.path': iconb,
-  'menu.disabledIcon.path': icona,
-  'menu.hoverIcon.path': iconc,
-}
 
 
       this.instance = new ImageEditor(this.$refs.editor, {
      includeUI: {
-         // loadImage: {
-         //     path: this.picture.displayUrl,
-         //     name: 'SampleImage',
-         // },
-          menu: ['shape', 'crop'],
+         loadImage: {
+             path: this.picture.displayUrl,
+             name: 'SampleImage',
+         },
+          menu: ['shape', 'crop', 'rotate'],
      //     // locale: locale_ru_RU,
-         theme: th,
+         theme: this.editorTheme,
          initMenu: 'filter',
          menuBarPosition: 'right',
      },
@@ -93,16 +77,32 @@ var th = { // or white
         }
       })
 
-      this.instance.loadImageFromURL(this.picture.displayUrl, "wtf").then(result => {
-     console.log('old : ' + result.oldWidth + ', ' + result.oldHeight);
-     console.log('new : ' + result.newWidth + ', ' + result.newHeight);
-});
+//       this.instance.loadImageFromURL(this.picture.displayUrl, "wtf").then(result => {
+//      console.log('old : ' + result.oldWidth + ', ' + result.oldHeight);
+//      console.log('new : ' + result.newWidth + ', ' + result.newHeight);
+// });
     },
 
     zoomOut() {
       this.$router.push("/")
     },
   },
+
+  computed: {
+    editorTheme() {
+      const icona = "node_modules/tui-image-editor/dist/svg/icon-a.svg"
+      const iconb = "node_modules/tui-image-editor/dist/svg/icon-b.svg"
+      const iconc = "node_modules/tui-image-editor/dist/svg/icon-c.svg"
+      const icond = "node_modules/tui-image-editor/dist/svg/icon-d.svg"
+      return {
+        //const bg = require('tui-image-editor/examples/img/bg.png')
+        "menu.normalIcon.path": icond,
+        "menu.activeIcon.path": iconb,
+        "menu.disabledIcon.path": icona,
+        "menu.hoverIcon.path": iconc,
+      }
+    },
+  }
 }
 
 Vue.component("pic-edit-window", PicEditWindow)
