@@ -9,7 +9,7 @@ export const ReportEditor = {
 
   template: `
     <div class="report-editor" :class="viewModeClass">
-      <p class="box">
+      <p class="box hide-on-view-mode-thumbs">
         <textarea
             v-model="report.header"
             class="textarea has-fixed-size "
@@ -19,7 +19,7 @@ export const ReportEditor = {
 
       <pic-list />
 
-      <p class="box">
+      <p class="box hide-on-view-mode-thumbs">
         <textarea
             v-model="report.footer"
             class="textarea has-fixed-size "

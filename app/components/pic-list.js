@@ -15,7 +15,7 @@ export const PicList = {
               {{idx+1}}.
           </div>
 
-          <div class="level-item">
+          <div class="level-item hide-on-view-mode-thumbs">
             <textarea
                 v-model="pic.text"
                 class="textarea has-fixed-size "

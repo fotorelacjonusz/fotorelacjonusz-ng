@@ -36,6 +36,17 @@ html, body, #app {
   margin: 0.5rem;
 }
 
+.report-editor.view-mode-thumbs .pic-item {
+  display: inline-block;
+  max-height: 15rem;
+  max-width: 15rem;
+}
+
+.report-editor.view-mode-large .hide-on-view-mode-large,
+.report-editor.view-mode-thumbs .hide-on-view-mode-thumbs {
+  display: none;
+}
+
 .pic-list li > p:not(:last-child) {
   margin-bottom: 0.5rem;
 }
