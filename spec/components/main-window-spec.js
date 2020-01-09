@@ -5,6 +5,7 @@ const prepareWrapper = wrapperFactoryFactory(MainWindow)
 describe("MainWindow component", function() {
   beforeEach(function() {
     this.wrapper = prepareWrapper()
+    console.log(wrapper.html)
   })
 
   it("has a navbar with buttons", function() {

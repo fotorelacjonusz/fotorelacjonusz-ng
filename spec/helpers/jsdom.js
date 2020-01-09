@@ -1,7 +1,7 @@
 require("jsdom-global")()
 
 const _ = require("lodash")
-const { shallowMount } = require("@vue/test-utils")
+const { mount } = require("@vue/test-utils")
 
 const defaultWrapperOptions = {
   directives: {
@@ -10,12 +10,15 @@ const defaultWrapperOptions = {
   stubs: [
     "router-link",
     "translate",
+    "navbar",
+    "countdown",
+    "webview",
   ],
 }
 
 global.wrapperFactoryFactory = function(componentName) {
   return (options) => {
     mergedOptions = _.merge({}, defaultWrapperOptions, options)
-    return shallowMount(componentName, mergedOptions)
+    return mount(componentName, mergedOptions)
   }
 }
