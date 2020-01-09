@@ -1,5 +1,6 @@
 const Vue = require("vue/dist/vue.common.js")
 const GettextPlugin = require("vue-gettext")
+const VueDraggable = require("vuedraggable")
 const VueRouter = require("vue-router")
 
 const { library, config: faConfig } = require("@fortawesome/fontawesome-svg-core")
@@ -13,11 +14,12 @@ import { router } from "./routes.js"
 
 Vue.use(VueRouter)
 Vue.use(GettextPlugin, gettextPluginConfig)
-
 // Font Awesome configuration
 faConfig.autoAddCss = false // wasn't working anyway
 library.add(fas) // whole bundle
 Vue.component("font-awesome-icon", FontAwesomeIcon)
+
+Vue.component("draggable", VueDraggable)
 
 // Expose Report instance across all the Vue components.
 Vue.prototype.report = new Report()
