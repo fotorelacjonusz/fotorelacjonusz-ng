@@ -8,7 +8,7 @@ export const ReportEditor = {
   },
 
   template: `
-    <div class="report-editor">
+    <div class="report-editor" :class="viewModeClass">
       <p class="box">
         <textarea
             v-model="report.header"
@@ -27,7 +27,13 @@ export const ReportEditor = {
         </textarea>
       </p>
     </div>
-  `
+  `,
+
+  computed: {
+    viewModeClass() {
+      return `view-mode-${this.viewMode}`
+    },
+  }
 }
 
 Vue.component("report-editor", ReportEditor)
