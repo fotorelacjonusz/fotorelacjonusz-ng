@@ -3,6 +3,10 @@ const Vue = require("vue/dist/vue.common.js")
 import "./pic-list.js"
 
 export const ReportEditor = {
+  props: {
+    viewMode: {type: String},
+  },
+
   template: `
     <div class="report-editor">
       <p class="box">

@@ -56,7 +56,7 @@ export const MainWindow = {
         </template>
       </navbar>
 
-      <report-editor class="spread"/>
+      <report-editor class="spread" :view-mode="viewMode"/>
     </div>
   `,
 
