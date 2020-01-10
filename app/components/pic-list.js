@@ -29,6 +29,11 @@ export const PicList = {
 
             <div class="level-right pic-list-icons">
               <font-awesome-icon
+                  icon="search-plus"
+                  class="level-item hide-on-view-mode-large"
+                  title="Move up"
+                  @click="zoomTo($event)" />
+              <font-awesome-icon
                   icon="angle-up"
                   class="level-item"
                   title="Move up"
@@ -73,6 +78,15 @@ export const PicList = {
       return this.$parent.viewMode == "thumbs"
     },
   },
+
+  methods: {
+    zoomTo(event) {
+      const mainWindow = this.$root.$children[0]
+      mainWindow.switchViewMode("large")
+      const picItem = event.target.closest(".pic-item")
+      setTimeout(() => picItem.scrollIntoView(), 50)
+    },
+  }
 }
 
 Vue.component("pic-list", PicList)
