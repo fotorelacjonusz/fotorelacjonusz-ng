@@ -35,12 +35,12 @@ export const PicList = {
                   @click="zoomTo($event)" />
               <font-awesome-icon
                   icon="angle-up"
-                  class="level-item"
+                  class="level-item hide-on-view-mode-thumbs"
                   title="Move up"
                   @click="report.moveUp(pic)" />
               <font-awesome-icon
                   icon="angle-down"
-                  class="level-item"
+                  class="level-item hide-on-view-mode-thumbs"
                   title="Move down"
                   @click="report.moveDown(pic)" />
               <font-awesome-icon
