@@ -37,9 +37,29 @@ html, body, #app {
 }
 
 .report-editor.view-mode-thumbs .pic-item {
-  display: inline-block;
+  display: inline-flex;
   max-height: 15rem;
-  max-width: 15rem;
+  width: 15rem;
+  vertical-align: top;
+  flex-direction: column;
+}
+
+.report-editor.view-mode-thumbs .pic-item .pic-item-header {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.report-editor.view-mode-thumbs .pic-item .pic-item-main {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+.report-editor.view-mode-thumbs .pic-item .pic-item-main img {
+  display: block;
+  object-fit: scale-down;
 }
 
 .report-editor.view-mode-large .hide-on-view-mode-large,

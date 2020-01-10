@@ -14,7 +14,7 @@ export const PicList = {
         :list="pictures"
         :disabled="!draggingAllowed">
         <li v-for="(pic, idx) in pictures" :key="pic.id" class="box pic-item">
-          <div class="level">
+          <div class="level pic-item-header">
             <div class="level-left pic-list-number">
                 {{idx+1}}.
             </div>
@@ -61,7 +61,7 @@ export const PicList = {
             </div>
           </div>
 
-          <p><img :src="pic.displayUrl"></p>
+          <p class="pic-item-main"><img :src="pic.displayUrl"></p>
         </li>
 
         <li
