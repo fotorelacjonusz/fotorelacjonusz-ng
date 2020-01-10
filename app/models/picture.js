@@ -1,5 +1,8 @@
+const uuid = require("uuid/v4")
+
 export class Picture {
   constructor(file) {
+    this._id = uuid()
     this.originalFile = file
     this.text = ""
 
@@ -10,4 +13,6 @@ export class Picture {
       this.displayUrl = URL.createObjectURL(file)
     }
   }
+
+  get id() { return this._id }
 }
