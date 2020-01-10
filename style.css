@@ -65,6 +65,10 @@ html, body, #app {
   margin-left: 1.5rem;
 }
 
+.pic-list .sortable-ghost {
+  box-shadow: 0 0 0.5rem hsl(171, 100%, 41%); /* primary color */
+}
+
 .my-navbar {
   box-shadow: 0 0.2rem 0.5em lightslategray;
   padding: 0.5rem;

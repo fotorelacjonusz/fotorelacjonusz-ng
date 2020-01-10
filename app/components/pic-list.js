@@ -8,7 +8,11 @@ export const PicList = {
   },
 
   template: `
-    <ol class="pic-list">
+    <draggable
+        tag="ol"
+        class="pic-list"
+        :list="pictures"
+        :disabled="!draggingAllowed">
       <li v-for="(pic, idx) in pictures" class="box pic-item">
         <div class="level">
           <div class="level-left pic-list-number">
@@ -61,8 +65,14 @@ export const PicList = {
           v-translate>
           The report is empty.
       </li>
-    </ol>
-  `
+    </draggable>
+  `,
+
+  computed: {
+    draggingAllowed() {
+      return this.$parent.viewMode == "thumbs"
+    },
+  },
 }
 
 Vue.component("pic-list", PicList)
