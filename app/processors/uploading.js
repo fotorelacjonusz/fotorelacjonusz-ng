@@ -37,6 +37,11 @@ export class UploadingProcessor {
   }
 }
 
+// TODO: Add some tests for auto-orienting pictures.
+//
+// Jimp automatically orients pictures according to EXIF metadata.  However,
+// changing this method in a way which skips Jimp.read will require inventing
+// some tests which are quite difficult to prepare in current project design.
 async function repaintFromFile(file) {
   const jimpImage = await Jimp.read(file.path)
   const repainted = repaint(jimpImage)
