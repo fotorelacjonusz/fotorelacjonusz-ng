@@ -46,7 +46,7 @@
     "bulma": "^0.8.0",
     "common-tags": "^1.8.0",
     "form-data": "^3.0.0",
-    "got": "^9.6.0",
+    "got": "^10.2.2",
     "jimp": "^0.9.3",
     "lodash": "^4.17.15",
     "regenerator-runtime": "^0.13.3",

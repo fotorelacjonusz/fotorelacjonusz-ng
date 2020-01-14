@@ -33,8 +33,8 @@ export class ImgurAnonUploader {
   }
 
   makeUploadRequest(form) {
-    return got.post("/image", {
-      baseUrl: IMGUR_BASE_URL,
+    return got.post("image", {
+      prefixUrl: IMGUR_BASE_URL,
       body: form,
       headers: {
         authorization: `Client-ID ${IMGUR_CLIENT_ID}`,
