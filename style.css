@@ -36,6 +36,11 @@ html, body, #app {
   margin: 0.5rem;
 }
 
+.report-editor .pic-item .pic-item-main canvas {
+  max-width: 100%;
+  height: auto;
+}
+
 .report-editor.view-mode-thumbs .pic-item {
   display: inline-flex;
   max-height: 15rem;
@@ -57,7 +62,7 @@ html, body, #app {
   overflow-y: hidden;
 }
 
-.report-editor.view-mode-thumbs .pic-item .pic-item-main img {
+.report-editor.view-mode-thumbs .pic-item .pic-item-main canvas {
   display: block;
   object-fit: scale-down;
 }
