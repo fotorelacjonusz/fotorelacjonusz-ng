@@ -1,11 +1,27 @@
 const Vue = require("vue/dist/vue.common.js")
 
+const loadImage = require("blueimp-load-image")
+
 import { Picture } from "../models/picture.js"
 
 export const PicListItem = {
   props: {
     picture: {type: Picture, required: true},
     index: {type: Number, required: true},
+  },
+
+  created() {
+    // TODO Replace that with "image-orientation: from image" CSS property
+    // when Chromium supports it, probably starting from Chromium 81.
+    // https://caniuse.com/#feat=css-image-orientation
+    loadImage(
+      this.picture.originalFile,
+      this.renderPicture,
+      {
+        noRevoke: true,
+        orientation: true,
+      },
+    )
   },
 
   template: `
@@ -57,11 +73,15 @@ export const PicListItem = {
         </div>
       </div>
 
-      <p class="pic-item-main"><img :src="picture.displayUrl"></p>
+      <p class="pic-item-main" ref="imageWrapper"></p>
     </li>
   `,
 
   methods: {
+    renderPicture(canvasElement) {
+      this.$refs.imageWrapper.appendChild(canvasElement)
+    },
+
     zoomTo(event) {
       const mainWindow = this.$root.$children[0]
       mainWindow.switchViewMode("large")
