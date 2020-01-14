@@ -1,19 +1,15 @@
 const Vue = require("vue/dist/vue.common.js")
 
-export const PicList = {
-  data: function() {
-    return {
-      pictures: this.report.pictures,
-    }
+import { Picture } from "../models/picture.js"
+
+export const PicListItem = {
+  props: {
+    picture: {type: Picture, required: true},
+    index: {type: Number, required: true},
   },
 
   template: `
-    <draggable
-        tag="ol"
-        class="pic-list"
-        :list="pictures"
-        :disabled="!draggingAllowed">
-        <li v-for="(picture, index) in pictures" :key="picture.id" class="box pic-item">
+        <li class="box pic-item">
           <div class="level pic-item-header">
             <div class="level-left pic-list-number">
                 {{index+1}}.
@@ -63,21 +59,7 @@ export const PicList = {
 
           <p class="pic-item-main"><img :src="picture.displayUrl"></p>
         </li>
-
-        <li
-            v-if="report.isEmpty"
-            class="box has-background-light has-text-weight-medium"
-            v-translate>
-            The report is empty.
-        </li>
-    </draggable>
   `,
-
-  computed: {
-    draggingAllowed() {
-      return this.$parent.viewMode == "thumbs"
-    },
-  },
 
   methods: {
     zoomTo(event) {
@@ -89,4 +71,4 @@ export const PicList = {
   }
 }
 
-Vue.component("pic-list", PicList)
+Vue.component("pic-list-item", PicListItem)
