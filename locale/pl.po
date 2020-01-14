@@ -20,7 +20,7 @@ msgstr "Przerwij"
 msgid "About this build"
 msgstr "O wersji"
 
-#: app/components/main-window.js:24
+#: app/components/main-window.js:30
 msgid "About this program"
 msgstr "O programie"
 
@@ -97,8 +97,8 @@ msgid ""
 msgstr ""
 "Wielkie dzięki dla Kamila OST, który napisał pierwotną wersję "
 "Fotorelacjonusza w C++; dla MariuszaLu i jego Koleżanki, którzy przygotowali "
-"ikonę programu; a także dla każdego, kto przygotowuje fotorelacje, czy to "
-"z pomocą tego programu, czy w inny sposób."
+"ikonę programu; a także dla każdego, kto przygotowuje fotorelacje, czy to z "
+"pomocą tego programu, czy w inny sposób."
 
 #: app/components/settings-window.js:114
 msgid "Maximum"
@@ -140,7 +140,7 @@ msgstr "Rozmiar zdjęć"
 msgid "Scale down large photos"
 msgstr "Zmniejszaj zbyt duże zdjęcia"
 
-#: app/components/main-window.js:18
+#: app/components/main-window.js:24
 msgid "Settings"
 msgstr "Ustawienia"
 
@@ -172,7 +172,7 @@ msgstr ""
 msgid "Thanks"
 msgstr "Podziękowania"
 
-#: app/components/pic-list.js:58
+#: app/components/report-editor.js:37
 msgid "The report is empty."
 msgstr "Fotorelacja jest pusta."
 
@@ -180,7 +180,7 @@ msgstr "Fotorelacja jest pusta."
 msgid "There will be %{max} photo(s) per post."
 msgstr "%{max} zdjęć na post."
 
-#: app/components/main-window.js:12
+#: app/components/main-window.js:18
 msgid "Upload"
 msgstr "Wyślij"
 
