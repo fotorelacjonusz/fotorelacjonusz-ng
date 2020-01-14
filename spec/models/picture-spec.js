@@ -18,4 +18,50 @@ describe("Picture model", function() {
       expect(instance.originalFile).toBe(file)
     })
   })
+
+  describe("meta", function() {
+    it("is a promise of object", async function() {
+      let pic = new Picture
+      let retval = pic.meta
+      expect(retval).toBeInstanceOf(Promise)
+      expect(await retval).toBeInstanceOf(Object)
+    })
+
+    describe("for JPEG image", function() {
+      beforeEach(function() {
+        this.file = factory.file("flower-192.jpg")
+        this.picture = new Picture(this.file)
+      })
+
+      it("includes picture's EXIF data", async function() {
+        let meta = await this.picture.meta
+        expect(meta.exif).toBeDefined()
+        expect(meta.exif).toBeInstanceOf(Object)
+      })
+    })
+
+    describe("for PNG image", function() {
+      beforeEach(function() {
+        this.file = factory.file("flower-192.png")
+        this.picture = new Picture(this.file)
+      })
+
+      it("does not break because of lack of EXIF data", async function() {
+        let meta = await this.picture.meta
+        expect(meta.exif).toBe(null)
+      })
+    })
+
+    describe("for GIF image", function() {
+      beforeEach(function() {
+        this.file = factory.file("flower-192.gif")
+        this.picture = new Picture(this.file)
+      })
+
+      it("does not break because of lack of EXIF data", async function() {
+        let meta = await this.picture.meta
+        expect(meta.exif).toBe(null)
+      })
+    })
+  })
 })
