@@ -111,7 +111,10 @@ export const ForumWindow = {
     confirmSubmission: function() {
       this.executeInForum(webviewScripts.getPageTitle, (results) => {
         let title = results[0].trim()
-        let msg = `Do you want to post a photo report in "${title}"?`
+        let msgRaw = this.$gettext(
+          "Do you want to post a photo report in %{title}?"
+        )
+        let msg = this.$gettextInterpolate(msgRaw, {title})
         if (global.confirm(msg)) {
           this.startSubmission()
         }
@@ -127,7 +130,7 @@ export const ForumWindow = {
 
     signalCompletion: function() {
       this.phase = "done"
-      global.alert("All the photo report submitted!")
+      global.alert(this.$gettext("All the photo report submitted!"))
       console.info("All the photo report submitted.")
     },
 

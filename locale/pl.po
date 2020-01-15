@@ -28,6 +28,10 @@ msgstr "O programie"
 msgid "Add photos"
 msgstr "Dodaj zdjęcia"
 
+#: app/components/forum-window.js:133
+msgid "All the photo report submitted!"
+msgstr "Fotorelacja wysłana w całości!"
+
 #: app/components/settings-window.js:149
 msgid ""
 "Avoid creating posts which are composed of less than %{min}\n"
@@ -49,6 +53,10 @@ msgstr "Wróć"
 #: app/components/settings-window.js:58
 msgid "Convert non-breaking white spaces to regular ones"
 msgstr "Przekształcaj niełamliwe spacje na normalne"
+
+#: app/components/forum-window.js:114
+msgid "Do you want to post a photo report in %{title}?"
+msgstr "Czy chcesz umieścić fotorelację w wątku %{title}?"
 
 #: app/components/forum-window.js:35
 msgid "Done"
