@@ -1,5 +1,7 @@
 const Vue = require("vue/dist/vue.common.js")
 
+import "./navbar.js"
+
 export const PicEditWindow = {
   data: function() {
     let index = parseInt(this.$route.params.num)
@@ -12,12 +14,14 @@ export const PicEditWindow = {
 
   template: `
     <div class="pic-edit-window">
-      <div class="pic-edit-icons">
-        <font-awesome-icon
-          icon="search-minus"
-          title="Go back"
-          @click="zoomOut" />
-      </div>
+      <navbar>
+        <router-link
+            to="/"
+            class="button is-light"
+            v-translate>
+            Back
+        </router-link>
+      </navbar>
 
       <img class="picture" :src="picture.displayUrl">
     </div>
