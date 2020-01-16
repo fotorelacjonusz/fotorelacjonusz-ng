@@ -248,8 +248,6 @@ export const SettingsWindow = {
 
   computed: {
     model() { return currentSettings.data },
-
-    showResizeControls() { return this.model.processing.resize.mode === "normal" },
   },
 
   methods: {
