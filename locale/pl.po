@@ -32,25 +32,23 @@ msgstr "Dodaj zdjęcia"
 msgid "All the photo report submitted!"
 msgstr "Fotorelacja wysłana w całości!"
 
-#: app/components/settings-window.js:149
+#: app/components/settings-panel-pics-count.js:49
 msgid ""
 "Avoid creating posts which are composed of less than %{min}\n"
-"                  photo(s).  Instead, make the last post respectively "
-"longer,\n"
-"                  possibly breaking the \"photos per post\" limit. This "
-"setting\n"
-"                  does not apply if there would be only one post anyway."
+"              photo(s).  Instead, make the last post respectively longer,\n"
+"              possibly breaking the \"photos per post\" limit. This setting\n"
+"              does not apply if there would be only one post anyway."
 msgstr ""
 "Unikaj tworzenia postów złożonych z mniej niż %{min} zdjęć.\n"
 "Gdyby na ostatni (ale nie jedyny) post przypadało mniej niż %{min} zdjęć,\n"
 "nie twórz tego postu, tylko zrób poprzedni odpowiednio dłuższy."
 
 #: app/components/about-window.js:7 app/components/forum-window.js:21
-#: app/components/preparation-window.js:23 app/components/settings-window.js:11
+#: app/components/preparation-window.js:23 app/components/settings-window.js:19
 msgid "Back"
 msgstr "Wróć"
 
-#: app/components/settings-window.js:58
+#: app/components/settings-panel-interface.js:47
 msgid "Convert non-breaking white spaces to regular ones"
 msgstr "Przekształcaj niełamliwe spacje na normalne"
 
@@ -62,32 +60,32 @@ msgstr "Czy chcesz umieścić fotorelację w wątku %{title}?"
 msgid "Done"
 msgstr "Zrobione"
 
-#: app/components/settings-window.js:219
+#: app/components/settings-panel-processing.js:68
 msgid "Height"
 msgstr "Wysokość"
 
-#: app/components/settings-window.js:237
+#: app/components/settings-panel-processing.js:86
 msgid ""
 "If given picture is taller than that, it will be scaled down\n"
-"                    appropriately."
+"                appropriately."
 msgstr "Zdjęcia, których wysokość przekracza tę liczbę, zostaną przeskalowane."
 
-#: app/components/settings-window.js:207
+#: app/components/settings-panel-processing.js:56
 msgid ""
 "If given picture is wider than that, it will be scaled down\n"
-"                    appropriately."
+"                appropriately."
 msgstr ""
 "Zdjęcia, których szerokość przekracza tę liczbę, zostaną przeskalowane."
 
-#: app/components/settings-window.js:21
+#: app/components/settings-panel-interface.js:10
 msgid "Interface options"
 msgstr "Interfejs"
 
-#: app/components/settings-window.js:85
+#: app/components/settings-panel-post-layout.js:14
 msgid "Item template"
 msgstr "Format opisu zdjęcia"
 
-#: app/components/settings-window.js:25
+#: app/components/settings-panel-interface.js:14
 msgid "Language"
 msgstr "Język programu"
 
@@ -108,11 +106,11 @@ msgstr ""
 "ikonę programu; a także dla każdego, kto przygotowuje fotorelacje, czy to z "
 "pomocą tego programu, czy w inny sposób."
 
-#: app/components/settings-window.js:114
+#: app/components/settings-panel-pics-count.js:14
 msgid "Maximum"
 msgstr "Maksymalna"
 
-#: app/components/settings-window.js:136
+#: app/components/settings-panel-pics-count.js:36
 msgid "Minimum"
 msgstr "Minimalna"
 
@@ -120,15 +118,15 @@ msgstr "Minimalna"
 msgid "More help and information"
 msgstr "Dalsze informacje"
 
-#: app/components/settings-window.js:161
+#: app/components/settings-panel-processing.js:10
 msgid "Photo processing"
 msgstr "Obróbka zdjęć"
 
-#: app/components/settings-window.js:110
+#: app/components/settings-panel-pics-count.js:10
 msgid "Photos per post"
 msgstr "Liczba zdjęć na post"
 
-#: app/components/settings-window.js:81
+#: app/components/settings-panel-post-layout.js:10
 msgid "Post layout options"
 msgstr "Układ postów"
 
@@ -140,11 +138,11 @@ msgstr "Posty: %{progress}"
 msgid "Proceed"
 msgstr "Dalej"
 
-#: app/components/settings-window.js:165
+#: app/components/settings-panel-processing.js:14
 msgid "Resize photos"
 msgstr "Rozmiar zdjęć"
 
-#: app/components/settings-window.js:178
+#: app/components/settings-panel-processing.js:27
 msgid "Scale down large photos"
 msgstr "Zmniejszaj zbyt duże zdjęcia"
 
@@ -152,22 +150,18 @@ msgstr "Zmniejszaj zbyt duże zdjęcia"
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: app/components/settings-window.js:62
+#: app/components/settings-panel-interface.js:51
 msgid ""
 "SkyScraperCity.com forum substitutes non-breaking white\n"
-"                    spaces with weird-looking asterisks.\n"
+"                spaces with weird-looking asterisks.\n"
 "\n"
-"                    This option prevents that by converting the non-"
-"breaking\n"
-"                    spaces to regular ones.  It is especially useful on "
-"MacOS,\n"
-"                    as it is frequent to accidentally type non-breaking "
-"spaces\n"
-"                    by hitting Option+Space key combination on this system.\n"
+"                This option prevents that by converting the non-breaking\n"
+"                spaces to regular ones.  It is especially useful on MacOS,\n"
+"                as it is frequent to accidentally type non-breaking spaces\n"
+"                by hitting Option+Space key combination on this system.\n"
 "\n"
-"                    You probably want to keep this setting disabled unless "
-"you\n"
-"                    experience issues."
+"                You probably want to keep this setting disabled unless you\n"
+"                experience issues."
 msgstr ""
 "Silnik forum SkyScraperCity.com podmienia niełamliwe spacje na dziwaczne "
 "gwiazdki.  Ta opcja zapobiega temu zjawisku zawczasu przekształcając "
@@ -184,7 +178,7 @@ msgstr "Podziękowania"
 msgid "The report is empty."
 msgstr "Fotorelacja jest pusta."
 
-#: app/components/settings-window.js:127
+#: app/components/settings-panel-pics-count.js:27
 msgid "There will be %{max} photo(s) per post."
 msgstr "%{max} zdjęć na post."
 
@@ -204,11 +198,11 @@ msgstr "Wersja"
 msgid "Visit"
 msgstr "Odwiedź"
 
-#: app/components/settings-window.js:47
+#: app/components/settings-panel-interface.js:36
 msgid "White spaces"
 msgstr "Białe znaki"
 
-#: app/components/settings-window.js:189
+#: app/components/settings-panel-processing.js:38
 msgid "Width"
 msgstr "Szerokość"
 
@@ -220,13 +214,13 @@ msgstr ""
 "Zamierzasz wysłać fotorelację składającą się z %{posts} postów, w których "
 "jest łącznie %{pics} zdjęć."
 
-#: app/components/settings-window.js:97
+#: app/components/settings-panel-post-layout.js:26
 msgid ""
 "You can use following magic words:<wbr>\n"
-"                    <tt>%DESCRIPTION%</tt> for item description;<wbr>\n"
-"                    <tt>%NUMBER%</tt> for item number;<wbr>\n"
-"                    <tt>%IMG_URL%</tt> for picture's remote URL.\n"
-"                  </wbr></wbr></wbr>"
+"                <tt>%DESCRIPTION%</tt> for item description;<wbr>\n"
+"                <tt>%NUMBER%</tt> for item number;<wbr>\n"
+"                <tt>%IMG_URL%</tt> for picture's remote URL.\n"
+"              </wbr></wbr></wbr>"
 msgstr ""
 "Możesz skorzystać z następujących magicznych słów:<wbr>\n"
 "                  <tt>%DESCRIPTION%</tt> oznacza tekst opisujący zdjęcie;"
