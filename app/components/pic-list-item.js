@@ -44,7 +44,7 @@ export const PicListItem = {
               icon="palette"
               class="level-item"
               title="Edit"
-              @click="edit(idx)" />
+              @click="edit(index)" />
           <font-awesome-icon
               icon="search-plus"
               class="level-item hide-on-view-mode-large"
@@ -84,7 +84,7 @@ export const PicListItem = {
 
   methods: {
     edit(idx) {
-      this.$router.push(`/zoom/${idx}`)
+      this.$router.push(`/edit/${idx}`)
     },
 
     renderPicture(canvasElement) {
