@@ -3,7 +3,7 @@
 # top-most EditorConfig file
 root = true
 
-[*.{adoc,html,css,js}]
+[*.{adoc,html,css,js,yaml,yml}]
 charset = utf-8
 end_of_line = lf
 indent_size = 2
