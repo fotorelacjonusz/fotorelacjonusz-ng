@@ -20,6 +20,10 @@ rules:
   no-unused-vars:
     - warn
     - argsIgnorePattern: "^_"
+  quotes:
+    - error
+    - double
+    - allowTemplateLiterals: true
   semi:
     - warn
     - never

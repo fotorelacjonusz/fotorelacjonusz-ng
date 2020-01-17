@@ -15,7 +15,7 @@ export const gettextPluginConfig = {
   languageVmMixin: {
     computed: {
       currentKebabCase: function () {
-        return this.current.toLowerCase().replace('_', '-')
+        return this.current.toLowerCase().replace("_", "-")
       },
     },
   },
