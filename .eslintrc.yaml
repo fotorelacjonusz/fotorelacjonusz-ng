@@ -1,0 +1,23 @@
+---
+env:
+  browser: true
+  node: true
+
+extends:
+  - eslint:recommended
+
+globals:
+  nw: readonly
+
+parserOptions:
+  ecmaVersion: 9
+  sourceType: module
+
+rules:
+  eol-last:
+    - warn
+    - always
+  no-unused-vars: warn
+  semi:
+    - warn
+    - never

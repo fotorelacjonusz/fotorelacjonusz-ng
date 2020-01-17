@@ -7,7 +7,7 @@
   "scripts": {
     "gettext-compile": "gettext-compile --output locale/translations.json locale/*.po",
     "gettext-extract": "gettext-extract --output locale/translations.pot --attribute v-translate app/components/*.js",
-    "lint": "jshint *.js app",
+    "lint": "eslint *.js app",
     "test": "jasmine --require=esm"
   },
   "author": "Sebastian Skałacki <skalee@gmail.com>",
@@ -24,7 +24,6 @@
       "build",
       "chromium-args",
       "devDependencies",
-      "jshintConfig",
       "scripts"
     ],
     "mac": {
@@ -59,19 +58,15 @@
   },
   "devDependencies": {
     "easygettext": "^2.9.0",
+    "eslint": "^6.8.0",
     "esm": "^3.2.25",
     "jasmine": "^3.5.0",
     "jasmine-console-reporter": "^3.1.0",
     "jasmine-expect": "^4.0.3",
-    "jshint": "^2.11.0",
     "nock": "^11.7.2",
     "nw-vue-devtools": "^1.3.0",
     "nwjs-builder-phoenix": "^1.15.0",
     "package-json-validator": "^0.6.3",
     "sinon": "^8.0.4"
-  },
-  "jshintConfig": {
-    "esversion": 9,
-    "asi": true
   }
 }
