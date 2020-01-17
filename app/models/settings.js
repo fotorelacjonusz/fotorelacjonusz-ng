@@ -38,8 +38,17 @@ export class Settings {
     fs.writeFileSync(this.configFilePath, raw, "utf8")
   }
 
+  setWatermarkPicture(filePath) {
+    console.log(`Saving new watermark file to ${this.watermarkPicturePath}`)
+    fs.copyFileSync(filePath, this.watermarkPicturePath)
+  }
+
   get configFilePath() {
     return path.join(nw.App.dataPath, "fotorelacjonusz.conf")
+  }
+
+  get watermarkPicturePath() {
+    return path.join(nw.App.dataPath, "watermark-picture")
   }
 
   get data() {

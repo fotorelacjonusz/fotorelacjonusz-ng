@@ -6,13 +6,17 @@ import * as wholeModule from "../../app/models/settings.js"
 
 describe("Settings model", function() {
   const configFilePath = "/config/file/path"
+  const configWatermarkPath = "/config/path/to/watermark"
 
   beforeEach(function() {
     let exampleJSON = `{"some": {"nested": "data"}}`
+    sinon.stub(fs, "copyFileSync")
     sinon.stub(fs, "readFileSync").returns(exampleJSON)
     sinon.stub(fs, "writeFileSync")
     sinon.stub(Settings.prototype, "configFilePath").
       get(() => configFilePath)
+    sinon.stub(Settings.prototype, "watermarkPicturePath").
+      get(() => configWatermarkPath)
   })
 
   it("is instantiable", function () {
@@ -108,6 +112,20 @@ describe("Settings model", function() {
         withArgs(configFilePath, `{"serialize":1}`)
       this.instance._data = {"serialize": 1}
       this.instance.save()
+    })
+  })
+
+  describe(".setWatermarkPicture()", function() {
+    beforeEach(function() {
+      this.instance = new Settings
+    })
+
+    it("copies given file to location in program's data", function() {
+      fs.copyFileSync.restore()
+      sinon.mock(fs).expects("copyFileSync").
+        once().
+        withArgs("/new/watermark", configWatermarkPath)
+      this.instance.setWatermarkPicture("/new/watermark")
     })
   })
 })
