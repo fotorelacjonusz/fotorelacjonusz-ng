@@ -5,11 +5,14 @@ import { Settings } from "../../app/models/settings.js"
 import * as wholeModule from "../../app/models/settings.js"
 
 describe("Settings model", function() {
+  const configFilePath = "/config/file/path"
+
   beforeEach(function() {
     let exampleJSON = `{"some": {"nested": "data"}}`
     sinon.stub(fs, "readFileSync").returns(exampleJSON)
     sinon.stub(fs, "writeFileSync")
-    sinon.stub(Settings.prototype, "configFilePath").get(() => "some/path")
+    sinon.stub(Settings.prototype, "configFilePath").
+      get(() => configFilePath)
   })
 
   it("is instantiable", function () {
@@ -69,7 +72,7 @@ describe("Settings model", function() {
 
   it("loads configuration file on instantiation", function() {
     fs.readFileSync.restore()
-    sinon.mock(fs).expects("readFileSync").once().withArgs("some/path")
+    sinon.mock(fs).expects("readFileSync").once().withArgs(configFilePath)
     new Settings
   })
 
@@ -80,7 +83,7 @@ describe("Settings model", function() {
 
     it("loads from a configuration file", function() {
       fs.readFileSync.restore()
-      sinon.mock(fs).expects("readFileSync").once().withArgs("some/path")
+      sinon.mock(fs).expects("readFileSync").once().withArgs(configFilePath)
       this.instance.load()
     })
 
@@ -102,7 +105,7 @@ describe("Settings model", function() {
       fs.writeFileSync.restore()
       sinon.mock(fs).expects("writeFileSync").
         once().
-        withArgs("some/path", `{"serialize":1}`)
+        withArgs(configFilePath, `{"serialize":1}`)
       this.instance._data = {"serialize": 1}
       this.instance.save()
     })
