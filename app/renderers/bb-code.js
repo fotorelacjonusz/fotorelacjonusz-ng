@@ -1,5 +1,3 @@
-const { stripIndent } = require("common-tags")
-
 import { currentSettings } from "../models/settings.js"
 
 import { fixNBSpaces } from "../util/fix-nb-spaces.js"

@@ -14,7 +14,7 @@ export const FilePicker = {
     },
 
     /// Emits fileSelected event once per each file, then clears the input.
-    onFilesChange: function(event) {
+    onFilesChange: function(_event) {
       for (var file of this.$refs.pickerInput.files) {
         this.emitFile(file)
       }

@@ -1,5 +1,3 @@
-const _ = require("lodash")
-
 import { currentSettings } from "../models/settings.js"
 
 export const availableLanguages = {

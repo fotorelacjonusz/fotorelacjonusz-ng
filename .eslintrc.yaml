@@ -17,7 +17,9 @@ rules:
   eol-last:
     - warn
     - always
-  no-unused-vars: warn
+  no-unused-vars:
+    - warn
+    - argsIgnorePattern: "^_"
   semi:
     - warn
     - never

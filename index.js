@@ -5,4 +5,4 @@ const windowOptions = {
   height: 600,
 }
 
-nw.Window.open("index.html", windowOptions, function(win) {})
+nw.Window.open("index.html", windowOptions, function(_win) {})

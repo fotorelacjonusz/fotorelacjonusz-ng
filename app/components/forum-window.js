@@ -83,7 +83,7 @@ export const ForumWindow = {
   },
 
   methods: {
-    forumLoaded: function(e) {
+    forumLoaded: function(_event) {
       this.detectPageType()
     },
 

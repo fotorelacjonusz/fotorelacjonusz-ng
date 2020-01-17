@@ -1,4 +1,3 @@
-const fs = require("fs")
 const Jimp = require("jimp")
 
 import { ImgurAnonUploader } from "../uploaders/imgur-anon.js"
