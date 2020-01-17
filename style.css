@@ -144,3 +144,9 @@ html, body, #app {
 .text-selectable {
   user-select: text;
 }
+
+.watermark-preview {
+  display: block;
+  max-height: 7rem;
+  max-width: 15rem;
+}

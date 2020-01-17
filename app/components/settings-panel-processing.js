@@ -1,10 +1,17 @@
 const Vue = require("vue/dist/vue.common.js")
+const { pathToFileURL } = require("url")
 
 import { currentSettings } from "../models/settings.js"
 import { SettingsMixin } from "./settings-mixin.js"
 
 export const SettingsPanelProcessing = {
   mixins: [SettingsMixin],
+
+  data() {
+    return {
+      watermarkPreviewURL: pathToFileURL(currentSettings.watermarkPicturePath),
+    }
+  },
 
   template: `
     <div class="settings-section">
@@ -144,11 +151,29 @@ export const SettingsPanelProcessing = {
             </div>
           </div>
       </div>
+
+      <div
+          class="field is-horizontal"
+          v-show="model.processing.watermark.mode === 'picture'">
+          <div class="field-label is-normal"></div>
+
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <img
+                    class="watermark-preview"
+                    :src="watermarkPreviewURL">
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
   `,
 
   methods: {
     onChangeWatermarkFile(event) {
       const file = event.target.files[0]
+      this.watermarkPreviewURL = URL.createObjectURL(file)
       currentSettings.setWatermarkPicture(file.path)
     },
   }
