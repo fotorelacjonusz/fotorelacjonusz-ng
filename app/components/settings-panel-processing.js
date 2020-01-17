@@ -90,6 +90,29 @@ export const SettingsPanelProcessing = {
             </div>
           </div>
       </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label" v-translate>Watermark</label>
+        </div>
+
+        <div class="field-body">
+          <div class="field">
+            <div class="control select">
+              <select
+                  v-model="model.processing.watermark.mode"
+                  @change="onConfigUpdated">
+                  <option value="off" v-translate>
+                    None
+                  </option>
+                  <option value="picture" v-translate>
+                    Picture
+                  </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   `,
 }

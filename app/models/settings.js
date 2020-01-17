@@ -75,6 +75,9 @@ export class Settings {
           width: 1000,
           height: 1000,
         },
+        watermark: {
+          mode: "off",
+        },
       },
     }
   }
