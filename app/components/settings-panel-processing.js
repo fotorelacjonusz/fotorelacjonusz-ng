@@ -1,5 +1,6 @@
 const Vue = require("vue/dist/vue.common.js")
 
+import { currentSettings } from "../models/settings.js"
 import { SettingsMixin } from "./settings-mixin.js"
 
 export const SettingsPanelProcessing = {
@@ -113,8 +114,44 @@ export const SettingsPanelProcessing = {
           </div>
         </div>
       </div>
-    </div>
+
+      <div
+          class="field is-horizontal"
+          v-show="model.processing.watermark.mode === 'picture'">
+          <div class="field-label is-normal">
+            <label class="label" v-translate></label>
+          </div>
+
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <div class="file">
+                  <label class="file-label">
+                    <input
+                        class="file-input"
+                        type="file"
+                        @change="onChangeWatermarkFile">
+                    <span class="file-cta">
+                      <span class="file-label" v-translate>Change</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <p class="help" v-translate>
+                Any picture will do.  For transparency, PNGs or GIFs are
+                recommended.
+              </p>
+            </div>
+          </div>
+      </div>
   `,
+
+  methods: {
+    onChangeWatermarkFile(event) {
+      const file = event.target.files[0]
+      currentSettings.setWatermarkPicture(file.path)
+    },
+  }
 }
 
 Vue.component("settings-panel-processing", SettingsPanelProcessing)
