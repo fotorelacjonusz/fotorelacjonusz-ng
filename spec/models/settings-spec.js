@@ -12,11 +12,6 @@ describe("Settings model", function() {
     sinon.stub(Settings.prototype, "configFilePath").get(() => "some/path")
   })
 
-  afterEach(function() {
-    sinon.verify()
-    sinon.restore()
-  })
-
   it("is instantiable", function () {
     expect(new Settings).toBeInstanceOf(Settings)
   })
