@@ -1,7 +1,7 @@
 const Jimp = require("jimp")
 
 import { ImgurAnonUploader } from "../uploaders/imgur-anon.js"
-import { repaint } from "../util/repainter.js"
+import { repaint } from "../repainters/repainter.js"
 
 // TODO Signal progress with events.
 

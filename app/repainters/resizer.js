@@ -2,15 +2,7 @@ const Jimp = require("jimp")
 
 import { currentSettings } from "../models/settings.js"
 
-export function repaint(jimpImage) {
-  return resize(jimpImage)
-}
-
-function getProcessingSettings() {
-  return currentSettings.data.processing
-}
-
-function resize(jimpImage) {
+export function resize(jimpImage) {
   if (getProcessingSettings().resize.mode !== "normal") {
     return jimpImage
   }
@@ -29,4 +21,8 @@ function resize(jimpImage) {
     timesTooWide > timesTooHigh ? [maxWidth, Jimp.AUTO] : [Jimp.AUTO, maxHeight]
 
   return jimpImage.resize(...requestedDimensions)
+}
+
+function getProcessingSettings() {
+  return currentSettings.data.processing
 }

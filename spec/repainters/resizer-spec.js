@@ -1,8 +1,8 @@
 const Jimp = require("jimp")
 
-import { repaint } from "../../app/util/repainter.js"
+import { resize } from "../../app/repainters/resizer.js"
 
-describe(".repaint()", function() {
+describe(".resize()", function() {
   beforeEach(async function() {
     let flower192 = factory.file("flower-192.jpg")
     this.img = await Jimp.read(flower192.path)
@@ -16,7 +16,7 @@ describe(".repaint()", function() {
 
     it("keeps large images unchanged", async function() {
       stubCurrentSettings({processing: {resize: {width: 100, height: 100}}})
-      let repainted = await repaint(this.img)
+      let repainted = await resize(this.img)
       expect(repainted).toBeInstanceOf(Jimp)
       expect(repainted.bitmap.width).toEqual(this.origImg.bitmap.width)
       expect(repainted.bitmap.height).toEqual(this.origImg.bitmap.height)
@@ -24,7 +24,7 @@ describe(".repaint()", function() {
 
     it("keeps small images unchanged", async function() {
       stubCurrentSettings({processing: {resize: {width: 1000, height: 1000}}})
-      let repainted = await repaint(this.img)
+      let repainted = await resize(this.img)
       expect(repainted).toBeInstanceOf(Jimp)
       expect(repainted.bitmap.width).toEqual(this.origImg.bitmap.width)
       expect(repainted.bitmap.height).toEqual(this.origImg.bitmap.height)
@@ -38,7 +38,7 @@ describe(".repaint()", function() {
 
     it("scales down image which is too wide", async function() {
       stubCurrentSettings({processing: {resize: {width: 100, height: 1000}}})
-      let repainted = await repaint(this.img)
+      let repainted = await resize(this.img)
       expect(repainted).toBeInstanceOf(Jimp)
       expect(repainted.bitmap.width).toEqual(100)
       expect(calculateRatio(repainted)).toBeCloseTo(calculateRatio(this.origImg))
@@ -46,7 +46,7 @@ describe(".repaint()", function() {
 
     it("scales down image which is too tall", async function() {
       stubCurrentSettings({processing: {resize: {width: 1000, height: 100}}})
-      let repainted = await repaint(this.img)
+      let repainted = await resize(this.img)
       expect(repainted).toBeInstanceOf(Jimp)
       expect(repainted.bitmap.height).toEqual(100)
       expect(calculateRatio(repainted)).toBeCloseTo(calculateRatio(this.origImg))
@@ -54,7 +54,7 @@ describe(".repaint()", function() {
 
     it("scales down image which is both too wide and too tall", async function() {
       stubCurrentSettings({processing: {resize: {width: 100, height: 100}}})
-      let repainted = await repaint(this.img)
+      let repainted = await resize(this.img)
       expect(repainted).toBeInstanceOf(Jimp)
       expect(repainted.bitmap.width).toEqual(100)
       expect(calculateRatio(repainted)).toBeCloseTo(calculateRatio(this.origImg))
@@ -62,7 +62,7 @@ describe(".repaint()", function() {
 
     it("keeps smaller images unchanged", async function() {
       stubCurrentSettings({processing: {resize: {width: 1000, height: 1000}}})
-      let repainted = await repaint(this.img)
+      let repainted = await resize(this.img)
       expect(repainted).toBeInstanceOf(Jimp)
       expect(repainted.bitmap.width).toEqual(this.origImg.bitmap.width)
       expect(repainted.bitmap.height).toEqual(this.origImg.bitmap.height)
