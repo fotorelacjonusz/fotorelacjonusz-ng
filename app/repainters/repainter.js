@@ -1,5 +1,5 @@
 import { resize } from "./resizer.js"
 
-export function repaint(jimpImage) {
-  return resize(jimpImage)
+export async function repaint(jimpImage) {
+  return await resize(jimpImage)
 }

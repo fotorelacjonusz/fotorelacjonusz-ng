@@ -43,6 +43,6 @@ export class UploadingProcessor {
 // some tests which are quite difficult to prepare in current project design.
 async function repaintFromFile(file) {
   const jimpImage = await Jimp.read(file.path)
-  const repainted = repaint(jimpImage)
+  const repainted = await repaint(jimpImage)
   return await repainted.getBufferAsync(Jimp.AUTO)
 }
