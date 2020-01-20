@@ -162,7 +162,8 @@ export const SettingsPanelProcessing = {
               <div class="control">
                 <img
                     class="watermark-preview"
-                    :src="watermarkPreviewURL">
+                    :src="watermarkPreviewURL"
+                    @error="onWatermarkPreviewLoadFailure">
               </div>
             </div>
           </div>
@@ -175,6 +176,10 @@ export const SettingsPanelProcessing = {
       const file = event.target.files[0]
       this.watermarkPreviewURL = URL.createObjectURL(file)
       currentSettings.setWatermarkPicture(file.path)
+    },
+
+    onWatermarkPreviewLoadFailure(event) {
+      event.target.src = ""
     },
   }
 }
