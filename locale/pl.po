@@ -32,6 +32,13 @@ msgstr "Dodaj zdjęcia"
 msgid "All the photo report submitted!"
 msgstr "Fotorelacja wysłana w całości!"
 
+#: app/components/settings-panel-processing.js:147
+msgid ""
+"Any picture will do.  For transparency, PNGs or GIFs are\n"
+"                recommended."
+msgstr "Każdy obrazek się nada.  Efekt przeźroczystości jest możliwy do "
+"uzyskania w formatach GIF i PNG."
+
 #: app/components/settings-panel-pics-count.js:49
 msgid ""
 "Avoid creating posts which are composed of less than %{min}\n"
@@ -48,6 +55,10 @@ msgstr ""
 msgid "Back"
 msgstr "Wróć"
 
+#: app/components/settings-panel-processing.js:142
+msgid "Change"
+msgstr "Zmień"
+
 #: app/components/settings-panel-interface.js:47
 msgid "Convert non-breaking white spaces to regular ones"
 msgstr "Przekształcaj niełamliwe spacje na normalne"
@@ -60,17 +71,17 @@ msgstr "Czy chcesz umieścić fotorelację w wątku %{title}?"
 msgid "Done"
 msgstr "Zrobione"
 
-#: app/components/settings-panel-processing.js:68
+#: app/components/settings-panel-processing.js:76
 msgid "Height"
 msgstr "Wysokość"
 
-#: app/components/settings-panel-processing.js:86
+#: app/components/settings-panel-processing.js:94
 msgid ""
 "If given picture is taller than that, it will be scaled down\n"
 "                appropriately."
 msgstr "Zdjęcia, których wysokość przekracza tę liczbę, zostaną przeskalowane."
 
-#: app/components/settings-panel-processing.js:56
+#: app/components/settings-panel-processing.js:64
 msgid ""
 "If given picture is wider than that, it will be scaled down\n"
 "                appropriately."
@@ -118,13 +129,21 @@ msgstr "Minimalna"
 msgid "More help and information"
 msgstr "Dalsze informacje"
 
-#: app/components/settings-panel-processing.js:10
+#: app/components/settings-panel-processing.js:113
+msgid "None"
+msgstr "Wyłączony"
+
+#: app/components/settings-panel-processing.js:18
 msgid "Photo processing"
 msgstr "Obróbka zdjęć"
 
 #: app/components/settings-panel-pics-count.js:10
 msgid "Photos per post"
 msgstr "Liczba zdjęć na post"
+
+#: app/components/settings-panel-processing.js:116
+msgid "Picture"
+msgstr "Obrazek"
 
 #: app/components/settings-panel-post-layout.js:10
 msgid "Post layout options"
@@ -138,11 +157,11 @@ msgstr "Posty: %{progress}"
 msgid "Proceed"
 msgstr "Dalej"
 
-#: app/components/settings-panel-processing.js:14
+#: app/components/settings-panel-processing.js:22
 msgid "Resize photos"
 msgstr "Rozmiar zdjęć"
 
-#: app/components/settings-panel-processing.js:27
+#: app/components/settings-panel-processing.js:35
 msgid "Scale down large photos"
 msgstr "Zmniejszaj zbyt duże zdjęcia"
 
@@ -198,11 +217,15 @@ msgstr "Wersja"
 msgid "Visit"
 msgstr "Odwiedź"
 
+#: app/components/settings-panel-processing.js:104
+msgid "Watermark"
+msgstr "Znak wodny"
+
 #: app/components/settings-panel-interface.js:36
 msgid "White spaces"
 msgstr "Białe znaki"
 
-#: app/components/settings-panel-processing.js:38
+#: app/components/settings-panel-processing.js:46
 msgid "Width"
 msgstr "Szerokość"
 
