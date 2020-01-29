@@ -19,7 +19,7 @@
   "chromium-args": "--enable-logging=stderr --load-extension='./node_modules/nw-vue-devtools/extension'",
   "build": {
     "nwFlavor": "sdk",
-    "nwVersion": "0.43.4",
+    "nwVersion": "0.43.6",
     "strippedProperties": [
       "build",
       "chromium-args",
