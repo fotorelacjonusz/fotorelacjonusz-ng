@@ -1,0 +1,175 @@
+:github: https://github.com/skalee/fotorelacjonusz-ng
+
+:edconf: https://editorconfig.org
+:eslint: https://eslint.org
+:nodejs: https://nodejs.org
+:npm: https://www.npmjs.com
+:nwjs: https://nwjs.io
+
+== About the stack
+
+=== Introduction
+
+From technical point of view, Fotorelacjonusz is written in a web technologies,
+and distributed as a desktop application.
+
+=== Design goals
+
+. Openness
+. Simplicity
+
+=== Technologies
+
+Fotorelacjonusz is mainly built on top of following technologies:
+
+. JavaScript (modern versions, ES9 as of Feb 2020)
+. Vue.js -- a JavaScript framework in which GUI is implemented
+  (https://vuejs.org)
+. Bulma -- a CSS framework which makes GUI pretty (https://bulma.io)
+. Node.js -- because it provides some system bindings
+. NW.js -- a thin wrapper which bundles the application and a browser together
+  and encapsulates everything in a desktop application
+  (https://nwjs.io)
+. Gettext -- for translations
+. Jasmine & Sinon.js -- testing frameworks
+. HTML & CSS
+
+For openness and simplicity sake, particularly not to scare off potential
+contributors, following technologies are purposely NOT involved:
+
+. CoffeeScript, Typescript, Babel
+. Less, SASS, SCSS
+. Webpack
+
+== Getting started
+
+=== Obtaining the source code
+
+It is best to obtain the source code from the {github}[GitHub repository].
+
+=== Installing dependencies
+
+. Install {nodejs}[Node.js].
+. Install {npm}[NPM] (it is installed along with Node.js when official
+  installer is used).
+. Install {nwjs}[NW.js] (choose SDK flavour).
+. Install Gettext (you may skip it if you don't want to develop translations)
+. Navigate to the directory where Fotorelacjonusz source code is located,
+  and run `npm install` (it may take a longer while, especially that
+  Vue developer tools downloads about 600 MiB in the post-install step).
+
+=== Running
+
+In order to run Fotorelacjonusz, navigate to the source code directory
+and execute:
+
+[source,sh]
+----
+nwjs .
+----
+
+You will need to tweak this command if `nwjs` executable is not in PATH.
+
+=== Separating development configuration from production one
+
+By default, Fotorelacjonusz stores its settings in the application data
+directory, which exact location depends on the host operating system.
+For example, on MacOS it is `~/Library/Application Support/fotorelacjonusz`.
+
+You probably want to override it with `--user-data-dir` command line option,
+so that your development settings will not interfere with ones you normally
+use.  For example:
+
+[source,sh]
+----
+nwjs . --user-data-dir=path/to/user/data/directory
+----
+
+More details on that topic: http://docs.nwjs.io/en/latest/References/Command%20Line%20Options/#-user-data-dir[NW.js documentation].
+
+== Code style
+
+This project enforces consistent code style with:
+
+- {edconf}[Editor Config] -- a generic configuration tool for popular editors
+  which sets up things like consistent indentation style.
+- {eslint}[ES Lint] -- a JavaScript linter, run `npm run lint` to check the
+  source code.
+
+In particular:
+
+- source code should be indented with two spaces
+- in JavaScript, always use double quotes for string literals, also backticks
+  are allowed for template literals
+- in JavaScript, don't use trailing semicolons
+
+== Testing
+
+This project uses Jasmine and Sinon.js for testing.  Run `npm test` to execute
+all tests.  Currently, Vue components are not tested this way (only manually).
+
+== Translating
+
+Fotorelacjonusz uses Gettext for translating the interface.  It may seem
+difficult at the first glance, but it's not that bad.  And most importantly,
+it keeps the source code free of weird-looking keys, thus dealing with
+translations is fully optional, not essential.
+
+Some helper scripts have been defined in `package.json` to make things easier.
+Preparing translations involves following steps:
+
+. Extract all the translatable content from the application source code to
+  `locale/translations.pot`:
++
+[source,sh]
+----
+npm run gettext-extract
+----
+. Merge that with an existing locale file, for example:
++
+[source,sh]
+----
+msgmerge --lang=pl --backup=off --update locale/pl.po locale/translations.pot
+----
++
+Or initialize a brand new locale file, for example:
++
+[source,sh]
+----
+msginit --locale=pl --output=locale/pl.po --input locale/translations.pot
+----
+. Edit translations (`locale/pl.po` in this example).
+. Compile translations into the resulting JSON file, which is then used by
+  the application:
++
+[source,sh]
+----
+npm run gettext-compile
+----
+. Commit your changes in `*.po` files and `translations.json` to Git.
+The `locale/translations.pot` is an intermediate file and should not be
+committed.
+
+This guide does not describe how to mark content as translatable.  Visit
+https://github.com/Polyconseil/vue-gettext[Vue-gettext home page] for that
+sort of information.
+
+== Packaging
+
+Fotorelacjonusz is packaged with help of nwjs-builder-phoenix tool, which is
+installed as a development dependency.  In order to run it:
+
+[source,sh]
+----
+node_modules/.bin/build --tasks <task-name> --mirror https://dl.nwjs.io/ .
+----
+
+Where `<task-name>` is one of following: `linux-x86`, `linux-x64`, `mac-x64`,
+`win-x86`, `win-x64`.
+
+Build settings are defined in `package.json`, in the `build` entry.  There you
+can tweak NW.js version and other things.  Cross building is possible, but
+additional software may be required (e.g. Wine).
+
+More details: https://github.com/evshiron/nwjs-builder-phoenix[
+nwjs-builder-phoenix home page].
