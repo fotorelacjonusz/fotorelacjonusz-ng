@@ -1,5 +1,4 @@
-const Jimp = require("jimp")
-
+import { Jimp } from "../util/jimp.js"
 import { ImgurAnonUploader } from "../uploaders/imgur-anon.js"
 import { repaint } from "../repainters/repainter.js"
 

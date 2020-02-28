@@ -1,5 +1,4 @@
-const Jimp = require("jimp")
-
+import { Jimp } from "../util/jimp.js"
 import { currentSettings } from "../models/settings.js"
 
 export async function watermark(jimpImage) {

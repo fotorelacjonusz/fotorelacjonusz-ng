@@ -1,5 +1,4 @@
-const Jimp = require("jimp")
-
+import { Jimp } from "../../app/util/jimp.js"
 import { repaint } from "../../app/repainters/repainter.js"
 import * as Resizer from "../../app/repainters/resizer.js"
 import * as Watermarker from "../../app/repainters/watermarker.js"

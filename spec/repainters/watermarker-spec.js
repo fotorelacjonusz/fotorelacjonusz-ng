@@ -1,5 +1,4 @@
-const Jimp = require("jimp")
-
+import { Jimp } from "../../app/util/jimp.js"
 import { currentSettings } from "../../app/models/settings.js"
 
 import { watermark } from "../../app/repainters/watermarker.js"
