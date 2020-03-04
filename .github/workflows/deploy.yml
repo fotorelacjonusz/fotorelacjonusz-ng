@@ -76,7 +76,7 @@ jobs:
           MIRROR: https://dl.nwjs.io
           TASKS: ${{ matrix.phoenix_task }}
 
-      - name: Package for Linux
+      - name: Package for Linux (generic)
         if: runner.os == 'Linux'
         shell: bash
         run: |
@@ -84,6 +84,19 @@ jobs:
           tar czf "${PKG_PREFIX}-32bit.tar.gz" fotorelacjonusz-*-x86 &&
           tar czf "${PKG_PREFIX}-64bit.tar.gz" fotorelacjonusz-*-x64 &&
           mv *.tar.gz "${ARTIFACTS}"
+        env:
+          PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-linux
+
+      - name: Package for Linux (Debian)
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          cd dist &&
+          ../deploy_utils/debian/package.sh fotorelacjonusz-*-x86 i386 &&
+          ../deploy_utils/debian/package.sh fotorelacjonusz-*-x64 amd64 &&
+          mv *_i386.deb "${PKG_PREFIX}-32bit.deb" &&
+          mv *_amd64.deb "${PKG_PREFIX}-64bit.deb" &&
+          mv *.deb "${ARTIFACTS}"
         env:
           PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-linux
 
