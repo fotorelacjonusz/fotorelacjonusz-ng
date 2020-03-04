@@ -1,7 +1,7 @@
 {
   "name": "fotorelacjonusz",
   "domain": "fotorelacjonusz",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "Fotorelacjonusz is for posting photo reports to SkyscraperCity.com",
   "main": "index.js",
   "scripts": {
