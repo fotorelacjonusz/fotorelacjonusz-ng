@@ -76,7 +76,7 @@ jobs:
           MIRROR: https://dl.nwjs.io
           TASKS: ${{ matrix.phoenix_task }}
 
-      - name: Package
+      - name: Package for Linux
         if: runner.os == 'Linux'
         shell: bash
         run: |
@@ -87,7 +87,7 @@ jobs:
         env:
           PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-linux
 
-      - name: Package
+      - name: Package for macOS
         if: runner.os == 'macOS'
         shell: bash
         run: |
@@ -97,7 +97,7 @@ jobs:
         env:
           PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-macos
 
-      - name: Package
+      - name: Package for Windows
         if: runner.os == 'Windows'
         shell: bash
         run: |
