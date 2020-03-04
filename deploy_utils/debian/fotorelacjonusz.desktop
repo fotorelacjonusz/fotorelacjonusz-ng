@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=x.x.x
+Name=Fotorelacjonusz
+Comment=A SkyscraperCity.com photo report uploader
+Path=/opt/fotorelacjonusz
+Exec=/opt/fotorelacjonusz/fotorelacjonusz
+Terminal=false
+Icon=fotorelacjonusz
+Type=Application
+Categories=Application;Network
