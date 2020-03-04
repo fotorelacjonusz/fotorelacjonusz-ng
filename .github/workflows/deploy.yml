@@ -96,7 +96,20 @@ jobs:
           ../deploy_utils/debian/package.sh fotorelacjonusz-*-x64 amd64 &&
           mv *_i386.deb "${PKG_PREFIX}-32bit.deb" &&
           mv *_amd64.deb "${PKG_PREFIX}-64bit.deb" &&
-          mv *.deb "${ARTIFACTS}"
+          cp *.deb "${ARTIFACTS}"
+        env:
+          PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-linux
+
+      - name: Package for Linux (RPM)
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          sudo apt-get install -y alien &&
+          cd dist &&
+          fakeroot alien --to-rpm --keep-version *-32bit.deb &&
+          mv *.rpm "${ARTIFACTS}/${PKG_PREFIX}-32bit.rpm" &&
+          fakeroot alien --to-rpm --keep-version *-64bit.deb &&
+          mv *.rpm "${ARTIFACTS}/${PKG_PREFIX}-64bit.rpm"
         env:
           PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-linux
 
