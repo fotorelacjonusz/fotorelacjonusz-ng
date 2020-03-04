@@ -57,7 +57,7 @@ export const AboutWindow = {
           <h3 class="subtitle" v-translate>Legal</h3>
 
           <p>
-            Copyright &copy; 2020 Sebastian Skałacki.
+            Copyright &copy; 2019–2020 Sebastian Skałacki.
           </p>
 
           <p>
