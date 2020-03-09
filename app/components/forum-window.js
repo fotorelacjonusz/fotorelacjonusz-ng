@@ -40,7 +40,7 @@ export const ForumWindow = {
             v-translate>
             Done
         </router-link>
-        <bookmark-dropdown/>
+        <bookmark-dropdown @bookmarkSelected="goToBookmark" />
         <span
             class="button my-navbar-span"
             v-translate="{progress: uploadProgress}">
@@ -85,6 +85,10 @@ export const ForumWindow = {
   },
 
   methods: {
+    goToBookmark(bookmark) {
+      this.navigateForumTo(bookmark.urlPath)
+    },
+
     forumLoaded(_event) {
       this.detectPageType()
     },
