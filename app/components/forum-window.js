@@ -3,6 +3,7 @@ const Vue = require("vue/dist/vue.common.js")
 import { PostingProcessor } from "../processors/posting.js"
 import { UploadingProcessor } from "../processors/uploading.js"
 
+import "./bookmark-dropdown.js"
 import "./countdown.js"
 import "./navbar.js"
 
@@ -39,6 +40,7 @@ export const ForumWindow = {
             v-translate>
             Done
         </router-link>
+        <bookmark-dropdown/>
         <span
             class="button my-navbar-span"
             v-translate="{progress: uploadProgress}">
