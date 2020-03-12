@@ -102,13 +102,15 @@ export const ForumWindow = {
       this.$refs.forumView.src = url
     },
 
-    detectPageType() {
+    getCurrentURL() {
       let wv = this.$refs.forumView
-      let url = new URL(wv.src)
+      return new URL(wv.src)
+    },
 
-      if (url.host != "www.skyscrapercity.com") return
+    detectPageType() {
+      if (this.getCurrentURL().host != "www.skyscrapercity.com") return
 
-      switch(url.pathname) {
+      switch(this.getCurrentURL().pathname) {
         case "/newreply.php": this.itsANewReplyPage() ; break
         case "/showthread.php": this.itsAShowThreadPage() ; break
       }
