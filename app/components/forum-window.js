@@ -67,15 +67,15 @@ export const ForumWindow = {
   `,
 
   computed: {
-    uploadProgress: function() {
+    uploadProgress() {
       return Math.round(100 * this.uploadingProcessor.progress) + "%"
     },
 
-    postingProgress: function() {
+    postingProgress() {
       return Math.round(100 * this.postingProcessor.progress) + "%"
     },
 
-    atFirstPost: function() {
+    atFirstPost() {
       let currentPost = this.postingProcessor.currentPost
       let firstPost = this.postingProcessor.allPosts[0]
       return currentPost === firstPost
@@ -83,20 +83,20 @@ export const ForumWindow = {
   },
 
   methods: {
-    forumLoaded: function(_event) {
+    forumLoaded(_event) {
       this.detectPageType()
     },
 
-    executeInForum: function(code, callback = null) {
+    executeInForum(code, callback = null) {
       let wv = this.$refs.forumView
       return wv.executeScript({code}, callback)
     },
 
-    navigateForumTo: function(url) {
+    navigateForumTo(url) {
       this.$refs.forumView.src = url
     },
 
-    detectPageType: function() {
+    detectPageType() {
       let wv = this.$refs.forumView
       let url = new URL(wv.src)
 
@@ -108,7 +108,7 @@ export const ForumWindow = {
       }
     },
 
-    confirmSubmission: function() {
+    confirmSubmission() {
       this.executeInForum(webviewScripts.getPageTitle, (results) => {
         let title = results[0].trim()
         let msgRaw = this.$gettext(
@@ -121,20 +121,20 @@ export const ForumWindow = {
       })
     },
 
-    startSubmission: async function() {
+    async startSubmission() {
       await this.uploadingProcessor.perform()
       this.postingProcessor.prepare()
       this.phase = "started"
       this.detectPageType()
     },
 
-    signalCompletion: function() {
+    signalCompletion() {
       this.phase = "done"
       global.alert(this.$gettext("All the photo report submitted!"))
       console.info("All the photo report submitted.")
     },
 
-    itsAShowThreadPage: function() {
+    itsAShowThreadPage() {
       console.log("It is a thread page.")
 
       if (this.phase === "initial") {
@@ -152,7 +152,7 @@ export const ForumWindow = {
       }
     },
 
-    itsANewReplyPage: function() {
+    itsANewReplyPage() {
       console.log("It is a new reply page.")
 
       this.executeInForum(webviewScripts.isThrottled, (results) => {
