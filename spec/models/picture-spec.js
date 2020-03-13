@@ -8,7 +8,9 @@ describe("Picture model", function() {
   it("has unique id", function() {
     let pic1 = new Picture
     let pic2 = new Picture
-    expect(pic1.id).not.toEqual(pic2)
+    expect(pic1.id).toBeInstanceOf(String)
+    expect(pic1.id.length).toEqual(36)
+    expect(pic1.id).not.toEqual(pic2.id)
   })
 
   describe(".originalFile", function() {
