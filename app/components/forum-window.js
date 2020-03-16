@@ -1,5 +1,7 @@
 const Vue = require("vue/dist/vue.common.js")
 
+import { Bookmark } from "../models/bookmark.js"
+import { currentSettings } from "../models/settings.js"
 import { PostingProcessor } from "../processors/posting.js"
 import { UploadingProcessor } from "../processors/uploading.js"
 
@@ -13,6 +15,7 @@ export const ForumWindow = {
       postingProcessor: new PostingProcessor(this.report),
       uploadingProcessor: new UploadingProcessor(this.report),
       phase: "initial",
+      userBookmarks: currentSettings.bookmarksList,
     }
   },
 
@@ -40,7 +43,10 @@ export const ForumWindow = {
             v-translate>
             Done
         </router-link>
-        <bookmark-dropdown @bookmarkSelected="goToBookmark" />
+        <bookmark-dropdown
+            :user-bookmarks="userBookmarks"
+            @bookmarkSelected="goToBookmark"
+            @currentPageBookmarked="addBookmark" />
         <span
             class="button my-navbar-span"
             v-translate="{progress: uploadProgress}">
@@ -85,6 +91,20 @@ export const ForumWindow = {
   },
 
   methods: {
+    addBookmark() {
+      this.executeInForum(webviewScripts.getPageTitle, (results) => {
+        let title = results[0]
+        let bm = new Bookmark({
+          caption: title,
+          url: this.getCurrentURL(),
+        })
+
+        currentSettings.addBookmarks(bm)
+
+        this.userBookmarks = currentSettings.bookmarksList
+      })
+    },
+
     goToBookmark(bookmark) {
       this.navigateForumTo(bookmark.urlPath)
     },

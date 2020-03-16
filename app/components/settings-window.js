@@ -1,6 +1,7 @@
 const Vue = require("vue/dist/vue.common.js")
 
 import "./navbar.js"
+import "./settings-panel-bookmarks.js"
 import "./settings-panel-interface.js"
 import "./settings-panel-pics-count.js"
 import "./settings-panel-post-layout.js"
@@ -9,7 +10,7 @@ import "./settings-panel-processing.js"
 export const SettingsWindow = {
   data() {
     return {
-      panels: ["interface", "post-layout", "pics-count", "processing"],
+      panels: ["interface", "post-layout", "pics-count", "processing", "bookmarks"],
     }
   },
 

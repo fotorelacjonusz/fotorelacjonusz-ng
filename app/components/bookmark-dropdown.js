@@ -1,6 +1,15 @@
 const Vue = require("vue/dist/vue.common.js")
 
+const _ = require("lodash")
+
+import { Bookmark } from "../models/bookmark.js"
+import { currentSettings } from "../models/settings.js"
+
 export const BookmarkDropdown = {
+  props: {
+    userBookmarks: {type: Array, required: true},
+  },
+
   data: function() {
     return {
       defaultBookmarks: [
@@ -39,12 +48,32 @@ export const BookmarkDropdown = {
               @click="selectBookmark(bm)">
               {{ bm.caption }}
           </a>
+
+          <hr class="dropdown-divider">
+
+          <a v-for="ub in userBookmarks"
+              class="dropdown-item"
+              :title="ub.url"
+              @click="selectBookmark(ub)">
+              {{ ub.caption }}
+          </a>
+
+          <hr class="dropdown-divider" v-if="userBookmarks.length > 0">
+
+          <a class="dropdown-item" @click="addBookmark" v-translate>
+            Bookmark this page
+          </a>
         </div>
       </div>
     </div>
   `,
 
   methods: {
+    addBookmark() {
+      this.$emit("currentPageBookmarked")
+      this.toggleDropdown()
+    },
+
     selectBookmark(bookmark) {
       this.$emit("bookmarkSelected", bookmark)
       this.toggleDropdown()

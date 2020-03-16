@@ -4,6 +4,7 @@ const path = require("path")
 
 const { stripIndent } = require("common-tags")
 
+import { Bookmark } from "./bookmark.js"
 import { interpolateMagicWords } from "../util/magic-words.js"
 
 export class Settings {
@@ -43,6 +44,22 @@ export class Settings {
     fs.copyFileSync(filePath, this.watermarkPicturePath)
   }
 
+  addBookmarks(...bookmarks) {
+    let bm_hashes = _.map(bookmarks, b => b.toHash())
+    for (let h of bm_hashes) {
+      this.data.bookmarks.push(h)
+    }
+    this.save()
+  }
+
+  deleteBookmarks(...bookmarks) {
+    let bm_hashes = _.map(bookmarks, b => b.toHash())
+    for (let h of bm_hashes) {
+      _.remove(this.data.bookmarks, h)
+    }
+    this.save()
+  }
+
   get configFilePath() {
     return path.join(nw.App.dataPath, "fotorelacjonusz.conf")
   }
@@ -51,12 +68,19 @@ export class Settings {
     return path.join(nw.App.dataPath, "watermark-picture")
   }
 
+  get bookmarksList() {
+    //TODO sort
+    //TODO reactive
+    return _.map(this.data.bookmarks, (b) => new Bookmark(b))
+  }
+
   get data() {
     return this._data
   }
 
   get defaultData() {
     return {
+      bookmarks: [],
       format: {
         postTemplate: stripIndent`
           %NUMBER%. %DESCRIPTION%
