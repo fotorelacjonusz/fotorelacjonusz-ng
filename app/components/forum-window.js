@@ -102,9 +102,8 @@ export const ForumWindow = {
 
       if (url.host != "www.skyscrapercity.com") return
 
-      switch(url.pathname) {
-        case "/newreply.php": this.itsANewReplyPage() ; break
-        case "/showthread.php": this.itsAShowThreadPage() ; break
+      if (url.pathname.startsWith("/threads/")) {
+        this.itsAShowThreadPage()
       }
     },
 
@@ -125,13 +124,21 @@ export const ForumWindow = {
       await this.uploadingProcessor.perform()
       this.postingProcessor.prepare()
       this.phase = "started"
-      this.detectPageType()
+      this.continueSubmission()
     },
 
     signalCompletion() {
       this.phase = "done"
       global.alert(this.$gettext("All the photo report submitted!"))
       console.info("All the photo report submitted.")
+    },
+
+    continueSubmission() {
+      if (!this.postingProcessor.hasCompleted) {
+        this.addAnotherPost()
+      } else {
+        this.signalCompletion()
+      }
     },
 
     itsAShowThreadPage() {
@@ -141,93 +148,69 @@ export const ForumWindow = {
         this.confirmSubmission()
         return
       }
+    },
 
-      if (!this.postingProcessor.hasCompleted) {
-        this.executeInForum(webviewScripts.getReplyUrl, (results) => {
-          let replyUrl = results[0]
-          this.navigateForumTo(replyUrl)
-        })
+    addAnotherPost() {
+      console.log("Posting a response.")
+      this.executeInForum(webviewScripts.scrollToForm)
+
+      if (this.atFirstPost) {
+        this.actuallySubmitAnotherPost()
       } else {
-        this.signalCompletion()
+        // SSC forum requires some pause between posts. Ten seconds is enough.
+        this.$refs.postingClock.restart(11)
+        this.$refs.postingClock.$once("zero", this.actuallySubmitAnotherPost)
       }
     },
 
-    itsANewReplyPage() {
-      console.log("It is a new reply page.")
+    actuallySubmitAnotherPost() {
+      let currentPost = this.postingProcessor.currentPost
+      let currentPostJSInjection = JSON.stringify(currentPost)
 
-      this.executeInForum(webviewScripts.isThrottled, (results) => {
-        let isThrottled = results[0]
-        if (isThrottled) {
-          console.log("You have been throttled.")
-          //TODO Handle submission failed
-        } else {
-          this.executeInForum(webviewScripts.scrollToForm)
-          console.log("Posting a response.")
+      this.executeInForum(`
+        (function(postBody) {
+          ${webviewScripts.postReply}
+        })(${currentPostJSInjection})
+      `)
 
-          let currentPost = this.postingProcessor.currentPost
-          let currentPostJSInjection = JSON.stringify(currentPost)
-
-          // SSC forum requires 30 secs pause between posts.
-          let actuallySubmit = () => {
-            this.executeInForum(`
-              let postBody = ${currentPostJSInjection}
-              ${webviewScripts.postReply}
-            `)
-
-            this.postingProcessor.step()
-          }
-
-          if (this.atFirstPost) {
-            actuallySubmit()
-          } else {
-            this.$refs.postingClock.restart(31)
-            this.$refs.postingClock.$once("zero", actuallySubmit)
-          }
-        }
-      })
+      this.postingProcessor.step()
+      this.$nextTick().then(() => this.continueSubmission())
     },
-
   },
 }
 
 Vue.component("forum-window", ForumWindow)
 
 const webviewScripts = {
-  // Title element is cluttered, hence this way it's easier, surprisingly.
   getPageTitle: `
-    document.querySelector(".navbar > strong").innerText.trim()
+    document.querySelector("meta[property='og:title']").content.trim()
   `,
 
-  getReplyUrl: `
-    let replyBtnImgQuery = "html > body > center > div > div.page " +
-        "> div > table > tbody > tr > td > a > img[alt=Reply]";
-    let replyBtnImg = document.querySelector(replyBtnImgQuery);
-    let replyUrl = replyBtnImg.parentElement.href;
-    replyUrl;
-  `,
+  // Requires "postBody" variable to be set somehow.
+  postReply: `
+    let form = document.
+      querySelector("form.js-quickReply")
 
-  isThrottled: `
-    let errorTitle = "The following errors occurred with your submission"
-    let acc = false
+    let msgAreaHtml = form.querySelector("textarea[name=message_html]")
 
-    for (let candidate of document.querySelectorAll(".tcat")) {
-      if (candidate.innerText.includes(errorTitle)) {
-        acc = true
-      }
+    if (msgAreaHtml) {
+      msgAreaHtml.name = ""
     }
 
-    acc
-  `,
+    let msgArea = form.querySelector("textarea[name=message]")
 
-  postReply: `
-    let msgArea = document.querySelector("textarea[name=message]")
+    if (!msgArea) {
+      msgArea = document.createElement("textarea")
+      msgArea.name = "message"
+      msgArea.style = "display: none;"
+      form.appendChild(msgArea)
+    }
 
     msgArea.value = postBody
-    msgArea.closest("form").submit()
+    form.submit()
   `,
 
   scrollToForm: `
-    let form = document.querySelector("form[name=vbform] .smallfont a")
-    form.scrollIntoView()
+    document.querySelector("form.js-quickReply .message").scrollIntoView()
   `,
 }
