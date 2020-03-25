@@ -56,7 +56,7 @@ export const ForumWindow = {
 
       <webview
           ref="forumView"
-          src="https://skyscrapercity.com"
+          src="https://www.skyscrapercity.com"
           partition="persist:fotorelacjonusz"
           class="spread"
           :class="[phase === 'started' ? 'shadowed' : '']"
