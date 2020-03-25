@@ -59,9 +59,9 @@ jobs:
           echo ::set-env name=ARTIFACTS::${GITHUB_WORKSPACE}/artifacts
 
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v1.1.0
         with:
-          node-version: 13.x
+          node-version: 13.10
 
       - name: Install dependencies
         run: npm install
