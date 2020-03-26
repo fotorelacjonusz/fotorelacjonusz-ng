@@ -1,5 +1,4 @@
-const got = require("got")
-const FormData = require("form-data")
+const needle = require("needle")
 
 const IMGUR_BASE_URL = "https://api.imgur.com/3"
 const IMGUR_CLIENT_ID = "8de2eccb47ccc43"
@@ -25,20 +24,31 @@ export class ImgurAnonUploader {
     return {remoteUrl: parsedResponse.data.link, upload: parsedResponse.data}
   }
 
+  /// In a format understandable to Needle.
+  /// https://www.npmjs.com/package/needle#multipart-post-passing-data-buffer
   buildUploadForm(fileName, buffer) {
-    let form = new FormData()
-    form.append("type", "file")
-    form.append("image", buffer, {filename: fileName})
-    return form
+    return {
+      type: "file",
+      image: {
+        buffer,
+        filename: fileName,
+        content_type: "application/octet-stream",
+      },
+    }
   }
 
   makeUploadRequest(form) {
-    return got.post("image", {
-      prefixUrl: IMGUR_BASE_URL,
-      body: form,
-      headers: {
-        authorization: `Client-ID ${IMGUR_CLIENT_ID}`,
+    return needle(
+      "post",
+      `${IMGUR_BASE_URL}/image`,
+      form,
+      {
+        headers: {
+          authorization: `Client-ID ${IMGUR_CLIENT_ID}`,
+        },
+        multipart: true,
+        parse_response: false, // I prefer to parse it manually.
       },
-    })
+    )
   }
 }
