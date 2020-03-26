@@ -13,7 +13,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1.1.0
         with:
-          node-version: 13.10
+          node-version: 13.x
       - name: Install dependencies
         run: npm install
       - name: Validate package.json
@@ -31,7 +31,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1.1.0
         with:
-          node-version: 13.10
+          node-version: 13.x
       - name: Install dependencies
         run: npm install
       - name: Run linter
