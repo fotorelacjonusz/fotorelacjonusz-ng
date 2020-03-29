@@ -3,11 +3,18 @@ const Vue = require("vue/dist/vue.common.js")
 const loadImage = require("blueimp-load-image")
 
 import { Picture } from "../models/picture.js"
+import { currentSettings } from "../models/settings.js"
 
 export const PicListItem = {
   props: {
     picture: {type: Picture, required: true},
     index: {type: Number, required: true},
+  },
+
+  data() {
+    return {
+      startNumber: currentSettings.data.format.startNumber,
+    }
   },
 
   created() {
@@ -28,7 +35,7 @@ export const PicListItem = {
     <li class="box pic-item">
       <div class="level pic-item-header">
         <div class="level-left pic-list-number">
-            {{index+1}}.
+            {{pictureNumber}}.
         </div>
 
         <div class="level-item hide-on-view-mode-thumbs">
@@ -76,6 +83,12 @@ export const PicListItem = {
       <p class="pic-item-main" ref="imageWrapper"></p>
     </li>
   `,
+
+  computed: {
+    pictureNumber() {
+      return this.startNumber + this.index
+    }
+  },
 
   methods: {
     renderPicture(canvasElement) {
