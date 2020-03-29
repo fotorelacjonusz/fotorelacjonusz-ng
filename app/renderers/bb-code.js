@@ -11,10 +11,12 @@ export class BBCodeRenderer {
 
   toPosts() {
     let slices = this.report.sliced()
+    let reportStartNumber = currentSettings.data.format.startNumber
+
     return slices.map((s, idx) => {
       let isFirstSlice = (idx === 0)
       let isLastSlice = (idx === slices.length - 1)
-      return this.renderPost(s.pictures, s.startIndex + 1,
+      return this.renderPost(s.pictures, s.startIndex + reportStartNumber,
         isFirstSlice, isLastSlice)
     })
   }
