@@ -64,6 +64,7 @@ export class Settings {
         `,
         picsMax: 10,
         picsMin: 1,
+        startNumber: 1,
       },
       interface: {
         fixNBSpaces: false,

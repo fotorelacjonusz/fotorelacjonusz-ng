@@ -182,9 +182,17 @@ msgstr ""
 "klawiszy Option+Spacja.  Zaleca się pozostawienie tej opcji wyłączonej, "
 "chyba że doświadczasz opisanego problemu."
 
+#: app/components/settings-panel-post-layout.js:39
+msgid "Start number"
+msgstr "Rozpocznij numerację od"
+
 #: app/components/about-window.js:85
 msgid "Thanks"
 msgstr "Podziękowania"
+
+#: app/components/settings-panel-post-layout.js:51
+msgid "The first picture in the report will have number %{n}."
+msgstr "Pierwsze zdjęcie w relacji będzie oznaczone numerem %{n}."
 
 #: app/components/report-editor.js:37
 msgid "The report is empty."

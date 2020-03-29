@@ -33,6 +33,27 @@ export const SettingsPanelPostLayout = {
           </div>
         </div>
       </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label" v-translate>Start number</label>
+        </div>
+
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input
+                  class="input"
+                  type="number"
+                  v-model.number="model.format.startNumber"
+                  @change="onConfigUpdated">
+            </div>
+            <p class="help" v-translate="{n: model.format.startNumber}">
+              The first picture in the report will have number %{n}.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   `,
 }
