@@ -28,6 +28,10 @@ msgstr "O wersji"
 msgid "About this program"
 msgstr "O programie"
 
+#: app/components/settings-panel-post-layout.js:90
+msgid "Add link to Fotorelacjonusz website"
+msgstr "Dodaj link do strony domowej Fotorelacjonusza"
+
 #: app/components/file-picker.js:35
 msgid "Add photos"
 msgstr "Dodaj zdjęcia"
@@ -92,6 +96,14 @@ msgid ""
 "                appropriately."
 msgstr ""
 "Zdjęcia, których szerokość przekracza tę liczbę, zostaną przeskalowane."
+
+#: app/components/settings-panel-post-layout.js:100
+msgid "in English"
+msgstr "w jęz. angielskim"
+
+#: app/components/settings-panel-post-layout.js:103
+msgid "in Polish"
+msgstr "w jęz. polskim"
 
 #: app/components/settings-panel-interface.js:10
 msgid "Interface options"

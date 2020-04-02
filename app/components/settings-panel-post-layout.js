@@ -77,6 +77,38 @@ export const SettingsPanelPostLayout = {
         </div>
       </div>
 
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">&nbsp;</label>
+        </div>
+
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox" v-model="model.footer.link">
+                <translate>Add link to Fotorelacjonusz website</translate>
+              </label>
+            </div>
+          </div>
+
+          <div class="field" v-show="model.footer.link">
+            <div class="control select">
+              <select
+                  v-model="model.footer.linkLanguage"
+                  @change="onConfigUpdated">
+                  <option value="en" v-translate>
+                    in English
+                  </option>
+                  <option value="pl" v-translate>
+                    in Polish
+                  </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   `,
 }

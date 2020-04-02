@@ -58,6 +58,8 @@ export class Settings {
   get defaultData() {
     return {
       footer: {
+        link: true,
+        linkLanguage: "en",
         text: "",
       },
       format: {
