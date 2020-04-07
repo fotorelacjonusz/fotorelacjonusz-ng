@@ -57,6 +57,9 @@ export class Settings {
 
   get defaultData() {
     return {
+      footer: {
+        text: "",
+      },
       format: {
         postTemplate: stripIndent`
           %NUMBER%. %DESCRIPTION%

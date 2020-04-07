@@ -36,6 +36,7 @@ export class BBCodeRenderer {
 
     if (isLastSlice) {
       renderedPics.push(this.report.footer.trim())
+      renderedPics.push(currentSettings.data.footer.text.trim())
     }
 
     let post = renderedPics.join("\n\n")

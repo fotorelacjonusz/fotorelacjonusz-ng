@@ -54,6 +54,29 @@ export const SettingsPanelPostLayout = {
           </div>
         </div>
       </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label" v-translate>Report footer</label>
+        </div>
+
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <textarea
+                  class="textarea has-fixed-size is-family-code"
+                  rows="3"
+                  v-model="model.footer.text"
+                  @change="onConfigUpdated">
+              </textarea>
+            </div>
+            <p class="help" v-translate>
+              Text to be appended to the last post.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   `,
 }

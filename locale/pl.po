@@ -162,6 +162,10 @@ msgstr "Posty: %{progress}"
 msgid "Proceed"
 msgstr "Dalej"
 
+#: app/components/settings-panel-post-layout.js:60
+msgid "Report footer"
+msgstr "Stopka fotorelacji"
+
 #: app/components/settings-panel-processing.js:22
 msgid "Resize photos"
 msgstr "Rozmiar zdjęć"
@@ -197,6 +201,10 @@ msgstr ""
 #: app/components/settings-panel-post-layout.js:39
 msgid "Start number"
 msgstr "Rozpocznij numerację od"
+
+#: app/components/settings-panel-post-layout.js:73
+msgid "Text to be appended to the last post."
+msgstr "Tekst, który zostanie dopisany do ostatniego postu fotorelacji."
 
 #: app/components/about-window.js:85
 msgid "Thanks"
