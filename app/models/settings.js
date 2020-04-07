@@ -71,6 +71,9 @@ export class Settings {
         locale: "en",
       },
       processing: {
+        frame: {
+          enabled: false,
+        },
         resize: {
           mode: "never",
           width: 1000,

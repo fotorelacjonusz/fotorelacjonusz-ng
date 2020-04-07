@@ -12,6 +12,10 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
+#: app/components/settings-panel-processing.js:187
+msgid "3 pixels-wide solid black border will be added to every picture."
+msgstr "Każde zdjęcie zostanie otoczone czarną linią o grubości trzech pikseli."
+
 #: app/components/forum-window.js:28
 msgid "Abort"
 msgstr "Przerwij"
@@ -63,6 +67,14 @@ msgstr "Przekształcaj niełamliwe spacje na normalne"
 #: app/components/forum-window.js:35
 msgid "Done"
 msgstr "Zrobione"
+
+#: app/components/settings-panel-processing.js:185
+msgid "Draw a border around pictures"
+msgstr "Obramowuj zdjęcia"
+
+#: app/components/settings-panel-processing.js:174
+msgid "Frame"
+msgstr "Ramka"
 
 #: app/components/settings-panel-processing.js:76
 msgid "Height"

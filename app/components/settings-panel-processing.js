@@ -168,6 +168,29 @@ export const SettingsPanelProcessing = {
             </div>
           </div>
       </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label" v-translate>Frame</label>
+        </div>
+
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox"
+                  class="checkbox"
+                  v-model="model.processing.frame.enabled"
+                  @change="onConfigUpdated">
+                <translate>Draw a border around pictures</translate>
+              </label>
+              <p class="help" v-translate>
+                3 pixels-wide solid black border will be added to every picture.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   `,
 
