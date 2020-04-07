@@ -4,5 +4,5 @@ export function interpolateMagicWords(string, magicWords, substitutions) {
   return string.replace(rex, (match) => {
     let magicWord = match.slice(1, -1)
     return substitutions[magicWord]
-  })
+  }).trim()
 }

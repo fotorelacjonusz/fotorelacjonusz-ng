@@ -2,8 +2,8 @@ import { interpolateMagicWords } from "../../app/util/magic-words.js"
 
 describe(".interpolateMagicWords()", function() {
   beforeEach(function() {
-    let typicalWords = ["ONE", "TWO"]
-    let typicalSubs = { ONE: 1, TWO: 2 }
+    let typicalWords = ["ONE", "TWO", "BLANK"]
+    let typicalSubs = { ONE: 1, TWO: 2, BLANK: " " }
 
     this.callingHelper =
       function(template, words = typicalWords, substitutions = typicalSubs) {
@@ -34,5 +34,11 @@ describe(".interpolateMagicWords()", function() {
   it("allows repeating magic words", function() {
     let retval = this.callingHelper("%ONE% %ONE%%ONE%")
     expect(retval).toEqual("1 11")
+  })
+
+  it("strips leading and trailing whitespace characters " +
+    "from the resulting string", function() {
+    let retval = this.callingHelper("  %ONE% %TWO%\n %BLANK% ")
+    expect(retval).toEqual("1 2")
   })
 })
