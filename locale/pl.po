@@ -154,6 +154,10 @@ msgstr "Wyłączony"
 msgid "Photo processing"
 msgstr "Obróbka zdjęć"
 
+#: app/util/program-link.js:4
+msgid "Photo report posted with a tool."
+msgstr "Fotorelacja wstawiona Fotorelacjonuszem."
+
 #: app/components/settings-panel-pics-count.js:10
 msgid "Photos per post"
 msgstr "Liczba zdjęć na post"

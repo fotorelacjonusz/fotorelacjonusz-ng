@@ -1,6 +1,7 @@
 import { currentSettings } from "../models/settings.js"
 
 import { fixNBSpaces } from "../util/fix-nb-spaces.js"
+import { programLinkHref, programLinkCaption } from "../util/program-link.js"
 
 export class BBCodeRenderer {
   constructor(report) {
@@ -37,10 +38,23 @@ export class BBCodeRenderer {
     if (isLastSlice) {
       renderedPics.push(this.report.footer.trim())
       renderedPics.push(currentSettings.data.footer.text.trim())
+      renderedPics.push(linkToProgram())
     }
 
     let post = renderedPics.join("\n\n")
 
     return fixNBSpaces(post)
   }
+}
+
+function linkToProgram() {
+  if (!currentSettings.data.footer.link) {
+    return ""
+  }
+
+  let locale = currentSettings.data.footer.linkLanguage
+  let href = programLinkHref(locale)
+  let caption = programLinkCaption(locale)
+
+  return `[URL="${href}"]${caption}[/URL]`
 }
