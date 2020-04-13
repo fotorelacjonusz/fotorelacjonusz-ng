@@ -4,6 +4,7 @@ const types = require("@jimp/types")
 export const Jimp = configure({
   types: [types],
   plugins: [
+    require("@jimp/plugin-color"),
     require("@jimp/plugin-resize"),
   ],
 })
