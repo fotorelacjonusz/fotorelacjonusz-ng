@@ -5,7 +5,7 @@ const FRAME_RGBA = 0x000000FF // opaque black
 const FRAME_THICKNESS = 3 // pixels
 
 export function frame(jimpImage) {
-  if (currentSettings.data.processing.frame.enabled) {
+  if (getProcessingSettings().frame.enabled) {
     const w = jimpImage.bitmap.width
     const h = jimpImage.bitmap.height
     const t = FRAME_THICKNESS
