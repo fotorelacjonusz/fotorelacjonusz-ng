@@ -3,6 +3,7 @@
   "domain": "fotorelacjonusz",
   "version": "4.4.1",
   "description": "Fotorelacjonusz is for posting photo reports to SkyscraperCity.com",
+  "homepage": "https://fotorelacjonusz.github.io",
   "main": "index.js",
   "scripts": {
     "gettext-compile": "gettext-compile --output locale/translations.json locale/*.po",
