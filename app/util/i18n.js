@@ -19,7 +19,7 @@ export const gettextPluginConfig = {
   defaultLanguage: currentSettings.data.interface.locale,
   languageVmMixin: {
     computed: {
-      currentKebabCase: function () {
+      currentKebabCase() {
         return this.current.toLowerCase().replace("_", "-")
       },
     },

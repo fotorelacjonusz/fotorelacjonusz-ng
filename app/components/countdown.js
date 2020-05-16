@@ -2,7 +2,7 @@ const Vue = require("vue/dist/vue.common.js")
 
 /// A minimalistic countdown timer.  Emits "zero" event when timer hits 0.
 export const Countdown = {
-  data: function() {
+  data() {
     return {
       seconds: 0,
       timer: null,
@@ -14,7 +14,7 @@ export const Countdown = {
   `,
 
   computed: {
-    displayValue: function() {
+    displayValue() {
       return this.timer ? `Waiting: ${this.seconds}s` : ""
     }
   },
@@ -23,7 +23,7 @@ export const Countdown = {
     /// Sets timer to given number of seconds, and starts the countdown.
     /// If there is a countdown in progress already, it is stopped without
     /// emitting any events.
-    restart: function(seconds) {
+    restart(seconds) {
       stopTimer.call(this)
       this.seconds = seconds
       startTimer.call(this)

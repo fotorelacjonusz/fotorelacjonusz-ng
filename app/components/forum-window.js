@@ -7,7 +7,7 @@ import "./countdown.js"
 import "./navbar.js"
 
 export const ForumWindow = {
-  data: function() {
+  data() {
     return {
       postingProcessor: new PostingProcessor(this.report),
       uploadingProcessor: new UploadingProcessor(this.report),

@@ -3,18 +3,18 @@ const Vue = require("vue/dist/vue.common.js")
 export const FilePicker = {
   methods: {
     /// Clears the control's file list.
-    clearInput: function() {
+    clearInput() {
       this.$refs.pickerInput.files = new FileList()
     },
 
     /// Adds given file to a current photo report.
-    emitFile: function(file) {
+    emitFile(file) {
       console.log(`Selected file: ${file.name}`)
       this.report.addPicture(file)
     },
 
     /// Emits fileSelected event once per each file, then clears the input.
-    onFilesChange: function(_event) {
+    onFilesChange(_event) {
       for (var file of this.$refs.pickerInput.files) {
         this.emitFile(file)
       }

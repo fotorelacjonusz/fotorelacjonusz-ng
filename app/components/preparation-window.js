@@ -1,7 +1,7 @@
 const Vue = require("vue/dist/vue.common.js")
 
 export const PreparationWindow = {
-  data: function() {
+  data() {
     return {
       picturesCount: this.report.pictures.length,
       postsCount: this.report.sliced().length,

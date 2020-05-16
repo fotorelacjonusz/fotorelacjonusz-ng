@@ -20,6 +20,9 @@ rules:
   no-unused-vars:
     - warn
     - argsIgnorePattern: "^_"
+  object-shorthand:
+    - warn
+    - methods
   quotes:
     - error
     - double

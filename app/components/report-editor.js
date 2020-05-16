@@ -7,7 +7,7 @@ export const ReportEditor = {
     viewMode: {type: String},
   },
 
-  data: function() {
+  data() {
     return {
       pictures: this.report.pictures,
     }
