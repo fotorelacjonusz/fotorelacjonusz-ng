@@ -1,4 +1,3 @@
-import { Jimp } from "../util/jimp.js"
 import { currentSettings } from "../models/settings.js"
 
 const FRAME_RGBA = 0x000000FF // opaque black
@@ -27,6 +26,6 @@ function drawRectangle(jimpImage, x, y, width, height) {
   jimpImage.scan(x, y, width, height, makePixelBlack)
 }
 
-function makePixelBlack(x, y, idx) {
+function makePixelBlack(x, y, _idx) {
   this.setPixelColor(FRAME_RGBA, x, y)
 }
