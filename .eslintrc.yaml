@@ -17,6 +17,10 @@ rules:
   eol-last:
     - warn
     - always
+  indent:
+    - warn
+    - 2
+    - SwitchCase: 1
   no-unused-vars:
     - warn
     - argsIgnorePattern: "^_"
