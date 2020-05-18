@@ -14,7 +14,8 @@ msgstr ""
 
 #: app/components/settings-panel-processing.js:187
 msgid "3 pixels-wide solid black border will be added to every picture."
-msgstr "Każde zdjęcie zostanie otoczone czarną linią o grubości trzech pikseli."
+msgstr ""
+"Każde zdjęcie zostanie otoczone czarną linią o grubości trzech pikseli."
 
 #: app/components/forum-window.js:28
 msgid "Abort"
