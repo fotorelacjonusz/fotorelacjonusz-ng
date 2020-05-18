@@ -41,7 +41,7 @@ jobs:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Obtain tag name
         id: tag_name
@@ -59,7 +59,7 @@ jobs:
           echo ::set-env name=ARTIFACTS::${GITHUB_WORKSPACE}/artifacts
 
       - name: Set up Node.js
-        uses: actions/setup-node@v1.1.0
+        uses: actions/setup-node@v1
         with:
           node-version: 13.x
 
