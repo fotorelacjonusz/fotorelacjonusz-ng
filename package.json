@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "gettext-compile": "gettext-compile --output locale/translations.json locale/*.po",
-    "gettext-extract": "gettext-extract --output locale/translations.pot --attribute v-translate app/components/*.js app/util/program-link.js",
+    "gettext-extract": "gettext-extract --output locale/translations.pot --attribute v-translate app/components/*.js app/components/*.js app/util/program-link.js",
     "lint": "eslint *.js app",
     "test": "jasmine --require=esm"
   },

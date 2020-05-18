@@ -37,6 +37,10 @@ msgstr "Dodaj link do strony domowej Fotorelacjonusza"
 msgid "Add photos"
 msgstr "Dodaj zdjęcia"
 
+#: app/components/forum-window.js:132
+msgid "All the photo report submitted!"
+msgstr "Fotorelacja wysłana w całości!"
+
 #: app/components/settings-panel-processing.js:147
 msgid ""
 "Any picture will do.  For transparency, PNGs or GIFs are\n"
@@ -68,6 +72,10 @@ msgstr "Zmień"
 #: app/components/settings-panel-interface.js:47
 msgid "Convert non-breaking white spaces to regular ones"
 msgstr "Przekształcaj niełamliwe spacje na normalne"
+
+#: app/components/forum-window.js:113
+msgid "Do you want to post a photo report in %{title}?"
+msgstr "Czy chcesz umieścić fotorelację w wątku %{title}?"
 
 #: app/components/forum-window.js:35
 msgid "Done"
@@ -289,9 +297,3 @@ msgstr ""
 "                  <tt>%NUMBER%</tt> oznacza numer zdjęcia;<wbr>\n"
 "                  <tt>%IMG_URL%</tt> oznacza URL zdjęcia.\n"
 "                </wbr></wbr></wbr>"
-
-#~ msgid "All the photo report submitted!"
-#~ msgstr "Fotorelacja wysłana w całości!"
-
-#~ msgid "Do you want to post a photo report in %{title}?"
-#~ msgstr "Czy chcesz umieścić fotorelację w wątku %{title}?"
