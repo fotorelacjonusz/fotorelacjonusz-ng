@@ -36,7 +36,7 @@
     "win": {
       "productName": "Fotorelacjonusz",
       "copyright": "Copyright © 2019–2020 by Sebastian Skałacki. GPL v3 or later.",
-      "icon": "icon/rounded_6XW_icon.ico"
+      "icon": "icon/rounded.ico"
     }
   },
   "dependencies": {
