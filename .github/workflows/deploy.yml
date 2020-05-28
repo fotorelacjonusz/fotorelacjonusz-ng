@@ -123,7 +123,7 @@ jobs:
         env:
           PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-macos
 
-      - name: Package for Windows
+      - name: Package for Windows (zipped)
         if: runner.os == 'Windows'
         shell: bash
         run: |
@@ -133,6 +133,24 @@ jobs:
           mv *.zip "${ARTIFACTS}"
         env:
           PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-windows
+
+      - name: Package for Windows (installer)
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          cd dist &&
+          cp ../deploy_utils/installer.iss . &&
+          cp -r fotorelacjonusz-*-win-x64 InstallerInput &&
+          iscc "//DAPP_ARCH=x64" "//DAPP_VERSION=${VERSION#v}" "installer.iss" &&
+          rm -r InstallerInput &&
+          mv mysetup.exe "${PKG_PREFIX}-64bit.exe" &&
+          cp -r fotorelacjonusz-*-win-x86 InstallerInput &&
+          iscc "//DAPP_ARCH="    "//DAPP_VERSION=${VERSION#v}" "installer.iss" &&
+          rm -r InstallerInput &&
+          mv mysetup.exe "${PKG_PREFIX}-32bit.exe" &&
+          mv *.exe "${ARTIFACTS}"
+        env:
+          PKG_PREFIX: Fotorelacjonusz-${{ env.VERSION }}-windows-installer
 
       - name: List artifacts
         shell: bash
