@@ -1,4 +1,4 @@
-const uuid = require("uuid").v4
+import { uuid4 as uuid } from "../util/uuid.js"
 
 export class Picture {
   constructor(file) {
