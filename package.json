@@ -63,7 +63,7 @@
     "esm": "^3.2.25",
     "jasmine": "^3.5.0",
     "jasmine-console-reporter": "^3.1.0",
-    "jasmine-expect": "^4.0.3",
+    "jasmine-expect": "^5.0.0",
     "nock": "^12.0.3",
     "nw-vue-devtools-prebuilt": "0.0.10",
     "nwjs-builder-phoenix": "^1.15.0",
