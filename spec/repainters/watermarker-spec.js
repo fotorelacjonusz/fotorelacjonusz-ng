@@ -36,7 +36,9 @@ describe(".watermark()", function() {
       expect(repainted).
         not.toHavePixel(width - purpleSize, height - purpleSize, purpleRGBA)
 
-      expect(repainted.bitmap).toEqual(this.origImg.bitmap)
+      expect(repainted.bitmap.data).toEqual(this.origImg.bitmap.data)
+      expect(repainted.bitmap.width).toEqual(this.origImg.bitmap.width)
+      expect(repainted.bitmap.height).toEqual(this.origImg.bitmap.height)
     })
   })
 
@@ -87,7 +89,9 @@ describe(".watermark()", function() {
       let width = repainted.bitmap.width
       let height = repainted.bitmap.height
 
-      expect(repainted.bitmap).toEqual(this.origImg.bitmap)
+      expect(repainted.bitmap.data).toEqual(this.origImg.bitmap.data)
+      expect(repainted.bitmap.width).toEqual(this.origImg.bitmap.width)
+      expect(repainted.bitmap.height).toEqual(this.origImg.bitmap.height)
     })
   })
 })
