@@ -32,23 +32,31 @@ describe("ImgurAnonUploader", function() {
         success: true,
         status: 200,
       }
-
-      this.apiCall = this.imgur.
-        post("/3/image").
-        reply(200, this.fakeResponse)
     })
 
     it("uploads file to Imgur", async function() {
+      let apiCall = this.imgur.
+        post("/3/image").
+        reply(200, this.fakeResponse)
+
       await this.uploader.uploadFile(this.name, this.blob)
-      expect(this.apiCall.isDone()).toBe(true)
+      expect(apiCall.isDone()).toBe(true)
     })
 
     it("authenticates with Imgur Client ID", async function() {
-      this.apiCall.matchHeader("authorization", "Client-ID 8de2eccb47ccc43")
+      let apiCall = this.imgur.
+        post("/3/image").
+        reply(200, this.fakeResponse)
+
+      apiCall.matchHeader("authorization", "Client-ID 8de2eccb47ccc43")
       await this.uploader.uploadFile(this.name, this.blob)
     })
 
     it("returns remote URL and upload data", async function() {
+      this.imgur.
+        post("/3/image").
+        reply(200, this.fakeResponse)
+
       let retval = await this.uploader.uploadFile(this.name, this.blob)
       expect(retval.remoteUrl).toEqual("https://i.imgur.com/fake.jpg")
       expect(retval.upload).toEqual(this.fakeResponse.data)
