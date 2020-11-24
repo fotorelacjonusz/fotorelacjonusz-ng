@@ -49,14 +49,13 @@ jobs:
         # https://github.community/t5/GitHub-Actions/How-to-get-just-the-tag-name/m-p/32167#M1027
         # https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
         run: |
-          echo "The tag name is ${GITHUB_REF/refs\/tags\//}"
-          echo ::set-env name=VERSION::${GITHUB_REF/refs\/tags\//}
+          echo "VERSION=${GITHUB_REF/refs\/tags\//}" | tee -a $GITHUB_ENV
 
       - name: Prepare artifacts directory
         shell: bash
         run: |
           mkdir -p "${GITHUB_WORKSPACE}/artifacts"
-          echo ::set-env name=ARTIFACTS::${GITHUB_WORKSPACE}/artifacts
+          echo "ARTIFACTS=${GITHUB_WORKSPACE}/artifacts" | tee -a $GITHUB_ENV
 
       - name: Set up Node.js
         uses: actions/setup-node@v1
