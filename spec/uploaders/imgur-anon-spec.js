@@ -32,6 +32,14 @@ describe("ImgurAnonUploader", function() {
         success: true,
         status: 200,
       }
+
+      this.errorResponse = {
+        data: {
+          error: "Something went wrong",
+        },
+        success: false,
+        status: 500,
+      }
     })
 
     it("uploads file to Imgur", async function() {
@@ -60,6 +68,28 @@ describe("ImgurAnonUploader", function() {
       let retval = await this.uploader.uploadFile(this.name, this.blob)
       expect(retval.remoteUrl).toEqual("https://i.imgur.com/fake.jpg")
       expect(retval.upload).toEqual(this.fakeResponse.data)
+    })
+
+    it("retries in case of various upload errors", async function() {
+      noSleep()
+
+      let call1 = this.imgur.
+        post("/3/image").
+        reply(500, this.errorResponse)
+
+      let call2 = this.imgur.
+        post("/3/image").
+        replyWithError("Couldn't make a request")
+
+      let call3 = this.imgur.
+        post("/3/image").
+        reply(200, this.fakeResponse)
+
+      let retval = await this.uploader.uploadFile(this.name, this.blob)
+      expect(retval.remoteUrl).toEqual("https://i.imgur.com/fake.jpg")
+      expect(call1.isDone()).toBe(true)
+      expect(call2.isDone()).toBe(true)
+      expect(call3.isDone()).toBe(true)
     })
   })
 })

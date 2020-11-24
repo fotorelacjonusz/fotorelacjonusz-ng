@@ -1,10 +1,21 @@
 const needle = require("needle")
 
+import { tryManyTimes } from "../util/try-many-times.js"
+
 const IMGUR_BASE_URL = "https://api.imgur.com/3"
 const IMGUR_CLIENT_ID = "8de2eccb47ccc43"
 
 export class ImgurAnonUploader {
   async uploadFile(fileName, buffer) {
+    let parsedResponse = await tryManyTimes(
+      4,
+      () => this.tryUploadFile(fileName, buffer),
+    )
+
+    return {remoteUrl: parsedResponse.data.link, upload: parsedResponse.data}
+  }
+
+  async tryUploadFile(fileName, buffer) {
     let form = this.buildUploadForm(fileName, buffer)
     var response
     try {
@@ -21,7 +32,7 @@ export class ImgurAnonUploader {
     }
     console.log(`Uploaded successfully as ${parsedResponse.data.id}.`)
 
-    return {remoteUrl: parsedResponse.data.link, upload: parsedResponse.data}
+    return parsedResponse
   }
 
   /// In a format understandable to Needle.
